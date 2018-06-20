@@ -1,0 +1,265 @@
+@font-face
+{
+font-family: PingFang-SC-Medium;
+src: url('../../assets/fonts/PINGFANG MEDIUM.TTF');
+font-weight:Medium;
+}
+@font-face
+{
+font-family: PingFang-SC-Regular;
+src: url('../../assets/fonts/PINGFANG REGULAR.TTF');
+font-weight:Regular;
+}
+html{
+    overflow-x: hidden;  
+    background-color:#f4f4f4 !important;
+}
+body{
+    overflow-x: hidden;
+}
+.searchBar{
+    width:100%;
+    height:29px;
+    position:relative;
+    z-index:10;
+    img.phone{
+        position:absolute;
+        width:22px;
+        height:22px;
+        left:10px;
+        top:3px;
+    }
+    input{
+        position:absolute;
+        top:0px;
+        left:13%;
+        background-color:#ccc;
+        border-radius:15px;
+        width:74%;
+        height:29px;
+        color:#fff;
+        text-indent: 20px;
+        font-size:12px !important;
+        font-family: PingFang-SC-Medium !important;
+        font-weight:Medium !important;
+    }
+    .Msg{
+        position: absolute;
+        top:3px;
+        width:22px;
+        right:10px;
+    }
+}
+.am-wingblank{
+    width:100%;
+    margin:0;
+    margin-top:-29px;
+    z-index:1;
+}
+.am-wingblank .am-wingblank-lg{
+    margin-left:0;
+}
+.am-wingblank{
+    margin-left:0 !important;
+}
+.category{
+    width:100%;
+    height:185px;
+    background: white;
+}
+.category ul li{
+   float:left;
+   width:20%;
+   left:5%;
+   height:90px;
+   position: relative;
+   img{
+       width:42px;
+       height:42px;
+       position: absolute;
+       top:22px;
+   }
+   span{
+       font-family: PingFang-SC-Medium;
+       font-size: 12px;
+       color:#666;
+       position: absolute;
+       bottom:0px;
+       text-align: center;
+       width:50px;
+       text-indent:-8px;
+   }
+}
+.topMsg{
+    height:45px;
+    width:100%;
+    margin-top:43px;
+    position:relative;
+    background: white;
+    .top{
+        width:51px;
+        height:15px;
+        position:absolute;
+        left:13px;
+        top:15px
+    }
+    .NewIcon{
+        width:31px;
+        height:15px;
+        position:absolute;
+        left:80px;
+        top:15px;
+    }
+    .v-item{
+        text-indent:130px;
+    }
+    .slider-frame{
+        position: absolute;
+        top:15px;
+    }
+    .more{
+        width:16px;
+        height:15px;
+        position: absolute;
+        right:10px;
+        top:15px;
+    }
+}
+.item{
+    height:200px;
+    width:100%; 
+    background: blanchedalmond;
+    .goodsDetail{
+        height:50px;
+        background:#fff;
+        position: relative;
+        .goodsName{
+            position:absolute;
+            width:90%;
+            left:5%;
+            font-size:14px;
+            font-family: PingFang-SC-Medium;
+            top:10px;
+        }
+        .goodsPrice{
+            position: absolute;
+            bottom:5px;
+            color:#d30000;
+            font-size:12px;
+            left:5%;
+        }
+    }
+    img{
+        height:150px;
+    }
+}
+.hot{
+    margin-top:12px;
+}
+.hotRecommand{
+    margin-top:12px;
+    img{
+        width:104%;
+        height:66px;
+        position: relative;
+        left:-6px;
+    }
+    h3,h4{
+        display: flex;
+        justify-content: center;
+        color:#fff;
+        font-family: PingFang-SC-Medium;
+        position:relative;
+        top:-50px;
+        
+    }
+}
+.itemList{
+    position: relative;
+    top:-36px;
+}
+.itemList ul{
+    width:100%;
+    display: flex;
+    flex-wrap: wrap;
+    li{
+        width:49%;
+        margin-top:5px;
+        border:1px solid #ccc;
+        height:280px;
+        justify-content: space-between;
+        position: relative;
+        img{
+            height:185px;
+            width:100%;
+            position: relative;
+            left:0%;
+        }
+        .goodsName{
+            height:24px;
+            position:absolute;
+            width:90%;
+            left:5%;
+            font-size:14px;
+            text-align: justify;
+            word-wrap: wrap;
+            top:193px;
+            span{
+                font-size:13px;
+                float:right;
+                position: relative;
+                top:2px;
+                font-family: PingFang-SC-Regular;
+                a{
+                    font-size:9px;
+                    color:#6b6b6b;
+                }
+            }
+        }
+        .goodsPrice{
+            position:absolute;
+            bottom:25px;
+            span{
+                color:#d30000;
+                font-size:16px;
+                font-family: PingFang-SC-Regular;
+                position:relative;
+                left:5%;
+            }
+            a{
+                font-size:11px;
+                text-decoration: line-through;
+                margin-left:10px;
+                margin-top:-3px;
+                color:#666;
+            }
+        }
+        .Deliver{
+            position:absolute;
+            bottom:3px;
+            height:20px;
+            width:90%;
+            span{
+                font-size:10px;
+                position:relative;
+                left:5%;
+                color:#d30000;
+                width:90%;
+            }
+            a{
+                position: absolute;
+                right:-5%;
+                color:#2b2b2b;
+                font-family: PingFang-SC-Regular;
+                font-size:9px;
+                top:3px;
+            }
+        }
+
+    }
+   li:nth-of-type(even){
+       margin-left:2%;
+   }
+    
+}
+  

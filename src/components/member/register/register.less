@@ -1,0 +1,94 @@
+.register-container_{
+    width:100%;
+    height: 100vh;
+    background: #fff;
+    font-family: PingFang-SC-Regular;
+    position: relative;
+    z-index: 999;
+    ul{
+        padding:12px;        
+        li{
+            height: 60px;
+            border-bottom: 1px solid #ddd;
+            display: flex;
+            align-items: center;
+            label{
+                 margin-right: 20px; 
+                 display: inline-block;
+                 min-width: 30px;                           
+                img{
+                    display: inline-block;
+                    height: 26px;
+                    
+                }   
+            }
+            input{
+                color: #aaa;
+                font-size: 17px;
+                font-family: PingFang-SC-Regular;
+                background: transparent;
+                font-weight: Regular;
+                flex:1;
+                padding:20px 0;
+            }
+            span{
+                color: #aaa;
+                font-size: 17px;
+                font-family: PingFang-SC-Regular;
+                font-weight: Regular;
+            }
+            >img{
+                display: inline-block;
+                width: 21px;
+                height: 21px;
+            }
+            .button{
+                margin: 0;
+                height: 29px;
+                font-size: 17px;
+                line-height: 29px;
+                padding: 0 11px;
+                font-family: PingFang-SC-Regular;
+            }
+        }
+    }
+    p.protocol{
+        // position: absolute;
+        bottom: 20px;
+        width: 100%;
+        margin-top: 20px;
+        display: flex;
+        align-items: center;
+        padding-left: 24px;
+        i{
+            display: inline-block;
+            width: 17px;
+            height: 17px;
+            border-radius: 50%;
+            border:1px solid #D30000;
+            margin-right: 6px;
+            color: #D30000;
+            padding:2px;
+            display: flex;
+            justify-content: center;
+            align-items: center;  
+            img{   
+                display: inline-block;
+                opacity: 0;
+                &.active{
+                    opacity: 1;
+                }
+            }
+        }
+        span{
+            font-size: 14px;
+            color: #aaa;
+        }
+    }
+}
+.hiddenActive{
+    display: none !important;
+}
+.showActive{
+    display: block !important;
+}

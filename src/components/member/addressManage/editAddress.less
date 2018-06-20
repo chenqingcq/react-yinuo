@@ -1,0 +1,287 @@
+.addressManage-contiainer-{
+    width: 100%;
+    height: 100vh;
+    position: relative;
+    overflow: hidden;
+    background:#fff;
+    z-index: 999;
+    font-family:  PingFang-SC-Medium;
+    ul{
+        width: 100%;
+        height: auto;
+        li{
+            width:100%;
+            padding: 0 12px;
+            padding-top: 10px;
+            background: #fff;
+            &.address-detail{
+                margin-top: 20px;             
+            }
+            div{
+                width: 100%;
+                &.address-detail{
+                    min-height: 53px;
+                    border-bottom: .5px solid rgba(102, 102, 102, .5)                
+                }
+                &.address-default{
+                    min-height: 84px;  
+                    border-bottom: .5px solid rgba(102, 102, 102, .5)
+                }
+                p.title{
+                    display: flex;
+                    color: #000615;
+                    justify-content: space-between;
+                    align-items: center;
+                    i{
+                        span:first-of-type{
+                            color:#000615; 
+                            font-size: 14px;
+                            font-family: PingFang-SC-Medium;
+                            font-weight: 500;
+                            margin-right: 10px;
+                        }
+                        span:last-of-type{
+                            color:#D30000; 
+                            font-size: 9px;
+                        }
+                    }
+                    span{
+                        color: #000615;
+                        font-size: 14px;
+                        font-family: PingFang-SC-Medium;
+                        font-weight: 500;
+                    }
+                }
+                p.detail{
+                    margin-top: 10px;                    
+                    color: #000615;
+                    font-size: 11px;
+                    font-family: PingFang-SC-Medium;
+                    font-weight:500;
+                }
+            }
+            div.address-operate{
+                margin-top: 13px;
+                height: 40px;
+                color: #000615;
+                display: flex;
+                justify-content: space-between;
+                align-items: center;
+                .left{
+                    height: 100%;
+                    display: flex;
+                    align-items: center;
+                    i{
+                        display: inline-block;
+                        width: 17px;
+                        height: 17px;
+                        border-radius: 50%;
+                        border: .5px solid rgba(102, 102, 102, .5);
+                        overflow: hidden;
+                        img{
+                            display: inline-block;
+                            width: 100%;
+                            height: 100%;
+                        }
+                    }
+                    span{
+                        font-size: 14px;
+                        color: #000615;
+                        font-family: PingFang-SC-Medium;
+                        font-weight: 500;
+                        margin-left: 8px;
+                    }
+                }
+                .right{
+                    display: flex;
+                    align-items: center;
+                    height: 100%;
+                    font-size: 11px;
+                    color: #ccc;  
+                    display: flex;
+                    justify-content: flex-end;     
+                    font-family: PingFang-SC-Medium;             
+                    i.edit{
+                        margin-right: 15px;
+                        height: 12px;
+                        display: flex;
+                        align-items: center;
+                        span{
+
+                        }
+                    }
+                    img{
+                        display: inline-block;
+                        width: 12px;
+                        height: 12px;
+                        margin-right: 5px;
+                        filter: blur(.5);
+                        -webkit-filter:blur(.5)
+                    }
+                }
+            }
+        }
+    }
+    .plus{
+        position: absolute;
+        bottom: 34px;
+        width: 100%;
+    }
+}
+.address-active{
+    opacity: 1;
+}
+.address-no-active{
+    opacity: 0;
+}
+.editAddressIcon{
+    position: relative;
+    div.icon{
+        position: absolute;
+        top:50%;
+        right:0;
+        transform: translateY(-50%);
+        .am-icon-right{
+            color: #ccc !important;
+        }
+    }
+}
+.am-textarea-item {
+    height: 100px !important;
+    textarea{
+    font-size: 16px !important        
+    }
+}
+.setasdefault{
+    padding:0 12px;
+    display: flex;
+    align-items: center;
+    margin-top: 16px;
+    i{
+        display: inline-block;
+        width: 18px;
+        height: 18px;
+        border: 1px solid #ccc;
+        border-radius: 50%;
+        overflow: hidden;
+        position: relative;
+        margin-right: 8px;
+        img{
+            width: 100%;
+            height: 100% ;
+            display: inline-block;
+            border-radius: 50%;
+        }
+    }
+    span{
+        color: #000615;
+        font-size: 14px;
+        font-family: PingFang-SC-Medium;
+        font-weight: 500;
+    }
+}
+.address-active-no{
+    opacity: 0;
+}
+.tags-container{
+    position: relative;
+    li{
+        display: flex;
+        justify-content: space-around;
+        div.tags{
+            width: 40px;
+            color: #000615;
+            font-size: 14px;
+            margin-top: 10px;
+            font-family: PingFang-SC-Regular;
+        }
+        div.tags-btn{
+            flex: 5;
+            height: auto;
+            display:flex;
+            align-items: flex-start;
+            flex-wrap: wrap;
+            .tag-detail{
+                display: inline-block;
+                width: 70px;    
+                height: 25px;
+                border:1px solid #ccc;
+                font-size: 14px;
+                font-family: PingFang-SC-Regular;
+                text-align: center;
+                line-height: 25px;
+                border-radius: 4px;
+                color: #ccc;
+                margin-right: 16px;
+                margin-top: 10px;
+            }
+            .tag-active{
+                display: inline-block;
+                width: 70px;
+                height: 25px;
+                font-size: 14px;
+                font-family: PingFang-SC-Regular;
+                text-align: center;
+                line-height: 25px;
+                border-radius: 4px;
+                margin-right: 16px;
+                color: #D30000;
+                border:1px solid #D30000;    
+                margin-top: 10px;                
+            }
+            .tag-detail-last{
+                display: inline-block;
+                width: 70px;
+                height: 25px;
+                border:1px dashed #ccc;
+                font-size: 14px;
+                font-family: PingFang-SC-Regular;
+                text-align: center;
+                line-height: 25px;
+                border-radius: 4px;
+                color: #666;
+                margin-right: 16px;
+                margin-top: 10px;
+            }   
+        }
+    }
+}
+p#userInuptEditAddress{
+    position: relative;
+    margin-top: 10px;
+    width: 190px;
+    height: 25px;
+    left: 52px;
+    // transform: translateX(-50%);
+    display: flex;
+    flex-wrap: nowrap;
+    align-items: center;
+    input{
+        float: left;
+        border: 1px solid #ccc;
+        height: 100%;
+        width: 155px;
+        color: #ccc;
+        outline: none;
+        border-radius: 4px 0px 0px 4px;
+        font-size: 8px !important;
+        padding-left: 5px;
+        outline: none;
+        background-color: transparent;
+    }
+    button.confirm-edit{
+        float: left;
+        display:inline-block;
+        background: #ccc;
+        font-size: 14px;
+        color: #fff;
+        outline: none;
+        border: none;
+        width: 35px;
+        height: 100%;
+        border-radius: 0px 4px 4px 0px;        
+    }
+}
+.userInput-active{
+    color: #D30000 !important;
+}
