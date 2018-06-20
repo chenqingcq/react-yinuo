@@ -3,12 +3,11 @@ import { createForm } from 'rc-form';
 import { List, InputItem, TextareaItem,Picker} from 'antd-mobile';
 import { district, provinceLite , province } from 'antd-mobile-demo-data';
 import { Icon,Toast} from 'antd-mobile';
-
+import data from './area';
 import Button from '../../../pages/button/button';
 import './editAddress.less';
 import {updateAdress} from './actions'
-console.log(province)
-console.log(provinceLite,district  )
+console.log(province ,data)
  class EditAddress extends Component {
     constructor(props){
         super(props);
@@ -27,7 +26,7 @@ console.log(provinceLite,district  )
             setTagText:'',
             userInputBtn:'确定',
             userInputBtnColor:'#D30000',
-            region:[...province]
+            region:data
         }
     }
     componentWillMount(){
@@ -71,9 +70,13 @@ console.log(provinceLite,district  )
     }
     selectArea(v){
         console.log(v);
+        let arr = this.state.region.filter((value,i,a)=>{
+            return value.value == v[0]
+        })
+        console.log(arr)
         this.setState({
             ...this.state,
-            visible:true
+            visible:true,
         })
     }
     confirmEdit(){
@@ -86,6 +89,7 @@ console.log(provinceLite,district  )
                 userInputBtnColor:'#333'
             });
             this.refs.userInput.disabled="disabled";
+            this.refs.userInput.style.fontSize = '14px';
             this.refs.userInput.style.width = '70px';
         }
         if(this.state.userInputBtnColor ==='#333'){
@@ -95,7 +99,7 @@ console.log(provinceLite,district  )
                 userInputBtnColor:'#D30000'
             });
             this.refs.userInput.disabled= false;
-            this.refs.userInput.style.width = 'auto';
+            this.refs.userInput.style.width = '155px';
         }
     }
     setPhone(val){     
@@ -115,14 +119,27 @@ console.log(provinceLite,district  )
     checkUserInput(){
         console.log('check');
         console.log(this.state.userName,this.state.phone,this.state.address);
-        if(!this.state.userName.trim())  {
-            Toast.info('请输入用户名',1);            
+        if(!this.state.userName)  {
+            Toast.info('请输入用户名',1);   
+            return         
+        }
+        if(!this.state.phone.trim())  {
+            Toast.info('请输入手机号',1);   
+            return         
         }
         var exp =/^[1][3,4,5,7,8][0-9]{9}$/;  
         if(!exp.test(this.state.phone)){
             Toast.info('您输入的手机号格式有误',2);
-        }      
-       
+            return
+        }     
+        if(!this.state.pickerValue){
+            Toast.info('请输入地区信息',1);  
+            return;          
+        } 
+        if(!this.state.detailAddr){
+            Toast.info('请输入详细地址',1);    
+            return;        
+        }
     }
     getInputText(e){
         this.setState({
@@ -139,19 +156,26 @@ console.log(provinceLite,district  )
     }
     handerUserInput(e){
         console.log(e.target);
+        //  清除tags-active样式
+        let activeBtn = document.querySelector('.tag-active');
+        console.log(activeBtn)
+        if(activeBtn){
+            activeBtn.classList.remove('tag-active');
+            activeBtn.classList.add('tag-detail');
+        }  
         if(this.state.userInputBtnColor === '#333'){//处于编辑状态
              if(e.target.classList.contains('userInput-active')){
                 e.target.classList.remove('userInput-active');
              }else{
                 e.target.classList.add('userInput-active');                 
-             }
-            //  清除tags-active样式
-             let activeBtn = document.querySelector('.tag-active');
-             if(activeBtn.length){
-                activeBtn.classList.remove('tag-active');
-                activeBtn.classList.add('tag-detail');
-             }        
+             }      
         }   
+    }
+    setRegion(v){
+         this.setState({...this.state, visible: false ,mergeName:v,pickerValue:v})
+    }
+    setDetailAddress(v){
+        this.setState({...this.state, detailAddr:v})
     }
     render(){
     const { getFieldProps } = this.props.form;
@@ -190,7 +214,7 @@ console.log(provinceLite,district  )
                 data={this.state.region}
                 // data = {this.state.region}
                 onChange={this.selectArea.bind(this)}
-                onOk={() => this.setState({ visible: false })}
+                onOk={this.setRegion.bind(this)}
                 onDismiss={() => this.setState({ visible: false })}
             />
 
@@ -200,6 +224,7 @@ console.log(provinceLite,district  )
             <TextareaItem
             placeholder="详细地址"          
             title ='详细地址'
+            onBlur = {this.setDetailAddress.bind(this)}
             defaultValue =  {this.state.detailAddr}                            
             rows = {5}
           />    
@@ -223,7 +248,7 @@ console.log(provinceLite,district  )
                   </div>
                 </li>
                 <p id ='userInuptEditAddress' style={{display:this.state.isEditing ? 'block':'none'}}>
-                    <input onClick= {this.handerUserInput.bind(this)} onFocus = {this.editUserInput.bind(this)} onChange = {this.getInputText.bind(this)} ref='userInput' placeholder = '请输入标签名称,最多5个字' maxLength = {5} type='text'/>
+                    <input onClick= {this.handerUserInput.bind(this)} onFocus = {this.editUserInput.bind(this)} onChange = {this.getInputText.bind(this)} ref='userInput' placeholder = '设置标签名称' maxLength = {5} type='text'/>
                     <button onClick ={this.confirmEdit.bind(this)} className = {'confirm-edit'} style = {{background:this.state.setTagText.length? this.state.userInputBtnColor : '#ccc'}}>{this.state.userInputBtn}</button>
                 </p>
           </ul>
