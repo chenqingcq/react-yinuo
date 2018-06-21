@@ -1,7 +1,6 @@
 import React , {Component} from 'react'
-import { Carousel, WingBlank } from 'antd-mobile';
+import { Carousel, WingBlank,InputItem,WhiteSpace  } from 'antd-mobile';
 import './index.less'
-import { InputItem, WhiteSpace } from 'antd-mobile'
 import axios from 'axios';
 import HotRecommand from './hotRecommand';
 const lib = require('../../utils/lib/lib.js');
@@ -10,11 +9,14 @@ export default class Index extends Component {
     constructor(props){
         super(props);
         this.state = {
-            data:[],
+            data:[1,2,3],
             public:[],
+            recommand:[1,2,3],
         }
     }
-    componentDidMount(){
+    componentDidMount(){  
+      var TabBar =document.querySelector('.am-tabs-tab-bar-wrap');
+      TabBar.style.display='block'; 
       var params ={
         'belong':0,
         'skipType':0
@@ -26,11 +28,11 @@ export default class Index extends Component {
           }
       }).then((res)=>{
          this.setState(
-            Object.assign({}, { data:res.data.data }),
+            Object.assign({}, { data:res.data.data.length>=8?res.data.data.slice(0,8):res.data.data}),
             (()=>{console.log(res.data.data)})
           )
       });
-      axios.get(lib.Api.bossURL+'/boss/setAppNotice/list?type=1&pageNum=1&pageSize=20',
+      axios.get(lib.Api.bossURL+'/boss/setAppNotice/list?type=1&pageNum=1&pageSize=10',
       {
         headers: {
             'token': localStorage.getItem('token').replace("\"","").replace("\"",""),
@@ -38,10 +40,22 @@ export default class Index extends Component {
       }).then((res)=>{
           if(res.data.data){
              this.setState(
-              Object.assign({}, { public:res.data.data.rows.length>=5?res.data.data.rows.slice(0,5):res.data.data.rows })
+              Object.assign({}, { public:res.data.data.rows.length>=5?res.data.data.rows.slice(0,5):res.data.data.rows})
              )
             }
         })
+      axios.get(lib.Api.bossURL+'/boss/bossAd/list?belong=0&pageNum=1&pageSize=10',{
+        headers: {
+          'token': localStorage.getItem('token').replace("\"","").replace("\"",""),
+        }
+      }).then((res)=>{
+        console.log(res)
+         if(res.data.data.rows){
+            this.setState({
+              recommand:res.data.data.rows
+            })
+         }
+      })
     }
     render (){
         return (
@@ -49,18 +63,20 @@ export default class Index extends Component {
             <div className="searchBar">
               <img src={require('../../assets/img/saoyisao_btn@2x.png')} className="phone"/>
               <input type="text" placeholder="搜索商品/店铺"/>
-              <img src={require('../../assets/img/消息提示@2x.png')} className="Msg"/>
+              <img src={require('../../assets/img/xiaoxi_btn@2x.png')} className="Msg"/>
             </div>
           <WingBlank>
-          <Carousel
-            autoplay={true}
+          {/* <Carousel 
+            autoplay
+            frameOverflow="visible"
+            autoplayInterval={1000}
             infinite
-            beforeChange={(from, to) => console.log(`slide from ${from} to ${to}`)}
-            afterChange={index => console.log('slide to', index)}
+            dotStyle={{background:"#fff"}}
+            dotActiveStyle={{background:"#d30000"}}
           >
             {this.state.data.map(val => (
               <a
-                key={val}
+                key={val.id}
                 id={val.id}
                 style={{ display: 'inline-block', width: '100%', height: this.state.imgHeight }}
               >
@@ -71,7 +87,37 @@ export default class Index extends Component {
                 />
               </a>
             ))}
-          </Carousel>
+          </Carousel> */}
+          <Carousel className="space-carousel"
+          frameOverflow="visible"
+          autoplay
+          infinite
+          dotStyle={{background:"#fff"}}
+          dotActiveStyle={{background:"#d30000"}}
+          beforeChange={(from, to) => console.log(`slide from ${from} to ${to}`)}
+          afterChange={index => this.setState({ slideIndex: index })}
+        >
+          {this.state.data.map((val, index) => (
+            <a
+              key={val}
+                style={{
+                display: 'block',
+                height: this.state.imgHeight,
+              }}
+            >
+              <img
+                src={val.pic}
+                alt=""
+                style={{ width: '100%', verticalAlign: 'top' }}
+                onLoad={() => {
+                  // fire window resize event to change height
+                  window.dispatchEvent(new Event('resize'));
+                  this.setState({ imgHeight: 'auto' });
+                }}
+              />
+            </a>
+          ))}
+        </Carousel>
         </WingBlank>
           <div className="category">
             <ul>
@@ -92,11 +138,12 @@ export default class Index extends Component {
                   <Carousel className="my-carousel"
                     vertical
                     dots={false}
+                    autoplayInterval={1000} 
                     autoplay
-                    infinite                  
+                    infinite                 
                   >
                   {this.state.public.map(val => (
-                         val.title=val.title.length>=10?val.title.substr(0,10)+'...':val.title,
+                         val.title=val.title?(val.title.length>=10?val.title.substr(0,10)+'...':val.title):'',
                         <div className="v-item" key={val.title}>{val.title}</div>
                   ))}
                   </Carousel>
@@ -104,13 +151,18 @@ export default class Index extends Component {
               <img src={require('../../assets/img/more.png@2x.png')} className="more"/>
           </div>
           <div className="hot">
-              <div className="item">
-                <img />
-                <div className="goodsDetail">
-                <span className="goodsName">胜多负少东方搜发生的农夫根深蒂固</span>
-                <span className="goodsPrice">￥223.00</span>
-                </div>
-              </div>
+             { this.state.recommand.map(val=>{
+                 return(
+                  <div className="item" key={val.id}>
+                    <img src={val.pic} style={{width:'100%'}}/>
+                    <div className="goodsDetail">
+                    <span className="goodsName">{val.subject?(val.subject.length>=20?val.subject.substr(0,20)+'...':val.subject):''}</span>
+                    <span className="goodsPrice">{val.subTitle}</span>
+                    </div>
+                  </div>
+                 )
+             })
+             }  
                <HotRecommand/>
           </div>
           </div>

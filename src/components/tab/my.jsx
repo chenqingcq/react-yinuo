@@ -9,11 +9,48 @@ export default class Index extends Component {
     constructor(props){
         super(props);
         this.state = {
-        }
+            data:'',
+            identity:'',
+            refereeInfo:'',
+            phone:''
+         }
     }
     componentDidMount(){
         var TabBar =document.querySelector('.am-tabs-tab-bar-wrap');
         TabBar.style.display='block';
+        axios.get(lib.Api.memberURL+'/member/memberInfo/get',
+        {
+            headers: {
+                'token': localStorage.getItem('token').replace("\"","").replace("\"",""),
+                'channel': 'Android'
+            }
+        }).then((res)=>{
+            console.log(res)
+            if(res.data.data!==null){
+                this.setState({
+                    data:res.data.data.memberInfoVo,
+                    refereeInfo:res.data.data.refereeMemberInfoVo
+                })
+                if(this.state.data.identity==='MEMBER'){
+                    this.setState({
+                        'identity':'诺米种子'
+                    })
+                }else if(this.state.data.identity==='PERSONAL_SHOP'){
+                    this.setState({
+                        'identity':'诺米使者'
+                    })
+                }else if(this.state.data.identity==='ENTERPRISE_SHOP'){
+                    this.setState({
+                        'identity':'诺米大使'
+                })
+            }
+               if(this.state.refereeInfo){
+                this.setState({
+                    'phone':this.state.refereeInfo.phone.substr(0,3)+'****'+this.state.refereeInfo.phone.substr(7)
+                })
+            }  
+         }
+        })
     }
     render (){
         return (
@@ -27,11 +64,11 @@ export default class Index extends Component {
               </div>
               <div className="nuomi">
                 <Link to="personinfo">
-                <img src={require('../../assets/img/组 102@2x.png')}/>
+                <img src={this.state.data.headPortrait} style={{borderRadius:'100%',position:'relative',top:'5px'}}/>
                 <div className="nuomiDetail">
                  <span>
-                     无敌金克丝呀
-                     <a><img src={require('../../assets/img/等级徽章@2x.png')}/>诺米种子</a>
+                     {this.state.data.nickname}
+                     <a><img src={require('../../assets/img/等级徽章@2x.png')}/>{this.state.identity}</a>
                  </span>
                  <h4>当日可得诺米最大限度：1000个</h4>
                 </div>

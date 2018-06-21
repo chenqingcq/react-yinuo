@@ -6,24 +6,24 @@
 // window.Redux  = require('redux');
 export const Api={
     // 开发环境
-    //  memberURL    :   "http://member-dev.yinuo.local",
-    //  shopURL      :  "http://shop-dev.yinuo.local",
-    //  goodsURL     :   "http://goods-dev.yinuo.local",
-    //  bossURL      :   "http://boss-dev.yinuo.local",
-    //  orderURL     :   "http://order-dev.yinuo.local",
-    //  accountURL   :   "http://account-dev.yinuo.local",
-    //  profitURL    :   "http://profit-dev.yinuo.local",
-    //  paymentURL   :   "http://payment-dev.yinuo.local",
+     memberURL    :   "http://member-dev.yinuo.local",
+     shopURL      :  "http://shop-dev.yinuo.local",
+     goodsURL     :   "http://goods-dev.yinuo.local",
+     bossURL      :   "http://boss-dev.yinuo.local",
+     orderURL     :   "http://order-dev.yinuo.local",
+     accountURL   :   "http://account-dev.yinuo.local",
+     profitURL    :   "http://profit-dev.yinuo.local",
+     paymentURL   :   "http://payment-dev.yinuo.local",
     
     // 测试环境
-   memberURL    :   "http://member-test.yinuo.local",
-   shopURL      :   "http://shop-test.yinuo.local",
-   goodsURL     :   "http://goods-test.yinuo.local",
-   bossURL      :   "http://boss-test.yinuo.local",
-   orderURL     :   "http://order-test.yinuo.local",
-   accountURL   :   "http://account-test.yinuo.local",
-   profitURL    :   "http://profit-test.yinuo.local",
-   paymentURL   :   "http://payment-test.yinuo.local",
+  //  memberURL    :   "http://member-test.yinuo.local",
+  //  shopURL      :   "http://shop-test.yinuo.local",
+  //  goodsURL     :   "http://goods-test.yinuo.local",
+  //  bossURL      :   "http://boss-test.yinuo.local",
+  //  orderURL     :   "http://order-test.yinuo.local",
+  //  accountURL   :   "http://account-test.yinuo.local",
+  //  profitURL    :   "http://profit-test.yinuo.local",
+  //  paymentURL   :   "http://payment-test.yinuo.local",
     
     // 预生产
   //  memberURL    :   "https://member-pre.yinuoshangcheng.com",
@@ -36,14 +36,14 @@ export const Api={
   //  paymentURL   :   "https://payment-pre.yinuoshangcheng.com",
     
     // 生产
-//    memberURL    :   "https://member.yinuoshangcheng.com",
-//    shopURL      :   "https://shop.yinuoshangcheng.com",
-//    goodsURL     :   "https://goods.yinuoshangcheng.com",
-//    bossURL      :   "https://boss.yinuoshangcheng.com",
-//    orderURL     :   "https://order.yinuoshangcheng.com",
-//    accountURL   :   "https://account.yinuoshangcheng.com",
-//    profitURL    :   "https://profit.yinuoshangcheng.com",
-//    paymentURL   :   "https://payment.yinuoshangcheng.com",
+  //  memberURL    :   "https://member.yinuoshangcheng.com",
+  //  shopURL      :   "https://shop.yinuoshangcheng.com",
+  //  goodsURL     :   "https://goods.yinuoshangcheng.com",
+  //  bossURL      :   "https://boss.yinuoshangcheng.com",
+  //  orderURL     :   "https://order.yinuoshangcheng.com",
+  //  accountURL   :   "https://account.yinuoshangcheng.com",
+  //  profitURL    :   "https://profit.yinuoshangcheng.com",
+  //  paymentURL   :   "https://payment.yinuoshangcheng.com",
 }
 export const md5=function MD5(sMessage)  
 {  

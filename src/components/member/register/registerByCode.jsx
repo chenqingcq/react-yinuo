@@ -80,9 +80,9 @@ export default class Register extends Component {
                      
                 }else{
                     Toast.info(res.data.errorMsg,2);
-                    setTimeout(()=>{
-                        this.props.history.push('/login')                         
-                     },2000)
+                    // setTimeout(()=>{
+                    //     this.props.history.push('/login')                         
+                    //  },2000)
                 }
             }).catch((err)=>{
                 console.log(err);

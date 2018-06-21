@@ -7,7 +7,9 @@ import {getCheckCode,verifyRegisterParam,registerProtocol} from './actions';
 import { Redirect } from 'react-router-dom';  
 import './register.less';
 import './register.less';
-
+import axios from 'axios';
+const lib = require('../../../utils/lib/lib.js');
+var qs = require('qs');
 export default class Register extends Component {
     constructor(props){
         super(props);
@@ -35,6 +37,11 @@ export default class Register extends Component {
         }
         if(window.localStorage.getItem('phone')){
             this.refs.phone.value = window.localStorage.getItem('phone')            
+        }
+    }
+    componentWillUnmount(){
+        if(this.timer){
+            window.clearInterval(this.timer);                                                                         
         }
     }
     handerNext(){
@@ -103,7 +110,18 @@ export default class Register extends Component {
                     })
                 }
             },1000)
-            getCheckCode({type:3,phone:this.refs.phone.value}).then((res)=>{
+            // getCheckCode({type:3,phone:this.refs.phone.value})
+            axios.post(lib.Api.memberURL+'/base/sms/sendCode',qs.stringify(
+                {
+                    type:3,phone:this.refs.phone.value
+                }
+            ), {
+                headers: {
+                //   'token': localStorage.getItem('token').replace("\"","").replace("\"",""),
+                  'channel': 'Android'
+                }
+              })
+            .then((res)=>{
                 console.log(res);
                 if(res.data.code === 1 ){
                     Toast.info (res.data.errorMsg,1);
@@ -127,9 +145,19 @@ export default class Register extends Component {
                 this.refs.phone.focus();
                 return ;
             }
-            getCheckCode({type:3,phone:this.refs.phone.value}).then((res)=>{      
+            // getCheckCode({type:3,phone:this.refs.phone.value})
+            axios.post(lib.Api.memberURL+'/base/sms/sendCode',qs.stringify(
+                {
+                    type:3,phone:this.refs.phone.value
+                }
+            ), {
+                headers: {
+                //   'token': localStorage.getItem('token').replace("\"","").replace("\"",""),
+                  'channel': 'Android'
+                }
+              }).then((res)=>{      
                 console.log(res);
-                if(res.code === 1 ){
+                if(res.data.code === 1 ){
                     Toast.info (res.data.errorMsg,1);
                     window.clearInterval(this.timer);                
                     this.setState({
@@ -184,7 +212,13 @@ export default class Register extends Component {
     }
     link_to_protocal (e) {
         e.preventDefault();
-        registerProtocol().then((res)=>{
+        // registerProtocol()
+        axios.get(lib.Api.memberURL+'/member/register/registerProtocol', {
+            headers: {
+            //   'token': localStorage.getItem('token').replace("\"","").replace("\"",""),
+              'channel': 'Android'
+            }
+          }).then((res)=>{
             console.log(res);
             if(res.data.code === 1 ){
                 Toast.info (res.data.errorMsg,1);
@@ -236,12 +270,12 @@ export default class Register extends Component {
         });    
     }
     handerLogin(){//登录
-        this.props.history.push('login')
+        this.props.history.push('/login')
     }
     render (){
         let text = '下一步',loginText  =  '登录',
         style = {width:'90%',background: "#D30000",color:'#fff'},
-        checkCodeStyleSheet = {display:'inline-block',background: "#D30000",width:'auto',color:'#fff'};
+        checkCodeStyleSheet = {display:'inline-block',background: "#D30000",width:'100px',color:'#fff'};
         if (this.state.redirect) {  
             return <Redirect push to="/member/setPayFisrtTime" />; //or <Redirect push to="/sample?a=xxx&b=yyy" /> 传递更多参数  
         } else{
@@ -268,7 +302,7 @@ export default class Register extends Component {
                                 <img src={require('../../../assets/img/checkcode@2x.png')} alt=''/>
                             </label>
                             <input ref='checkcode' type='text'  id='check_code' placeholder='请输入验证码'  maxLength={10}/>
-                            <Btn handlerClick = {this.changeCode.bind(this)} styleSheet={checkCodeStyleSheet} text={this.state.checkCodeText} ></Btn>
+                            <button className = 'button' onClick = {this.changeCode.bind(this)} >{this.state.checkCodeText}</button>
                         </li>
                     </ul>
                     <Btn  handlerClick = {this.handerNext.bind(this)} styleSheet={style} text={text}></Btn>

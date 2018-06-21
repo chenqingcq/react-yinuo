@@ -5,6 +5,10 @@ import { Modal, Toast } from 'antd-mobile';
 import Button from '../../../pages/button/button';
 import './addressManage.less';
 import {initAdressList , getAdressList , deleteAdress} from './actions';
+import axios from 'axios';
+import {updateAdress} from './actions';
+const lib = require('../../../utils/lib/lib.js');
+var qs = require('qs');
 const loadMoreLimitNum  = 4;
 export default class AddressManage extends Component {
     constructor(props){
@@ -18,20 +22,33 @@ export default class AddressManage extends Component {
             pageNum:1,
             recieviers :[] ,
             paddingTop:0,
-            index: loadMoreLimitNum
+            index: loadMoreLimitNum,
+            currentIndex:0
         }
     }
     componentDidMount(){
      document.title = '地址管理'; 
-      getAdressList({
-        pageNum:this.state.pageNum,
-        pageSize:this.state.pageSize
+      // getAdressList({
+      //   pageNum:this.state.pageNum,
+      //   pageSize:this.state.pageSize
+      // })
+      axios.get(lib.Api.memberURL+'/member/memberAddress/list?pageNum='+this.state.pageNum+'&pageSize='+this.state.pageSize,
+      {
+        headers: {
+          'token': localStorage.getItem('token').replace("\"","").replace("\"",""),
+          'channel': 'Android'
+        }
       }).then((res)=>{
-        console.log(res);
+        console.log(res.data.data.rows);
         if(res.data.code === 1 && res.data.data === null){
           Toast.info(res.data.errorMsg,1);
+          this.props.history.push('/member/addNewAddress');
         }
-        if(res.data.code ===0){
+        if(res.data.code ===0 && !res.data.data.rows.length){        
+          this.props.history.push('/member/addNewAddress'); 
+          return;    
+        }
+        if(res.data.code ===0  ){
             console.log(res.data.data.rows);
             this.setState({
               ...this.state,
@@ -42,12 +59,39 @@ export default class AddressManage extends Component {
         console.log(err)
       })
     }
-    handlerSetDefault(index,item){
-      console.log(index,item);
-      this.setState({
-        ...this.state,
-        currentIndex:index
-      })
+    handlerSetDefault(index,id){
+      console.log(index,id);
+      Modal.alert('设为默认地址?', '', [
+        { text: '取消', onPress: () => console.log('cancel') },
+        { text: '确定', onPress: () => {
+              this.setState({
+                ...this.state,
+                currentIndex:index
+              })
+                //设置为默认
+              // updateAdress({isDefault:0,id:id})
+              axios.post(lib.Api.memberURL+'/member/memberAddress/update',qs.stringify(
+                {
+                      isDefault:0,
+                       id:id
+                }
+            ), {
+                headers: {
+                  'token': localStorage.getItem('token').replace("\"","").replace("\"",""),
+                  'channel': 'Android'
+                }
+              })
+              .then((res)=>{
+                console.log(res);
+                if(res.data.code == 0 ){
+                  Toast.info('设置成功!',1);
+                }
+              }).catch((err)=>{
+                console.log(err)
+              })
+          } 
+       },
+      ])     
     }
     deletAddress(id,index){
       console.log(id , index);
@@ -57,7 +101,18 @@ export default class AddressManage extends Component {
           text: '确定', 
           onPress: () =>{   
             console.log(this.state.recieviers);
-            deleteAdress({id:id}).then((res)=>{
+            // deleteAdress({id:id}).
+            axios.post(lib.Api.memberURL+'/member/memberAddress/delete',qs.stringify(
+              {
+                     id:id
+              }
+          ), {
+              headers: {
+                'token': localStorage.getItem('token').replace("\"","").replace("\"",""),
+                'channel': 'Android'
+              }
+            }).
+            then((res)=>{
               console.log(res);
               if(res.data.code === 0 && res.data.data === null ){
                 let arr = this.state.recieviers.splice(index,1);//删除对应的地址
@@ -66,6 +121,9 @@ export default class AddressManage extends Component {
                 this.setState({
                   ...this.state
                 })
+              }
+              if(res.data.code == 1){
+                Toast.fail(res.data.errorMsg,1)
               }
             }).catch((err)=>{
               console.log(err)
@@ -147,9 +205,9 @@ export default class AddressManage extends Component {
     }
     render(){
       if(this.state.link_to_editAddress){
-        return <Redirect to ='/member/editAddress?mode=edit' ></Redirect>
+        return <Redirect to ='/member/editAddress' ></Redirect>
       }else if (this.state_link_createAddress){
-        return <Redirect to ='/member/editAddress?mode=create' ></Redirect>        
+        return <Redirect to ='/member/createAddress' ></Redirect>        
       }else{
         return(
           <div className = 'addressManage-contiainer'>
@@ -171,7 +229,7 @@ export default class AddressManage extends Component {
                     <p className = 'title'>
                           <i>
                             <span className ='user-name'>{item.name}</span>
-                            <span>{item.isDefault  ===  0 ?  '[默认]':`[${item.alias}]`}</span>                    
+                            <span>{item.isDefault  ==  0 ?  '[默认]':`[${item.alias}]`}</span>                    
                           </i>
                           <span>{item.phone}</span>
                       </p>
@@ -180,9 +238,9 @@ export default class AddressManage extends Component {
                       </p>
                    </div>
                    <div className='address-operate'>
-                     <div className='left' onClick={this.handlerSetDefault.bind(this,index,item)}>
+                     <div className='left' onClick={this.handlerSetDefault.bind(this,index,item.id)}>
                         <i>
-                          <img className = {(index === this.state.currentIndex || item.isDefault === 0 )?'address-active':'address-no-active'} src={require('../../../assets/img/quanxuan_bt.png@2x.png')} alt='' />
+                          <img className = {(index === this.state.currentIndex )?'address-active':'address-no-active'} src={require('../../../assets/img/quanxuan_bt.png@2x.png')} alt='' />
                         </i>
                         <span>设为默认地址</span>
                      </div>

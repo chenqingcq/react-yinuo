@@ -6,7 +6,10 @@ import { Icon,Toast} from 'antd-mobile';
 import data from './area';
 import Button from '../../../pages/button/button';
 import './editAddress.less';
-import {updateAdress} from './actions'
+import {createAdress} from './actions'
+import axios from 'axios';
+const lib = require('../../../utils/lib/lib.js');
+var qs = require('qs');
 console.log(province ,data)
  class EditAddress extends Component {
     constructor(props){
@@ -14,12 +17,14 @@ console.log(province ,data)
         this.state= {
             text:'保存',
             tags:['家','公司','学校','+' ],
-            tagCurrentIndex:0,
+            tagCurrentIndex:-1,
             visible:false,//选择器
             pickerValue:'',
             userName:'',
             phone:'',
             address:'',
+            isDefault:false,
+            alias:'',
             detailAddr:'',
             mergeName:'',
             id:'',
@@ -40,32 +45,58 @@ console.log(province ,data)
         currentIndex:index
       })
     }
-    selectTag(index,content){
-        console.log(index,content);
-        if(index === 3){
-            this.setState({
-                ...this.state,
-                tagCurrentIndex:index,
-                isEditing:true
-            })
-        }else{
-            this.setState({
-                ...this.state,
-                tagCurrentIndex:index,
-            })
+    selectTag(index,content,e){
+        console.log(e.target.className,index,content);
+        if(index !=3){
+            if(e.target.className =='tag-active'){//设置alias                
+                this.setState({
+                    ...this.state,
+                    alias:''
+                })
+            }else{
+                console.log('////',content)                
+                this.setState({
+                    ...this.state,
+                    alias:content
+                })
+            }
         }
+       
         if(this.refs.userInput &&this.refs.userInput.classList.contains('userInput-active')){
             this.refs.userInput.classList.remove('userInput-active');
-        }
+        }//清除输入active样式
+        setTimeout(()=>{
+            if(index === 3){
+                this.setState({
+                    ...this.state,
+                    tagCurrentIndex:index,
+                    isEditing:true
+                })
+            }else{
+                this.setState({
+                    ...this.state,
+                    tagCurrentIndex:index,
+                })
+            };
+            console.log(this.state)            
+        })
     }
     setAsDefault(e){
         console.log(this.refs.setAsDefault)
         if(!this.refs.setAsDefault.classList.contains('address-active')){
             this.refs.setAsDefault.classList.remove('address-active-no');                        
             this.refs.setAsDefault.classList.add('address-active');
+            this.setState({
+                ...this.state,
+                isDefault:true
+            })
         }else{
             this.refs.setAsDefault.classList.add('address-active-no');                        
-            this.refs.setAsDefault.classList.remove('address-active');            
+            this.refs.setAsDefault.classList.remove('address-active'); 
+            this.setState({
+                ...this.state,
+                isDefault:false
+            })           
         }
     }
     selectArea(v){
@@ -117,7 +148,7 @@ console.log(province ,data)
         })
     }
     checkUserInput(){
-        console.log('check');
+        console.log(this.state);
         console.log(this.state.userName,this.state.phone,this.state.address);
         if(!this.state.userName)  {
             Toast.info('请输入用户名',1);   
@@ -139,7 +170,41 @@ console.log(province ,data)
         if(!this.state.detailAddr){
             Toast.info('请输入详细地址',1);    
             return;        
-        }
+        };
+        // createAdress({
+        //     name:this.state.userName,
+        //     phone:this.state.phone,
+        //     mergeName:this.state.pickerValue,
+        //     detailAddr:this.state.detailAddr,
+        //     alias:this.state.alias,
+        //     isDefault:this.state.isDefault?0:1
+        // })
+
+        axios.post(lib.Api.memberURL+'/member/memberAddress/create',qs.stringify(
+            {
+                    name:this.state.userName,
+                    phone:this.state.phone,
+                    mergeName:this.state.mergeName,
+                    detailAddr:this.state.detailAddr,
+                    alias:this.state.alias,
+                    isDefault:this.state.isDefault?0:1
+            }
+        ), {
+            headers: {
+              'token': localStorage.getItem('token').replace("\"","").replace("\"",""),
+              'channel': 'Android'
+            }
+          }).then((res)=>{
+            console.log(res)
+            if(res.data.code ==0){
+                Toast.info('添加成功!',1);
+                this.props.history.push('/member/addressManage')
+            }else{
+                Toast.info(res.data.errorMsg,1);                
+            }
+        }).catch((err)=>{
+            console.log(err)
+        })
     }
     getInputText(e){
         this.setState({
@@ -155,23 +220,31 @@ console.log(province ,data)
         })
     }
     handerUserInput(e){
-        console.log(e.target);
-        //  清除tags-active样式
+        console.log(e.target.value);
+       
         let activeBtn = document.querySelector('.tag-active');
-        console.log(activeBtn)
-        if(activeBtn){
+        if(activeBtn){//  清除tags-active样式
             activeBtn.classList.remove('tag-active');
             activeBtn.classList.add('tag-detail');
         }  
         if(this.state.userInputBtnColor === '#333'){//处于编辑状态
              if(e.target.classList.contains('userInput-active')){
                 e.target.classList.remove('userInput-active');
+                this.setState({
+                    ...this.state,
+                    alias:''
+                })
              }else{
-                e.target.classList.add('userInput-active');                 
-             }      
+                e.target.classList.add('userInput-active'); 
+                this.setState({
+                    ...this.state,
+                    alias:e.target.value
+                })                
+             }  ;
         }   
     }
     setRegion(v){
+        v = v.join(',')
          this.setState({...this.state, visible: false ,mergeName:v,pickerValue:v})
     }
     setDetailAddress(v){
@@ -213,7 +286,7 @@ console.log(province ,data)
                 visible={this.state.visible}
                 data={this.state.region}
                 // data = {this.state.region}
-                onChange={this.selectArea.bind(this)}
+                onChange={()=>{}}
                 onOk={this.setRegion.bind(this)}
                 onDismiss={() => this.setState({ visible: false })}
             />
@@ -237,7 +310,7 @@ console.log(province ,data)
                     {this.state.tags.map((item,index,arr)=>{
                         if(index === 3 ){
                             return (
-                                <div style = {{display:!this.state.isEditing ? 'block':'none'}} className = {index === this.state.tagCurrentIndex?'tag-active':'tag-detail-last' }  onClick = {this.state.setTagText?()=>{}: this.selectTag.bind(this,index,item)} key={index}>{item}</div>                                
+                                <div style = {{display:!this.state.isEditing ? 'block':'none'}} className = {index === this.state.tagCurrentIndex?'tag-active':'tag-detail-last' }  onClick = {this.selectTag.bind(this,index,item)} key={index}>{item}</div>                                
                             )
                         }else{
                             return (

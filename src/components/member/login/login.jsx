@@ -31,7 +31,7 @@ export default class Login extends Component {
     handlerOperate() {
         console.log('register')
     }
-    handlerClick() {
+    handClick() {
         var exp =/^[1][3,4,5,7,8][0-9]{9}$/;  
         if(exp.test(this.refs.username.value)){
             this.setState({
@@ -50,7 +50,6 @@ export default class Login extends Component {
                 }
             }
             ).then((res)=>{  
-                console.log(res)
                    if(res.data.code===1){
                      this.setState({
                         text:'账号或密码错误',
@@ -111,19 +110,31 @@ export default class Login extends Component {
                         this.refs.container.style.display='block';
                         this.refs.inner.style.display='block'
                     }else if(res.data.code===0){
-                        localStorage.setItem('phone',this.refs.username.value)
-                        localStorage.setItem('code',this.refs.password.value)
-                        if(res.data.data!==null){
-                            localStorage.setItem('token',JSON.stringify(res.data.data.token))
-                            localStorage.setItem('personinfo',JSON.stringify(res.data.data.memberInfo))
+                        var params = {
+                            'phone': this.refs.username.value,
+                            'verificationCode':this.refs.password.value,
                         }
-                        this.setState({
-                            text:'登录成功',
-                            isShow: true,
-                          })   
-                        setTimeout(()=>{
-                            this.props.history.push('personinfo');
-                        },1000)
+                        axios.post(lib.Api.memberURL+'/member/login/loginByVerCode',qs.stringify(params),{
+                            headers:{
+                                'channel':'Android'
+                            }
+                        }).then((res)=>{
+                            if(res.data.code===0){
+                                localStorage.setItem('phone',this.refs.username.value)
+                                localStorage.setItem('code',this.refs.password.value)
+                                if(res.data.data!==null){
+                                    localStorage.setItem('token',JSON.stringify(res.data.data.token))
+                                    localStorage.setItem('personinfo',JSON.stringify(res.data.data.memberInfo))
+                                }
+                                this.setState({
+                                    text:'登录成功',
+                                    isShow: true,
+                                  })   
+                                setTimeout(()=>{
+                                    this.props.history.push('index');
+                                },1000)
+                            }
+                        })
                     }
                 })
             }
@@ -310,7 +321,7 @@ export default class Login extends Component {
                         </p>
                     </div>
                 </section>
-                <Button handlerClick={(this.state.isShowBtn.userFlag && this.state.isShowBtn.pswFlag)?this.handlerClick.bind(this):function(){}} styleSheet={{ color: '#fff',width:'90%', background: (this.state.isShowBtn.userFlag && this.state.isShowBtn.pswFlag) ? "#D30000" : '#ddd' }} text={text} />
+                <Button handlerClick={(this.state.isShowBtn.userFlag && this.state.isShowBtn.pswFlag)?this.handClick.bind(this):function(){}} styleSheet={{ color: '#fff',width:'90%', background: (this.state.isShowBtn.userFlag && this.state.isShowBtn.pswFlag) ? "#D30000" : '#ddd' }} text={text} />
                 <Link to='member/register' className='reg'>注册</Link>
                 <span ref="forgetPwd" className="forget" onClick={this.login.bind(this)} style={{display:'none'}}>忘记密码?</span><p className='code_login' onClick={this.codeClick.bind(this)}>使用手机动态码登录</p>
                 </div>

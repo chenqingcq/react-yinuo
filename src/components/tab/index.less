@@ -16,6 +16,7 @@ html{
 }
 body{
     overflow-x: hidden;
+    touch-action: none; 
 }
 .searchBar{
     width:100%;
@@ -186,6 +187,7 @@ body{
         width:49%;
         margin-top:5px;
         border:1px solid #ccc;
+        background:#fff;
         height:280px;
         justify-content: space-between;
         position: relative;
@@ -196,19 +198,20 @@ body{
             left:0%;
         }
         .goodsName{
-            height:24px;
+            height:30px;
             position:absolute;
             width:90%;
             left:5%;
-            font-size:14px;
-            text-align: justify;
+            font-size:12px;
+            text-align: left;
             word-wrap: wrap;
             top:193px;
             span{
-                font-size:13px;
-                float:right;
-                position: relative;
-                top:2px;
+                font-size:9px;
+                position: absolute;
+                top:14px;
+                width:60px;
+                right:0;
                 font-family: PingFang-SC-Regular;
                 a{
                     font-size:9px;

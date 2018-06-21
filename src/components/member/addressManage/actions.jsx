@@ -17,4 +17,7 @@ export function deleteAdress(params) {  // 删除地址列表
 export function updateAdress(params) {  // 刷新地址列表
     return AppService.post(`${Api.memberURL}/member/memberAddress/update`,params)
 }
-// /member/memberAddress/update
+export function createAdress(params) {  // 刷新地址列表
+    return AppService.post(`${Api.memberURL}/member/memberAddress/create`,params)
+}
+// /member/memberAddress/create

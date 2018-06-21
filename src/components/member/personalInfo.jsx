@@ -43,14 +43,16 @@ export default class PersonalInfo extends Component {
                         'identity':'诺米大使'
                 })
             }
-               this.setState({
-                   'phone':this.state.refereeInfo.phone.substr(0,3)+'****'+this.state.refereeInfo.phone.substr(7)
-               })
+               if(this.state.refereeInfo){
+                this.setState({
+                    'phone':this.state.refereeInfo.phone.substr(0,3)+'****'+this.state.refereeInfo.phone.substr(7)
+                })
+               }
          }
         })
     }
     getSecret(){
-        axios.post
+   
     }
     logOut(){
         axios.post(lib.Api.memberURL+'/member/login/logout',
@@ -64,6 +66,7 @@ export default class PersonalInfo extends Component {
                 localStorage.removeItem('personinfo');
                 localStorage.removeItem('phone');
                 localStorage.removeItem('token');
+                localStorage.removeItem('tab');
                 setTimeout(()=>{
                     this.props.history.push('login')
                 },500)
@@ -76,7 +79,7 @@ export default class PersonalInfo extends Component {
             <div className="personal">  
               <ul className="personalInfo">
                   <li>
-                     <img src={{uri:this.state.data.headPortrait}}/>
+                     <img src={this.state.data.headPortrait} style={{width:'63px',height:'63px',borderRadius:'100%',position:'relative',top:'16px'}}/>
                      <span>{this.state.data.nickname}</span>
                      <span className="more">></span>
                   </li>
@@ -89,12 +92,12 @@ export default class PersonalInfo extends Component {
                       <span>{this.state.phone}</span>
                   </li>
                   <li>
-                  <Link to="addressMange" style={{color:'#2b2b2b'}}> 收货地址
+                  <Link to="member/addressManage" style={{color:'#2b2b2b'}}> 收货地址
                       <span className="more">></span></Link>
                   </li>
                   <li>
-                      隐私政策
-                      <span className="more" onClick={this.getSecret.bind(this)}>></span>
+                  <Link to="article" style={{color:'#2b2b2b'}}>隐私政策
+                      <span className="more" onClick={this.getSecret.bind(this)}>></span></Link>
                   </li>
                   <li onClick={this.logOut.bind(this)}>
                       退出登录

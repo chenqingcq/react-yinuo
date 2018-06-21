@@ -5,7 +5,6 @@ import {Picker, List, InputItem, WhiteSpace } from 'antd-mobile';
 import Dialog from '../../../pages/toast/toast';
 import arrayTreeFilter from 'array-tree-filter';
 import { district, provinceLite } from 'antd-mobile-demo-data';
-import './addressMange.less'
 import axios from 'axios';
 const lib = require('../../../utils/lib/lib.js');
 var qs = require('qs');

@@ -58,7 +58,18 @@ export default class Register extends Component {
         let code = window.localStorage.getItem('code');
         let loginPwd = window.localStorage.getItem('loginPwd');
         
-        register({phone:phone,loginPass:this.refs.confirmCode.value,verificationCode:code,payPass:'152439'}).then((res)=>{
+        // register({phone:phone,loginPass:this.refs.confirmCode.value,verificationCode:code,payPass:'152439'})
+        axios.post(lib.Api.memberURL+'/member/memberAddress/create',qs.stringify(
+            {
+                phone:phone,loginPass:this.refs.confirmCode.value,verificationCode:code,payPass:'152439'
+            }
+        ), {
+            headers: {
+              'token': localStorage.getItem('token').replace("\"","").replace("\"",""),
+              'channel': 'Android'
+            }
+          })
+        .then((res)=>{
             console.log(res);
             if(res.code === 0 ){
                 this.setState({
