@@ -215,7 +215,7 @@ export default class Register extends Component {
         // registerProtocol()
         axios.get(lib.Api.bossURL+'/boss/setHelp/get?code=protocol_privacy_policy',{
             headers: {
-                'token': localStorage.getItem('token').replace("\"","").replace("\"",""),
+                // 'token': localStorage.getItem('token').replace("\"","").replace("\"",""),
               }
            }).then((res)=>{
             console.log(res);

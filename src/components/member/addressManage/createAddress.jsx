@@ -1,7 +1,6 @@
 import React, {Component} from 'react';
 import { createForm } from 'rc-form';
 import { List, InputItem, TextareaItem,Picker} from 'antd-mobile';
-import { district, provinceLite , province } from 'antd-mobile-demo-data';
 import { Icon,Toast} from 'antd-mobile';
 import data from './area';
 import Button from '../../../pages/button/button';
@@ -10,7 +9,7 @@ import {createAdress} from './actions'
 import axios from 'axios';
 const lib = require('../../../utils/lib/lib.js');
 var qs = require('qs');
-console.log(province ,data)
+console.log(data)
  class EditAddress extends Component {
     constructor(props){
         super(props);
@@ -244,8 +243,21 @@ console.log(province ,data)
         }   
     }
     setRegion(v){
-        v = v.join(',')
-         this.setState({...this.state, visible: false ,mergeName:v,pickerValue:v})
+        let ProvinceCode =  v[0];
+        let CityCode =  v[1];
+        let RegionCode =  v[2];
+        let ProvItem = data.filter((item)=>{
+            return item.value == ProvinceCode
+        })
+        let CityItem = ProvItem[0].children.filter((item)=>{
+            return item.value == CityCode
+        })
+        let RegionItem =CityItem[0].children.filter((item)=>{
+            return item.value == RegionCode
+        })
+        console.log(ProvinceCode,CityCode,RegionCode,ProvItem[0].label,CityItem[0].label,RegionItem[0].label,data);
+        let mergeName = [ProvItem[0].label,CityItem[0].label,RegionItem[0].label].join(',')
+         this.setState({...this.state, visible: false ,mergeName:mergeName,pickerValue:mergeName})
     }
     setDetailAddress(v){
         this.setState({...this.state, detailAddr:v})

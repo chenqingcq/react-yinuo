@@ -1,7 +1,6 @@
 import React, {Component} from 'react';
 import { createForm } from 'rc-form';
 import { List, InputItem, TextareaItem,Picker} from 'antd-mobile';
-import { district, provinceLite , province } from 'antd-mobile-demo-data';
 import { Icon,Toast} from 'antd-mobile';
 import data from './area';
 import Button from '../../../pages/button/button';
@@ -10,7 +9,7 @@ import axios from 'axios';
 import {updateAdress} from './actions'
 const lib = require('../../../utils/lib/lib.js');
 var qs = require('qs');
-console.log(province ,data)
+console.log(data)
  class EditAddress extends Component {
     constructor(props){
         super(props);

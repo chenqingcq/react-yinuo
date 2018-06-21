@@ -53,10 +53,6 @@ var district = [{
 				"label": "平谷区",
 				"children": []
 			}, {
-				"value": "110230",
-				"label": "其它区",
-				"children": []
-			}, {
 				"value": "110107",
 				"label": "石景山区",
 				"children": []
@@ -86,105 +82,322 @@ var district = [{
 	{
 		"value": '120000',
 		"label": '天津',
-		"chilldren":[
+		"children":[
+			{
+                "value":'120001',
+                "label":'天津市',
+                "children":[
+                    {
+                        "value": '120100',
+                        "label": '和平区',
+                        "children":[]
+                    },
+                    {
+                        "value": '120101',
+                        "label": '河东区',
+                        "children":[]
+                    },
+                    {
+                        "value": '120102',
+                        "label": '河西区',
+                        "children":[]
+                    },
+                    {
+                        "value": '120103',
+                        "label": '南开区',
+                        "children":[]
+                    },
+                    {
+                        "value": '120104',
+                        "label": '河北区',
+                        "children":[]
+                    },
+                    {
+                        "value": '120105',
+                        "label": '红桥区',
+                        "children":[]
+                    },
+                    {
+                        "value": '120106',
+                        "label": '塘沽区',
+                        "children":[]
+                    },
+                    {
+                        "value": '120107',
+                        "label": '汉沽区',
+                        "children":[]
+                    },
+                    {
+                        "value": '120108',
+                        "label": '大港区',
+                        "children":[]
+                    },
+                    {
+                        "value": '120109',
+                        "label": '东丽区',
+                        "children":[]
+                    },
+                    {
+                        "value": '120110',
+                        "label": '西青区',
+                        "children":[]
+                    },
+                    {
+                        "value": '120111',
+                        "label": '津南区',
+                        "children":[]
+                    },
+                    {
+                        "value": '120112',
+                        "label": '北辰区',
+                        "children":[]
+                    },
+                    {
+                        "value": '120113',
+                        "label": '武清区',
+                        "children":[]
+                    },
+                    {
+                        "value": '120114',
+                        "label": '宝坻区',
+                        "children":[]
+                    },
+                    {
+                        "value": '120115',
+                        "label": '宁河县',
+                        "children":[]
+                    },
+                    {
+                        "value": '120116',
+                        "label": '静海县',
+                        "children":[]
+                    },
+                    {
+                        "value": '120117',
+                        "label": '蓟县',
+                        "children":[]
+                    }
+                ]
+            }
+		]
+    },
+    {
+		"value": '200000',
+		"label": '上海',
+		"children":[
+			{
+                "value":'200100',
+                "label":"上海市",
+                "children":[
+                   {
+                    "value":'200101',
+                    "label":"黄埔区",
+                    "children":[]
+                   } ,
+                   {
+                    "value":'200102',
+                    "label":"卢湾区",
+                    "children":[]
+                   } ,
+                   {
+                    "value":'200103',
+                    "label":"徐汇区",
+                    "children":[]
+                   } ,
+                   {
+                    "value":'200104',
+                    "label":"长宁区",
+                    "children":[]
+                   } ,
+                   {
+                    "value":'200105',
+                    "label":"静安区",
+                    "children":[]
+                   } ,
+                   {
+                    "value":'200106',
+                    "label":"普陀区",
+                    "children":[]
+                   } ,
+                   {
+                    "value":'200107',
+                    "label":"闸北区",
+                    "children":[]
+                   } ,
+                   {
+                    "value":'200108',
+                    "label":"虹口区",
+                    "children":[]
+                   } ,
+                   {
+                    "value":'200109',
+                    "label":"杨浦区",
+                    "children":[]
+                   } ,
+                   {
+                    "value":'200110',
+                    "label":"闵行区",
+                    "children":[]
+                   } ,
+                   {
+                    "value":'200111',
+                    "label":"宝山区",
+                    "children":[]
+                   } ,
+                   {
+                    "value":'200112',
+                    "label":"嘉定区",
+                    "children":[]
+                   } ,
+                   {
+                    "value":'200113',
+                    "label":"浦东新区",
+                    "children":[]
+                   } ,
+                   {
+                    "value":'200114',
+                    "label":"金山区",
+                    "children":[]
+                   } ,
+                   {
+                    "value":'200115',
+                    "label":"松江区",
+                    "children":[]
+                   } ,
+                   {
+                    "value":'200116',
+                    "label":"青浦区",
+                    "children":[]
+                   } ,
+                   {
+                    "value":'200117',
+                    "label":"南汇区",
+                    "children":[]
+                   } ,
+                   {
+                    "value":'200118',
+                    "label":"奉贤区",
+                    "children":[]
+                   } ,
+                   {
+                    "value":'200119',
+                    "label":"崇明县",
+                    "children":[]
+                   } 
+                //    {
+                //     "value":'200120',
+                //     "label":"万州区",
+                //     "children":[]
+                //    } ,
+                //    {
+                //     "value":'200121',
+                //     "label":"涪陵区",
+                //     "children":[]
+                //    } ,
+                //    {
+                //     "value":'200122',
+                //     "label":"黄埔区",
+                //     "children":[]
+                //    } ,
+                ]
+            }
+		]
+    },
+    {
+		"value": '370000',
+		"label": '重庆',
+		"children":[
 			
 		]
 	},
 	{
 		"value": '130000',
 		"label": '河北省',
-		"chilldren":[
+		"children":[
 			
 		]
 	},
 	{
 		"value": '140000',
 		"label": '河北省',
-		"chilldren":[
+		"children":[
 			
 		]
 	},
 	{
 		"value": '150000',
 		"label": '山西',
-		"chilldren":[
+		"children":[
 			
 		]
 	},
 	{
 		"value": '160000',
 		"label": '内蒙古自治区',
-		"chilldren":[
+		"children":[
 			
 		]
 	},
 	{
 		"value": '170000',
 		"label": '辽宁省',
-		"chilldren":[
+		"children":[
 			
 		]
 	},
 	{
 		"value": '180000',
 		"label": '吉林',
-		"chilldren":[
+		"children":[
 			
 		]
 	},
 	{
 		"value": '190000',
 		"label": '黑龙江省',
-		"chilldren":[
-			
-		]
-	},
-	{
-		"value": '200000',
-		"label": '上海市',
-		"chilldren":[
+		"children":[
 			
 		]
 	},
 	{
 		"value": '210000',
 		"label": '江苏省',
-		"chilldren":[
+		"children":[
 			
 		]
 	},
 	{
 		"value": '230000',
 		"label": '福建省',
-		"chilldren":[
+		"children":[
 			
 		]
 	},
 	{
 		"value": '240000',
 		"label": '江西省',
-		"chilldren":[
+		"children":[
 			
 		]
 	},
 	{
 		"value": '250000',
 		"label": '山东省',
-		"chilldren":[
+		"children":[
 			
 		]
 	},
 	{
 		"value": '260000',
 		"label": '河南省',
-		"chilldren":[
+		"children":[
 			
 		]
 	},
 	{
 		"value": '270000',
 		"label": '湖北省',
-		"chilldren":[
+		"children":[
 			
 		]
 	},
@@ -225,98 +438,91 @@ var district = [{
 	{
 		"value": '290000',
 		"label": '广东省',
-		"chilldren":[
+		"children":[
 			
 		]
 	},
 	{
 		"value": '300000',
 		"label": '海南省',
-		"chilldren":[
+		"children":[
 			
 		]
 	},
 	{
 		"value": '310000',
 		"label": '甘肃省',
-		"chilldren":[
+		"children":[
 			
 		]
 	},
 	{
 		"value": '320000',
 		"label": '陕西省',
-		"chilldren":[
+		"children":[
 			
 		]
 	},
 	{
 		"value": '330000',
 		"label": '山西省',
-		"chilldren":[
+		"children":[
 			
 		]
 	},
 	{
 		"value": '340000',
 		"label": '新疆维吾尔自治区',
-		"chilldren":[
+		"children":[
 			
 		]
 	},
 	{
 		"value": '350000',
 		"label": '青海省',
-		"chilldren":[
+		"children":[
 			
 		]
 	},
 	{
 		"value": '360000',
 		"label": '宁夏回族自治区',
-		"chilldren":[
-			
-		]
-	},
-	{
-		"value": '370000',
-		"label": '重庆市',
-		"chilldren":[
+		"children":[
 			
 		]
 	},
 	{
 		"value": '380000',
 		"label": '四川省',
-		"chilldren":[
+		"children":[
 			
 		]
 	},
 	{
 		"value": '390000',
 		"label": '贵州省',
-		"chilldren":[
+		"children":[
 			
 		]
 	},
 	{
 		"value": '400000',
 		"label": '云南省',
-		"chilldren":[
+		"children":[
 			
 		]
 	},
 	{
 		"value": '410000',
 		"label": '西藏自治区',
-		"chilldren":[
+		"children":[
 			
 		]
 	},
 	{
 		"value": '420000',
 		"label": '台湾省',
-		"chilldren":[
+		"children":[
 			
 		]
 	},

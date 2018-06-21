@@ -4,7 +4,6 @@
   "private": true,
   "dependencies": {
     "antd-mobile": "^2.1.11",
-    "antd-mobile-demo-data": "^0.2.0",
     "array-tree-filter": "^2.1.0",
     "autoprefixer": "7.1.6",
     "axios": "^0.18.0",
