@@ -213,12 +213,11 @@ export default class Register extends Component {
     link_to_protocal (e) {
         e.preventDefault();
         // registerProtocol()
-        axios.get(lib.Api.memberURL+'/member/register/registerProtocol', {
+        axios.get(lib.Api.bossURL+'/boss/setHelp/get?code=protocol_privacy_policy',{
             headers: {
-            //   'token': localStorage.getItem('token').replace("\"","").replace("\"",""),
-              'channel': 'Android'
-            }
-          }).then((res)=>{
+                'token': localStorage.getItem('token').replace("\"","").replace("\"",""),
+              }
+           }).then((res)=>{
             console.log(res);
             if(res.data.code === 1 ){
                 Toast.info (res.data.errorMsg,1);

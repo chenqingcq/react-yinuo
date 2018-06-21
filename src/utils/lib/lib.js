@@ -6,14 +6,14 @@
 // window.Redux  = require('redux');
 export const Api={
     // 开发环境
-     memberURL    :   "http://member-dev.yinuo.local",
-     shopURL      :  "http://shop-dev.yinuo.local",
-     goodsURL     :   "http://goods-dev.yinuo.local",
-     bossURL      :   "http://boss-dev.yinuo.local",
-     orderURL     :   "http://order-dev.yinuo.local",
-     accountURL   :   "http://account-dev.yinuo.local",
-     profitURL    :   "http://profit-dev.yinuo.local",
-     paymentURL   :   "http://payment-dev.yinuo.local",
+    //  memberURL    :   "http://member-dev.yinuo.local",
+    //  shopURL      :  "http://shop-dev.yinuo.local",
+    //  goodsURL     :   "http://goods-dev.yinuo.local",
+    //  bossURL      :   "http://boss-dev.yinuo.local",
+    //  orderURL     :   "http://order-dev.yinuo.local",
+    //  accountURL   :   "http://account-dev.yinuo.local",
+    //  profitURL    :   "http://profit-dev.yinuo.local",
+    //  paymentURL   :   "http://payment-dev.yinuo.local",
     
     // 测试环境
   //  memberURL    :   "http://member-test.yinuo.local",
@@ -26,14 +26,14 @@ export const Api={
   //  paymentURL   :   "http://payment-test.yinuo.local",
     
     // 预生产
-  //  memberURL    :   "https://member-pre.yinuoshangcheng.com",
-  //  shopURL      :   "https://shop-pre.yinuoshangcheng.com",
-  //  goodsURL     :   "https://goods-pre.yinuoshangcheng.com",
-  //  bossURL      :   "https://boss-pre.yinuoshangcheng.com",
-  //  orderURL     :   "https://order-pre.yinuoshangcheng.com",
-  //  accountURL   :   "https://account-pre.yinuoshangcheng.com",
-  //  profitURL    :   "https://profit-pre.yinuoshangcheng.com",
-  //  paymentURL   :   "https://payment-pre.yinuoshangcheng.com",
+   memberURL    :   "https://member-pre.yinuoshangcheng.com",
+   shopURL      :   "https://shop-pre.yinuoshangcheng.com",
+   goodsURL     :   "https://goods-pre.yinuoshangcheng.com",
+   bossURL      :   "https://boss-pre.yinuoshangcheng.com",
+   orderURL     :   "https://order-pre.yinuoshangcheng.com",
+   accountURL   :   "https://account-pre.yinuoshangcheng.com",
+   profitURL    :   "https://profit-pre.yinuoshangcheng.com",
+   paymentURL   :   "https://payment-pre.yinuoshangcheng.com",
     
     // 生产
   //  memberURL    :   "https://member.yinuoshangcheng.com",
