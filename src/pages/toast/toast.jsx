@@ -11,23 +11,11 @@ export default class Toast extends React.Component {
     closeModal(){
         this.props.closeModal();
     }
-    componentDidMount(){
-        if(this.props.isProc){
-            this.setState({
-                ...this.state,
-                proText:this.props.toastText.context
-            })
-            // this.refs.proContainer.innerHTML =  this.props.toastText.context
-            setTimeout(()=>{
-                console.log(this.state.proText)
-            })
-        }
-    }
     render(){
         if(this.props.isProc ){
             return (
-                <div onClick = {this.closeModal.bind(this)} ref='modal' style = {{display:this.props.isShowToast ? 'block':'none'}} className='modal-container'>
-                     <div className = 'modal' ref = 'proContainer'>
+                <div onClick = {this.closeModal.bind(this)} ref='modal' style = {{display:this.props.isShowToast ? 'block':'none',color:'#fff'}} className='modal-container'>
+                     <div className = 'pro-modal-container' ref = 'proContainer'>
                      </div>
                 </div>
             )

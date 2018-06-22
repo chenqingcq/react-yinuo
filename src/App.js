@@ -1,7 +1,7 @@
 import React, { Component } from 'react';
 import Login from './components/member/login/login';
 
-
+//个人中心
 import AddressManage from './components/member/addressManage/addressManage';
 import AddAddress from './components/member/addressManage/addAddress';
 import AddNewAddress from './components/member/addressManage/addNewAddress';
@@ -11,6 +11,9 @@ import Register from './components/member/myregister/register';
 import RegisterByCode from './components/member/register/registerByCode';
 import SetPayFirstTime from './components/member/register/setPay';
 import Article from './components/member/article';
+
+//商品相关
+import GoodsDetail from './components/goods/goodsDetail/goodsDetail';
 
 import Personinfo from './components/member/personalInfo';
 import {Switch,Route,Redirect,Link,withRouter} from "react-router-dom";
@@ -36,22 +39,23 @@ class App extends Component {
       <div className="App">
         <Switch>
           <Route path='/' exact component ={Login} ></Route>
-          <Route path='/login' component ={Login} ></Route>
-          <Route path = '/index' component={Index}></Route>
-          <Route path = '/my' component={My}>
+          <Route path='/login' exact component ={Login} ></Route>
+          <Route path = '/index'exact component={Index}></Route>
+          <Route path = '/my' exact component={My}>
           </Route>
-          <Route path = '/personinfo' component={Personinfo}/>
-          <Route path = '/article' component={Article}/>
-          <Route path = '/member/register' component={Register}></Route>          
-          <Route path = '/member/addAddress' component={AddAddress}></Route>
-          <Route path = '/member/registerByCode' component={RegisterByCode}></Route>
-          <Route path = '/member/setPayFisrtTime' component={SetPayFirstTime}></Route>
-          <Route path = '/member/addressManage' component={AddressManage }></Route>
-          <Route path = '/member/addAddress' component={AddAddress }></Route>
-          <Route path = '/member/addNewAddress' component={ AddNewAddress}></Route>
-          <Route path = '/member/editAddress' component={ EditAddress}></Route>
-          <Route path = '/member/createAddress' component={ CreateAddress}></Route>
+          <Route path = '/personinfo' exact component={Personinfo}/>
+          <Route path = '/article' exact component={Article}/>
+          <Route path = '/member/register' exact component={Register}></Route>          
+          <Route path = '/member/addAddress' exact component={AddAddress}></Route>
+          <Route path = '/member/registerByCode' exact component={RegisterByCode}></Route>
+          <Route path = '/member/setPayFisrtTime' exact component={SetPayFirstTime}></Route>
+          <Route path = '/member/addressManage' exact component={AddressManage }></Route>
+          <Route path = '/member/addAddress' exact component={AddAddress }></Route>
+          <Route path = '/member/addNewAddress' exact component={ AddNewAddress}></Route>
+          <Route path = '/member/editAddress' exact component={ EditAddress}></Route>
+          <Route path = '/member/createAddress' exact component={ CreateAddress}></Route>
 
+          <Route path = '/goods/goodsDetail' exact component={ GoodsDetail}></Route>          
         </Switch>
       </div>
       <div style={{position:'absolute',bottom:0,width:'100%'}}>

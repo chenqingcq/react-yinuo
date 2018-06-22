@@ -26,24 +26,24 @@ export const Api={
   //  paymentURL   :   "http://payment-test.yinuo.local",
     
     // 预生产
-  //  memberURL    :   "https://member-pre.yinuoshangcheng.com",
-  //  shopURL      :   "https://shop-pre.yinuoshangcheng.com",
-  //  goodsURL     :   "https://goods-pre.yinuoshangcheng.com",
-  //  bossURL      :   "https://boss-pre.yinuoshangcheng.com",
-  //  orderURL     :   "https://order-pre.yinuoshangcheng.com",
-  //  accountURL   :   "https://account-pre.yinuoshangcheng.com",
-  //  profitURL    :   "https://profit-pre.yinuoshangcheng.com",
-  //  paymentURL   :   "https://payment-pre.yinuoshangcheng.com",
+   memberURL    :   "https://member-pre.yinuoshangcheng.com",
+   shopURL      :   "https://shop-pre.yinuoshangcheng.com",
+   goodsURL     :   "https://goods-pre.yinuoshangcheng.com",
+   bossURL      :   "https://boss-pre.yinuoshangcheng.com",
+   orderURL     :   "https://order-pre.yinuoshangcheng.com",
+   accountURL   :   "https://account-pre.yinuoshangcheng.com",
+   profitURL    :   "https://profit-pre.yinuoshangcheng.com",
+   paymentURL   :   "https://payment-pre.yinuoshangcheng.com",
     
     // 生产
-   memberURL    :   "https://member.yinuoshangcheng.com",
-   shopURL      :   "https://shop.yinuoshangcheng.com",
-   goodsURL     :   "https://goods.yinuoshangcheng.com",
-   bossURL      :   "https://boss.yinuoshangcheng.com",
-   orderURL     :   "https://order.yinuoshangcheng.com",
-   accountURL   :   "https://account.yinuoshangcheng.com",
-   profitURL    :   "https://profit.yinuoshangcheng.com",
-   paymentURL   :   "https://payment.yinuoshangcheng.com",
+  //  memberURL    :   "https://member.yinuoshangcheng.com",
+  //  shopURL      :   "https://shop.yinuoshangcheng.com",
+  //  goodsURL     :   "https://goods.yinuoshangcheng.com",
+  //  bossURL      :   "https://boss.yinuoshangcheng.com",
+  //  orderURL     :   "https://order.yinuoshangcheng.com",
+  //  accountURL   :   "https://account.yinuoshangcheng.com",
+  //  profitURL    :   "https://profit.yinuoshangcheng.com",
+  //  paymentURL   :   "https://payment.yinuoshangcheng.com",
 }
 export const md5=function MD5(sMessage)  
 {  

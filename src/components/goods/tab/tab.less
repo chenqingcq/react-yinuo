@@ -1,0 +1,42 @@
+.goods-tab-container{
+    position: fixed;
+    bottom: 0;
+    height: 55px;
+    width: 100%;
+    border-top: 1px solid #ccc;
+    display: flex;
+    .left{
+        width:167px;
+        display: flex;
+        span{
+            flex: 1;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            img{
+                display: inline-block;
+                height: 24px;
+            }
+        }
+    }
+    .right{
+        flex: 1;
+        display: flex;
+        >div{
+            flex: 1;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            color: #fff;
+            font-size: 16px;
+            font-family:PingFang-SC-Mediumserif;
+            font-weight: 500;
+            &.addToCart{
+                background: #FF8585;
+            }
+            &.buybuybuy{
+                background: #D30000
+            }
+        }
+    }
+}

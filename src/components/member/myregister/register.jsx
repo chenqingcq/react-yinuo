@@ -227,10 +227,14 @@ export default class Register extends Component {
                     ...this.state,
                     modal: true,
                     userProcText:res.data.data    
-                });        
+                });   
+                setTimeout(()=>{
+                    console.log(document.querySelector('.pro-modal-container'))
+                    document.querySelector('.pro-modal-container').innerHTML = res.data.data.context
+                })     
             }
         }).catch((err)=>{
-           Toast.fail('好像出错了喔...',2);            
+        //    Toast.fail('好像出错了喔...',2);            
         }) 
     }
     onClose() {

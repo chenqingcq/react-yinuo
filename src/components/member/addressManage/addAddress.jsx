@@ -4,7 +4,7 @@ import Button from '../../../pages/button/button';
 import {Picker, List, InputItem, WhiteSpace } from 'antd-mobile';
 import Dialog from '../../../pages/toast/toast';
 import arrayTreeFilter from 'array-tree-filter';
-import { district, provinceLite } from 'antd-mobile-demo-data';
+import data from './area';
 import axios from 'axios';
 const lib = require('../../../utils/lib/lib.js');
 var qs = require('qs');
@@ -16,11 +16,10 @@ export default class Register extends Component {
           cols: 1,
           pickerValue: [],
           visible: false,
-          district:[]
+          district:[],
         };
     }
     componentDidMount(){
-      console.log(district)
        var params =localStorage.getItem('token');
        axios.get(lib.Api.bossURL+'/boss/setAreaCode/listProvinces',qs.stringify(params)).then((res)=>{
          console.log(res)
@@ -57,7 +56,7 @@ export default class Register extends Component {
             <Picker
             visible={this.state.visible}
             value={this.state.pickerValue}
-            data={district}
+            data={data}
             onChange={v => this.setState({ pickerValue: v})}
             onOk={() => this.setState({ visible: false })}
             onDismiss={() => this.setState({ visible: false })}

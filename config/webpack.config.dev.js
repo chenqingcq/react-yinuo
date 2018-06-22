@@ -11,6 +11,7 @@ const eslintFormatter = require('react-dev-utils/eslintFormatter');
 const ModuleScopePlugin = require('react-dev-utils/ModuleScopePlugin');
 const getClientEnvironment = require('./env');
 const paths = require('./paths');
+// const px2rem = require('postcss-px2rem');
 
 // Webpack uses `publicPath` to determine where the app is being served from.
 // In development, we always serve from the root. This makes config easier.
@@ -180,16 +181,6 @@ module.exports = {
                 },
               },
               {
-                loader: require.resolve('less-loader'),
-                //   exclude: [
-                //         /\.(js|jsx|mjs)$/,
-                //         /\.html$/,
-                //         /\.json$/,
-                //         // 第三处
-                //         /\.(css|less)$/,
-                //       ]
-              },
-              {
                 loader: require.resolve('postcss-loader'),
                 options: {
                   // Necessary for external CSS imports to work
@@ -206,8 +197,19 @@ module.exports = {
                       ],
                       flexbox: 'no-2009',
                     }),
+                    // px2rem({remUnit:75})
                   ],
                 },
+              },
+              {
+                loader: require.resolve('less-loader'),
+                //   exclude: [
+                //         /\.(js|jsx|mjs)$/,
+                //         /\.html$/,
+                //         /\.json$/,
+                //         // 第三处
+                //         /\.(css|less)$/,
+                //       ]
               },
             ],
           },

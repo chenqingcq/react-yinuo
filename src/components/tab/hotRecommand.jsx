@@ -2,6 +2,7 @@ import React , {Component} from 'react';
 import {  ListView, Button} from 'antd-mobile';
 import Luo from 'iscroll-luo';
 import axios from 'axios';
+import {Link} from 'react-router-dom'
 const lib = require('../../utils/lib/lib.js');
 var qs = require('qs');
 export default class hotRecommand extends Component {
@@ -44,7 +45,13 @@ export default class hotRecommand extends Component {
         }
     })
   }
+  goodsDetail(id){
+    // this.props.history.push('/goods/goodsDetail')
+    console.log(this.props);
+    window.sessionStorage.setItem('goodsId',id);
+  }
   render (){
+    let self = this
     return(
        <div>
           <div className="hotRecommand">
@@ -60,7 +67,7 @@ export default class hotRecommand extends Component {
                    <ul>
                    {this.state.hotSale.map((val,index)=>{
                      return(
-                      <li key={val.id}>
+                      <li key={val.id} onClick={this.goodsDetail.bind(this,val.id)}>
                       <img src={val.coverPic}/>
                       <p className="goodsName">
                         {val.name?(val.name.length>=15?val.name.substr(0,15)+'...':val.name):''}
@@ -74,7 +81,7 @@ export default class hotRecommand extends Component {
                         <span><img src={require('../../assets/img/nuomi@2x.png')} style={{width:9,height:14}}/>+{val.nuomi.toFixed(2)}</span>
                         <a style={{display:val.isPostageFree?'none':'block'}}>快递：12.00元</a>
                         <a style={{fontSize:'9px',color:'#D30000',border:'1px solid #D30000',borderRadius:'5px',display:val.isPostageFree?'block':'none'}}>包邮</a>
-                      </p>
+                      </p>                  
                     </li>
                    )})
                    }

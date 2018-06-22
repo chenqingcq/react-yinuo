@@ -53,8 +53,10 @@ console.log(data)
         });
     }
     componentDidMount(){
-        this.refs.userInput.value = this.state.alias; 
-        this.confirmEdit()       
+        if(!this.state.tags.includes(this.state.alias)){
+            this.refs.userInput.value = this.state.alias;    
+             this.confirmEdit()                            
+        }
     }
     handlerSetDefault(index){
       console.log(index);
