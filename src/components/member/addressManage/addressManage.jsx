@@ -34,10 +34,11 @@ export default class AddressManage extends Component {
     //   pageNum:this.state.pageNum,
     //   pageSize:this.state.pageSize
     // })
+    let token =localStorage.getItem('token')? localStorage.getItem('token').replace("\"", "").replace("\"", ""):'';
     axios.get(lib.Api.memberURL + '/member/memberAddress/list?pageNum=' + this.state.pageNum + '&pageSize=' + this.state.pageSize,
       {
         headers: {
-          'token': localStorage.getItem('token').replace("\"", "").replace("\"", ""),
+          'token': token ,
           'channel': 'Android'
         }
       }).then((res) => {

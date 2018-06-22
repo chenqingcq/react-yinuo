@@ -295,6 +295,7 @@ console.log(data)
                 placeholder="地区信息"
             >地区信息
             <Picker
+                itemStyle= {{fontSize:13}}
                 visible={this.state.visible}
                 data={this.state.region}
                 // data = {this.state.region}

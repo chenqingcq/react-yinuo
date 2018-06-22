@@ -25,9 +25,10 @@ class GoodsDetail extends React.Component{
     }
     componentWillMount(){   
         let id = window.sessionStorage.getItem('goodsId') || '' 
+        let token = localStorage.getItem('token') ? localStorage.getItem('token').replace("\"","").replace("\"",""):'' ;
         axios.get(`${lib.Api.goodsURL}/goods/goodsInfo/detail/get?id=${id}`, {
             headers: {
-              'token': localStorage.getItem('token').replace("\"","").replace("\"",""),
+              'token': token,
               'channel': 'Android'
             }
           }).then((res)=>{
