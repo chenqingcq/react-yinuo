@@ -1,9 +1,10 @@
 import React from 'react';
 import axios from 'axios';
 import qs from 'qs'
-import { Carousel, WingBlank } from 'antd-mobile';
+import { Carousel, WingBlank ,Icon} from 'antd-mobile';
 
-
+import GoodsParams from '../goodsParams/goodsParams'
+import GoodsCart from '../goodsCart/goodsCart'
 import './goodsDetail.less'
 // import Tab from '../tab/tab'
 const lib = require('../../../utils/lib/lib.js');
@@ -13,6 +14,9 @@ class GoodsDetail extends React.Component{
         super(props);
         this.state = {
             id:'',
+            isAutoPlay:false,//是否自动轮播
+            visible :false,//商品参数是否显示
+            cartVisible:false,//购物车是否显示            
             carouselPics:[],
             imgHeight: 176,
             goodsName:'',
@@ -20,10 +24,13 @@ class GoodsDetail extends React.Component{
             sale:0,//销售量,
             nuomi:0 ,//糯米数
             price:0 ,//销售价
-            postage:0//快递费
+            postage:0,//快递费
+            monthlySales:0,//月销量
+            deliveryTime:''//承诺发货时间
         }
     }
-    componentWillMount(){   
+    componentDidMount(){   
+        document.title = '商品详情'
         let id = window.sessionStorage.getItem('goodsId') || '' 
         let token = localStorage.getItem('token') ? localStorage.getItem('token').replace("\"","").replace("\"",""):'' ;
         axios.get(`${lib.Api.goodsURL}/goods/goodsInfo/detail/get?id=${id}`, {
@@ -43,7 +50,10 @@ class GoodsDetail extends React.Component{
                       sale:res.data.data.sale,
                       nuomi:res.data.data.nuomi[0],
                       price:res.data.data.price[0],
-                      postage:res.data.data.postage
+                      monthlySales:res.data.data.monthlySales,
+                      postage:res.data.data.postage,
+                      deliveryTime:res.data.data.deliveryTime,
+                      isAutoPlay:true
                   })
                   setTimeout(()=>{
                     console.log(this.state)
@@ -57,7 +67,40 @@ class GoodsDetail extends React.Component{
     goodsCollect(e){
         // if(e.)
     }
-    render(){
+    showGoodsParams(e){
+        e.preventDefault();
+        console.log(this);
+        this.setState({
+            ...this.state,
+            visible:true//
+        })
+    }
+    showGoodsCart(e){
+        e.preventDefault();  
+        this.setState({
+            ...this.state,
+            cartVisible:true
+        })      
+    }
+    closeGoodsParams(e){
+        e.preventDefault();
+        console.log(this);
+        this.setState({
+            ...this.state,
+            visible:false
+        })
+    }
+    closeGoodsCart(e){
+        e.preventDefault();
+        this.setState({
+            ...this.state,
+            cartVisible:false
+        })
+    }
+    link_to_all_comments(){//所有评论
+        this.props.history.push('/goods/goodsAllComments')
+    }
+    render(){ 
         return (
             <div className='goods-container'>
                 <div className='carousel-container'>
@@ -74,10 +117,12 @@ class GoodsDetail extends React.Component{
                                 <img src={require('../../../assets/img/message@2x.png')} alt=''/>                                
                             </span>
                         </div>
-                        <WingBlank>
+                        {/* <WingBlank> */}
                             <Carousel
-                            autoplay={true}
+                            autoplay={this.state.isAutoPlay}
                             infinite
+                            dotStyle = {{background:'#fff'}}    
+                            dotActiveStyle = {{background:'#D30000'}}
                             beforeChange={(from, to) => console.log(`slide from ${from} to ${to}`)}
                             afterChange={index => console.log('slide to', index)}
                             >
@@ -92,14 +137,17 @@ class GoodsDetail extends React.Component{
                                     onLoad={() => {
                                         // fire window resize event to change height
                                         window.dispatchEvent(new Event('resize'));
-                                        this.setState({ imgHeight: 375 });
+                                        this.setState({ ...this.state,imgHeight: 375 ,isAutoPlay:true});
+                                        setTimeout(()=>{
+                                            console.log(this.state)                                            
+                                        })
                                      }}
                                    key = {val}  
                                    src={val} 
                                    alt=''/>
                             ))}         
                             </Carousel>
-                            </WingBlank>
+                            {/* </WingBlank> */}
                          </div>
                      <div className='goods-intr'>
                             <div className='goods-name'>
@@ -108,13 +156,13 @@ class GoodsDetail extends React.Component{
                             <div className='goods-price'>
                                 <p className='pre-now-price'>
                                     <span>￥{this.state.price}</span>
-                                    <span>￥2323</span>
+                                    <span>￥20323</span>
                                 </p>
                                 <p className='month-out'>
                                     <img src = {require('../../../assets/img/nuomi@2x.png')} alt=''/>                                                
                                     <span>{this.state.nuomi}</span>
                                     <span className='count' >
-                                        月销量:<span>{this.state.sale}</span>
+                                        月销量:<span>{this.state.monthlySales}</span>
                                     </span>
                                 </p>
                                 <p className ='address'>
@@ -128,9 +176,9 @@ class GoodsDetail extends React.Component{
                           <ul>
                               <li>
                                   <span>服务</span>
-                                  <span>10天内发货</span>
+                                  <span>{this.state.deliveryTime}</span>
                               </li>
-                              <li>
+                              <li onClick = {this.showGoodsParams.bind(this)}>
                                     <div className='param'>
                                         参数
                                     </div> 
@@ -144,7 +192,19 @@ class GoodsDetail extends React.Component{
                                 </li>
                           </ul>
                     </div>
-               
+                    <div className='goods-comments'>
+                           <div className='top'>
+                                <div className='comments-number'>
+                                    <span>商品评论</span>
+                                    <span>(9999)</span>
+                                </div>
+                                <div className='goodsCm-num' onClick={this.link_to_all_comments.bind(this)}>
+                                    <span>好评论</span>
+                                    <span>98%</span>
+                                    <Icon color= '#D30000' size ='md' type='right'/>
+                                </div>
+                           </div>
+                    </div>     
                     </div>
                  </div>
                 <div className='goods-tab-container'>
@@ -160,14 +220,16 @@ class GoodsDetail extends React.Component{
                         </span>
                     </div>
                     <div className ='right'>
-                        <div className ='addToCart'>
+                        <div className ='addToCart' onClick = {this.showGoodsCart.bind(this)}>
                             加入购物车
                         </div>
                         <div className='buybuybuy'>
                             立即购买
                         </div>
                     </div>
-                 </div>              
+                 </div>   
+                 <GoodsParams visible = {this.state.visible} closeGoodsParams = {this.closeGoodsParams.bind(this)} />           
+                 <GoodsCart imgUrl = {this.state.carouselPics} cartVisible = {this.state.cartVisible} closeGoodsCart = {this.closeGoodsCart.bind(this)} />           
             </div>
         )
     }

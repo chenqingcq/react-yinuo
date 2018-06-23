@@ -14,6 +14,7 @@ import Article from './components/member/article';
 
 //商品相关
 import GoodsDetail from './components/goods/goodsDetail/goodsDetail';
+import GoodsAllComments from './components/goods/comments/comments';
 
 import Personinfo from './components/member/personalInfo';
 import {Switch,Route,Redirect,Link,withRouter} from "react-router-dom";
@@ -23,6 +24,7 @@ import My from './components/tab/my';
 import { TabBar } from 'antd-mobile';
 import './App.css'
 import './assets/css/common.css'
+import './assets/css/font.css'
 import 'antd-mobile/dist/antd-mobile.css';
 
 
@@ -56,6 +58,7 @@ class App extends Component {
           <Route path = '/member/createAddress' exact component={ CreateAddress}></Route>
 
           <Route path = '/goods/goodsDetail' exact component={ GoodsDetail}></Route>          
+          <Route path = '/goods/goodsAllComments' exact component={GoodsAllComments }></Route>          
         </Switch>
       </div>
       <div style={{position:'absolute',bottom:0,width:'100%'}}>

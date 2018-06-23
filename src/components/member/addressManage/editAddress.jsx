@@ -257,7 +257,21 @@ console.log(data)
         }   
     }
     setRegion(v){
-         this.setState({...this.state, visible: false ,mergeName:v})
+        let ProvinceCode =  v[0];
+        let CityCode =  v[1];
+        let RegionCode =  v[2];
+        let ProvItem = data.filter((item)=>{
+            return item.value == ProvinceCode
+        })
+        let CityItem = ProvItem[0].children.filter((item)=>{
+            return item.value == CityCode
+        })
+        let RegionItem =CityItem[0].children.filter((item)=>{
+            return item.value == RegionCode
+        })
+        console.log(ProvinceCode,CityCode,RegionCode,ProvItem[0].label,CityItem[0].label,RegionItem[0].label,data);
+        let mergeName = [ProvItem[0].label,CityItem[0].label,RegionItem[0].label].join(',')
+         this.setState({...this.state, visible: false ,mergeName:mergeName,pickerValue:mergeName})
     }
     setDetailAddress(v){
         this.setState({...this.state, detailAddr:v})

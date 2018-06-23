@@ -298,7 +298,6 @@ console.log(data)
                 itemStyle= {{fontSize:13}}
                 visible={this.state.visible}
                 data={this.state.region}
-                // data = {this.state.region}
                 onChange={()=>{}}
                 onOk={this.setRegion.bind(this)}
                 onDismiss={() => this.setState({ visible: false })}
