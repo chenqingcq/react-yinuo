@@ -495,28 +495,183 @@ var district = [{
 		"value": '130000',
 		"label": '河北省',
 		"children": [
-
-		]
-	},
-	{
-		"value": '140000',
-		"label": '河北省',
-		"children": [
-
+			{
+				"value": '130001',
+				"label": "邯郸市",
+				"children": []
+			},
+			{
+				"value": '130002',
+				"label": "石家庄市",
+				"children": []
+			},
+			{
+				"value": '130103',
+				"label": "保定市",
+				"children": []
+			},
+			{
+				"value": '130101',
+				"label": "张家口市",
+				"children": []
+			},
+			{
+				"value": '130102',
+				"label": "承德市",
+				"children": []
+			}, 
+			{
+				"value": '130107',
+				"label": "唐山市",
+				"children": []
+			}, 
+			{
+				"value": '130104',
+				"label": "廊坊市",
+				"children": []
+			}, 
+			{
+				"value": '130105',
+				"label": "沧州市",
+				"children": []
+			}, 
+			{
+				"value": '130106',
+				"label": "衡水市",
+				"children": []
+			}, 
+			{
+				"value": '130200',
+				"label": "邢台市",
+				"children": []
+			}
 		]
 	},
 	{
 		"value": '150000',
-		"label": '山西',
+		"label": '山西省',
 		"children": [
-
+			{
+				"value": '130108',
+				"label": "塑州市",
+				"children": []
+			}, 
+			{
+				"value": '130109',
+				"label": "忻州市",
+				"children": []
+			}, 
+			{
+				"value": '130110',
+				"label": "太原市",
+				"children": []
+			}, 
+			{
+				"value": '130111',
+				"label": "大同市",
+				"children": []
+			}, 
+			{
+				"value": '130112',
+				"label": "阳泉市",
+				"children": []
+			}, 
+			{
+				"value": '130113',
+				"label": "晋中市",
+				"children": []
+			}, 
+			{
+				"value": '130114',
+				"label": "长治市",
+				"children": []
+			}, 
+			{
+				"value": '130115',
+				"label": "晋城市",
+				"children": []
+			}, 
+			{
+				"value": '130116',
+				"label": "临汾市",
+				"children": []
+			}, 
+			{
+				"value": '130117',
+				"label": "吕梁市",
+				"children": []
+			}, 
+			{
+				"value": '130118',
+				"label": "运城市",
+				"children": []
+			}, 
+			{
+				"value": '130119',
+				"label": "晋城市",
+				"children": []
+			}, 
 		]
 	},
 	{
 		"value": '160000',
 		"label": '内蒙古自治区',
 		"children": [
-
+			{
+				"value": '160100',
+				"label": "呼和浩特市",
+				"children": []
+			}, 
+			{
+				"value": '160102',
+				"label": "包头市",
+				"children": []
+			}, 
+			{
+				"value": '160103',
+				"label": "乌海市",
+				"children": []
+			}, 
+			{
+				"value": '160104',
+				"label": "乌兰察布市",
+				"children": []
+			}, 
+			{
+				"value": '160105',
+				"label": "通辽市",
+				"children": []
+			}, 
+			{
+				"value": '160106',
+				"label": "赤峰市",
+				"children": []
+			}, 
+			{
+				"value": '160107',
+				"label": "鄂尔多斯市",
+				"children": []
+			}, 
+			{
+				"value": '160108',
+				"label": "巴彦淖尔市",
+				"children": []
+			}, 
+			{
+				"value": '160109',
+				"label": "锡林郭勒市",
+				"children": []
+			}, 
+			{
+				"value": '160110',
+				"label": "新安盟市",
+				"children": []
+			}, 
+			{
+				"value": '160111',
+				"label": "阿拉善盟",
+				"children": []
+			}
 		]
 	},
 	{
@@ -586,8 +741,427 @@ var district = [{
 		"value": '280000',
 		"label": '湖南省',
 		"children": [{
-				"value": '100100',
-				"label": '邵阳市',
+				"value": '280100',
+				"label": "岳阳市",
+				"children": [{
+						"value": '280101',
+						"label": "岳阳楼区",
+						"children": []
+					},
+					{
+						"value": '280102',
+						"label": "云溪区",
+						"children": []
+					},
+					{
+						"value": '280103',
+						"label": "君山区",
+						"children": []
+					},
+					{
+						"value": '280104',
+						"label": "岳阳县",
+						"children": []
+					},
+					{
+						"value": '280105',
+						"label": "华容县",
+						"children": []
+					},
+					{
+						"value": '280106',
+						"label": "湘阴县",
+						"children": []
+					},
+					{
+						"value": '280107',
+						"label": "平江县",
+						"children": []
+					},
+					{
+						"value": '280108',
+						"label": "汨罗县",
+						"children": []
+					},
+					{
+						"value": '280109',
+						"label": "临湘市",
+						"children": []
+					}
+				]
+			},
+			{
+				"value": '280200',
+				"label": '长沙市',
+				"children": [{
+						"value": '280214',
+						"label": '芙蓉区',
+						"children": []
+					},
+					{
+						"value": '280201',
+						"label": '天心区',
+						"children": []
+					},
+					{
+						"value": '280202',
+						"label": '岳麓区',
+						"children": []
+					},
+					{
+						"value": '280203',
+						"label": '开福区',
+						"children": []
+					},
+					{
+						"value": '280204',
+						"label": '雨花区',
+						"children": []
+					},
+					{
+						"value": '280205',
+						"label": "长沙县",
+						"children": []
+					},
+					{
+						"value": '280206',
+						"label": "望城县",
+						"children": []
+					},
+					{
+						"value": '280207',
+						"label": "宁乡县",
+						"children": []
+					},
+					{
+						"value": '280208',
+						"label": "浏阳市",
+						"children": []
+					}
+				]
+			},
+			{
+				"value": '100103',
+				"label": "湘潭市",
+				"children": [{
+						"value": '280209',
+						"label": "雨湖区",
+						"children": []
+					},
+					{
+						"value": '280210',
+						"label": "岳塘区",
+						"children": []
+					},
+					{
+						"value": '280211',
+						"label": "湘潭县",
+						"children": []
+					},
+					{
+						"value": '280212',
+						"label": "湘乡县",
+						"children": []
+					},
+					{
+						"value": '280213',
+						"label": "韶山市",
+						"children": []
+					}
+				]
+			},
+			{
+				"value": '200100',
+				"label": "株洲市",
+				"children": [{
+					"value": '200101',
+					"label": "荷塘区",
+					"children": [
+
+					]
+				}, {
+					"value": '200102',
+					"label": "沪松区",
+					"children": [
+
+					]
+				}, {
+					"value": '200103',
+					"label": "石峰区",
+					"children": [
+
+					]
+				}, {
+					"value": '200104',
+					"label": "天元区",
+					"children": [
+
+					]
+				}, {
+					"value": '200105',
+					"label": "株洲县",
+					"children": [
+
+					]
+				}, {
+					"value": '200106',
+					"label": "攸县",
+					"children": [
+
+					]
+				}, {
+					"value": '200107',
+					"label": "茶陵县",
+					"children": [
+
+					]
+				}, {
+					"value": '200108',
+					"label": "炎陵县",
+					"children": [
+
+					]
+				}, {
+					"value": '200109',
+					"label": "醴陵市",
+					"children": [
+
+					]
+				}]
+			},
+			{
+				"value": '200200',
+				"label": "衡阳市",
+				"children": [{
+						"value": '200201',
+						"label": "珠晖区",
+						"children": []
+					},
+					{
+						"value": '200202',
+						"label": "雁峰区",
+						"children": []
+					},
+					{
+						"value": '200203',
+						"label": "石鼓区",
+						"children": []
+					},
+					{
+						"value": '200204',
+						"label": "蒸湘区",
+						"children": []
+					},
+					{
+						"value": '200205',
+						"label": "南岳区",
+						"children": []
+					},
+					{
+						"value": '200206',
+						"label": "衡阳县",
+						"children": []
+					},
+					{
+						"value": '200207',
+						"label": "衡山县",
+						"children": []
+					},
+					{
+						"value": '200208',
+						"label": "祁东县",
+						"children": []
+					},
+					{
+						"value": '200209',
+						"label": "耒阳市",
+						"children": []
+					},
+					{
+						"value": '200210',
+						"label": "常宁市",
+						"children": []
+					},
+				]
+			},
+			{
+				"value": '200300',
+				"label": "郴州市",
+				"children": [{
+						"value": '200301',
+						"label": "北湖区",
+						"children": []
+					},
+					{
+						"value": '200302',
+						"label": "苏仙区",
+						"children": []
+					},
+					{
+						"value": '200303',
+						"label": "贵阳县",
+						"children": []
+					},
+					{
+						"value": '200304',
+						"label": "宜章县",
+						"children": []
+					},
+					{
+						"value": '200305',
+						"label": "永兴县",
+						"children": []
+					},
+					{
+						"value": '200306',
+						"label": "嘉禾县",
+						"children": []
+					},
+					{
+						"value": '200307',
+						"label": "临武县",
+						"children": []
+					},
+					{
+						"value": '200308',
+						"label": "汝城县",
+						"children": []
+					},
+					{
+						"value": '200309',
+						"label": "桂东县",
+						"children": []
+					},
+					{
+						"value": '200310',
+						"label": "安仁县",
+						"children": []
+					},
+					{
+						"value": '200311',
+						"label": "资兴县",
+						"children": []
+					},
+				]
+			},
+			{
+				"value": '100107',
+				"label": "常德市",
+				"children": [{
+						"value": '200312',
+						"label": "武陵县",
+						"children": []
+					},
+					{
+						"value": '200313',
+						"label": "鼎城区",
+						"children": []
+					},
+					{
+						"value": '200314',
+						"label": "安乡县",
+						"children": []
+					},
+					{
+						"value": '200315',
+						"label": "汉寿县",
+						"children": []
+					},
+					{
+						"value": '200316',
+						"label": "澧县",
+						"children": []
+					},
+					{
+						"value": '200317',
+						"label": "临澧县",
+						"children": []
+					},
+					{
+						"value": '200318',
+						"label": "桃源县",
+						"children": []
+					},
+					{
+						"value": '200319',
+						"label": "石门县",
+						"children": []
+					},
+					{
+						"value": '200320',
+						"label": "津市市",
+						"children": []
+					},
+				]
+			},
+			{
+				"value": '200400',
+				"label": "益阳市",
+				"children": [{
+						"value": '200401',
+						"label": "资阳区",
+						"children": []
+					},
+					{
+						"value": '200402',
+						"label": "赫山区",
+						"children": []
+					},
+					{
+						"value": '200403',
+						"label": "南县",
+						"children": []
+					},
+					{
+						"value": '200404',
+						"label": "桃江县",
+						"children": []
+					},
+					{
+						"value": '200405',
+						"label": "安化县",
+						"children": []
+					},
+					{
+						"value": '200406',
+						"label": "沅江市",
+						"children": []
+					},
+				]
+			},
+			{
+				"value": '200500',
+				"label": "娄底市",
+				"children": [{
+						"value": '200501',
+						"label": "滋养区",
+						"children": []
+					},
+					{
+						"value": '200502',
+						"label": "双峰县",
+						"children": []
+					},
+					{
+						"value": '200503',
+						"label": "新化县",
+						"children": []
+					},
+					{
+						"value": '200504',
+						"label": "冷水江市",
+						"children": []
+					},
+					{
+						"value": '200505',
+						"label": "涟源市",
+						"children": []
+					},
+				]
+			},
+			{
+				"value": '100110',
+				"label": "邵阳市",
 				"children": [{
 						"value": '100101',
 						"label": '双清区',
@@ -602,18 +1176,260 @@ var district = [{
 						"value": '100103',
 						"label": '北塔区',
 						"children": []
+					},
+					{
+						"value": '100104',
+						"label": "邵东县",
+						"children": []
+					},
+					{
+						"value": '100105',
+						"label": "新邵县",
+						"children": []
+					},
+					{
+						"value": '100106',
+						"label": "邵阳县",
+						"children": []
+					},
+					{
+						"value": '100107',
+						"label": "隆回县",
+						"children": []
+					},
+					{
+						"value": '100108',
+						"label": "洞口县",
+						"children": []
+					},
+					{
+						"value": '100109',
+						"label": "绥宁县",
+						"children": []
+					},
+					{
+						"value": '100110',
+						"label": "新宁县",
+						"children": []
+					},
+					{
+						"value": '100111',
+						"label": "城步苗族自治县",
+						"children": []
+					},
+					{
+						"value": '100112',
+						"label": "武冈市",
+						"children": []
+					},
+					{
+						"value": '100113',
+						"label": "城步苗族自治县",
+						"children": []
+					},
+					{
+						"value": '100114',
+						"label": "武冈市",
+						"children": []
+					},
+				]
+			},
+			{
+				"value": '200600',
+				"label": "湘西土家族苗族自治州",
+				"children": [{
+						"value": '200601',
+						"label": "吉首市",
+						"children": []
+					},
+					{
+						"value": '200602',
+						"label": "泸溪县",
+						"children": []
+					},
+					{
+						"value": '200603',
+						"label": "凤凰县",
+						"children": []
+					},
+					{
+						"value": '200604',
+						"label": "花垣县",
+						"children": []
+					},
+					{
+						"value": '200605',
+						"label": "保靖县",
+						"children": []
+					},
+					{
+						"value": '200606',
+						"label": "古丈县",
+						"children": []
+					},
+					{
+						"value": '200607',
+						"label": "永顺县",
+						"children": []
+					},
+					{
+						"value": '200608',
+						"label": "龙山县",
+						"children": []
 					}
 				]
 			},
 			{
-				"value": '100200',
-				"label": '长沙市',
+				"value": '200700',
+				"label": "张家界市",
 				"children": [{
-					"value": '100201',
-					"label": '雨花区',
-					"children": []
-				}]
-			}
+						"value": '200701',
+						"label": "永定区",
+						"children": []
+					},
+					{
+						"value": '200702',
+						"label": "武陵源区",
+						"children": []
+					},
+					{
+						"value": '200703',
+						"label": "慈利县",
+						"children": []
+					},
+					{
+						"value": '200704',
+						"label": "桑植县",
+						"children": []
+					}
+				]
+			},
+			{
+				"value": '200800',
+				"label": "怀化市",
+				"children": [{
+						"value": '200801',
+						"label": "鹤城县",
+						"children": []
+					},
+					{
+						"value": '200802',
+						"label": "中方县",
+						"children": []
+					},
+					{
+						"value": '200803',
+						"label": "沅陵县",
+						"children": []
+					},
+					{
+						"value": '200804',
+						"label": "辰溪县",
+						"children": []
+					},
+					{
+						"value": '200805',
+						"label": "溆浦县",
+						"children": []
+					},
+					{
+						"value": '200806',
+						"label": "合同县",
+						"children": []
+					},
+					{
+						"value": '200807',
+						"label": "麻阳苗族自治县",
+						"children": []
+					},
+					{
+						"value": '200808',
+						"label": "新晃侗族自治县",
+						"children": []
+					},
+					{
+						"value": '200809',
+						"label": "芷江侗族自治县",
+						"children": []
+					},
+					{
+						"value": '200810',
+						"label": "靖州苗族侗族自治县",
+						"children": []
+					},
+					{
+						"value": '200811',
+						"label": "通道侗族自治县",
+						"children": []
+					},
+					{
+						"value": '200812',
+						"label": "洪江市",
+						"children": []
+					},
+				]
+			},
+			{
+				"value": '200900',
+				"label": "永州市",
+				"children": [{
+						"value": '200901',
+						"label": "零陵区",
+						"children": []
+					},
+					{
+						"value": '200910',
+						"label": "冷水滩区",
+						"children": []
+					},
+					{
+						"value": '200911',
+						"label": "祁阳县",
+						"children": []
+					},
+					{
+						"value": '200912',
+						"label": "东安县",
+						"children": []
+					},
+					{
+						"value": '200913',
+						"label": "双牌县",
+						"children": []
+					},
+					{
+						"value": '200914',
+						"label": "道县",
+						"children": []
+					},
+					{
+						"value": '200915',
+						"label": "江永县",
+						"children": []
+					},
+					{
+						"label": "宁远县",
+						"value": '200916',
+						"children": []
+					},
+					{
+						"label": "蓝山县",
+						"value": '200917',
+						"children": []
+					},
+					{
+						"label": "新田县",
+						"value": '200918',
+						"children": []
+					},
+					{
+						"label": "江华瑶族自治县",
+						"value": '200919',
+						"children": []
+					},
+
+				]
+			},
 		]
 	},
 	{
@@ -640,13 +1456,6 @@ var district = [{
 	{
 		"value": '320000',
 		"label": '陕西省',
-		"children": [
-
-		]
-	},
-	{
-		"value": '330000',
-		"label": '山西省',
 		"children": [
 
 		]
