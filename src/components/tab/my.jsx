@@ -12,7 +12,8 @@ export default class Index extends Component {
             data:'',
             identity:'',
             refereeInfo:'',
-            phone:''
+            phone:'',
+            maxValue:0
          }
     }
     componentDidMount(){
@@ -51,6 +52,18 @@ export default class Index extends Component {
             }  
          }
         })
+        //获取诺米最大限度
+        axios.get(lib.Api.bossURL+'/boss/setConfigure/get?code=member_personal_nuomi_limit_one_day',{
+            headers:{
+                'token':localStorage.getItem('token')
+            }
+        }).then((res)=>{
+            if(res.data.data){
+                this.setState({
+                    maxValue:res.data.data.value
+                })
+            }
+        })
     }
     render (){
         return (
@@ -70,7 +83,7 @@ export default class Index extends Component {
                      {this.state.data.nickname}
                      <a><img src={require('../../assets/img/等级徽章@2x.png')}/>{this.state.identity}</a>
                  </span>
-                 <h4>当日可得诺米最大限度：1000个</h4>
+                 <h4>当日可得诺米最大限度：{this.state.maxValue}个</h4>
                 </div>
                 </Link>
               </div>

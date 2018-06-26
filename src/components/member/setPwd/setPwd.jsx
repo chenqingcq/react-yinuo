@@ -45,7 +45,7 @@ export default class setPwd extends Component {
     render (){
 
         return (
-        <div>
+        <div className="setPwd">
           <InputItem
             clear
             placeholder="请输入8-20包含英文和数字的密码"

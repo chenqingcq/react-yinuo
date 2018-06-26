@@ -27,6 +27,10 @@ export default class Login extends Component {
     componentDidMount(){
         var TabBar =document.querySelector('.am-tabs-tab-bar-wrap');
         TabBar.style.display='none';
+        var personinfo = localStorage.getItem('personinfo');
+        if(personinfo){
+            this.props.history.push('index');
+        }
     }
     handlerOperate() {
         console.log('register')
@@ -78,7 +82,7 @@ export default class Login extends Component {
                       localStorage.setItem('phone',this.refs.username.value)
                       localStorage.setItem('code',this.refs.password.value)
                       setTimeout(()=>{
-                       this.props.history.push('personinfo');
+                       this.props.history.push('index');
                       })
                    } else if(res.data.code===30200){
                        this.refs.container.style.display='block';

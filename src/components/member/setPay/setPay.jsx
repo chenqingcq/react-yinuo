@@ -70,7 +70,7 @@ export default class setPwd extends Component {
     render (){
 
         return (
-        <div>
+        <div className="SetPay">
           <InputItem
             clear
             placeholder="请输入6位支付密码"

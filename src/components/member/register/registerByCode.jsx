@@ -68,7 +68,7 @@ export default class Register extends Component {
             let data  = qs.stringify({phone:phone,loginPass:this.refs.confirmCode.value,verificationCode:code,payPass:payPass})
             axios.post(Api.memberURL+ '/member/register/register',data,{
                 headers:{
-                    'channel': 'Android'                    
+                    'channel': 'WEB'                    
                 }
             }).then((res)=>{
                 console.log(res);
@@ -92,7 +92,7 @@ export default class Register extends Component {
             let data  = qs.stringify({phone:phone,loginPass:this.refs.confirmCode.value,verificationCode:code,payPass:payPass,refereePhone:refereePhone})
             axios.post(Api.memberURL+ '/member/register/register',data,{
                 headers:{
-                    'channel': 'Android'                    
+                    'channel': 'WEB'                    
                 }
             }).then((res)=>{
                 console.log(res);

@@ -1,4 +1,5 @@
 import React , {Component} from 'react'
+import { Modal, Button, WhiteSpace, WingBlank, Toast } from 'antd-mobile';
 import './personalInfo.less'
 import axios from 'axios';
 import {Link} from 'react-router-dom';
@@ -49,29 +50,40 @@ export default class PersonalInfo extends Component {
                 })
                }
          }
-        })
+        })      
     }
     getSecret(){
    
     }
     logOut(){
-        axios.post(lib.Api.memberURL+'/member/login/logout',
-        {
-            headers: {
-                'token': localStorage.getItem('token').replace("\"","").replace("\"",""),
-                'channel': 'Android'
-            }
-        }).then((res)=>{
-            if(res.data.code===0){
-                localStorage.removeItem('personinfo');
-                localStorage.removeItem('phone');
-                localStorage.removeItem('token');
-                localStorage.removeItem('tab');
-                setTimeout(()=>{
-                    this.props.history.push('login')
-                },500)
-            }
-        })
+        Modal.alert('', '您确定要退出吗', [
+            { text: '取消', onPress: () => console.log('cancel') },
+            {
+              text: '确定',
+              onPress: () =>
+                new Promise((resolve) => {
+                  Toast.info('退出成功', 1);
+                  setTimeout(resolve, 1000);
+                  axios.post(lib.Api.memberURL+'/member/login/logout',
+                    {
+                        headers: {
+                            'token': localStorage.getItem('token').replace("\"","").replace("\"",""),
+                            'channel': 'Android'
+                        }
+                    }).then((res)=>{
+                        if(res.data.code===0){
+                            localStorage.removeItem('personinfo');
+                            localStorage.removeItem('phone');
+                            localStorage.removeItem('token');
+                            setTimeout(()=>{
+                                this.props.history.push('login')
+                            },500)
+                        }
+                    })
+                }),
+            },
+          ])
+       
     }
     render (){
         return (

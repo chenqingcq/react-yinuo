@@ -205,7 +205,7 @@ console.log(data)
         ), {
             headers: {
               'token': localStorage.getItem('token').replace("\"","").replace("\"",""),
-              'channel': 'Android'
+              'channel': 'WEB'
             }
           })
         .then((res)=>{

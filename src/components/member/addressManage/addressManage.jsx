@@ -39,7 +39,7 @@ export default class AddressManage extends Component {
       {
         headers: {
           'token': token ,
-          'channel': 'Android'
+          'channel': 'WEB'
         }
       }).then((res) => {
         console.log(res.data.data.rows);
@@ -82,7 +82,7 @@ export default class AddressManage extends Component {
           ), {
               headers: {
                 'token': localStorage.getItem('token').replace("\"", "").replace("\"", ""),
-                'channel': 'Android'
+                'channel': 'WEB'
               }
             })
             .then((res) => {
@@ -113,7 +113,7 @@ export default class AddressManage extends Component {
           ), {
               headers: {
                 'token': localStorage.getItem('token').replace("\"", "").replace("\"", ""),
-                'channel': 'Android'
+                'channel': 'WEB'
               }
             }).
             then((res) => {
@@ -190,7 +190,7 @@ export default class AddressManage extends Component {
             {
               headers: {
                 'token': localStorage.getItem('token').replace("\"", "").replace("\"", ""),
-                'channel': 'Android'
+                'channel': 'WEB'
               }
             }).then((res) => {
               console.log(res);
@@ -226,7 +226,7 @@ export default class AddressManage extends Component {
       {
         headers: {
           'token': localStorage.getItem('token').replace("\"", "").replace("\"", ""),
-          'channel': 'Android'
+          'channel': 'WEB'
         }
       }).then((res) => {
         if (res.data.code == 0 && res.data.data.rows.length) {

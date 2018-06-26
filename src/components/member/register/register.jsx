@@ -24,7 +24,7 @@ export default class Register extends Component {
         function setTitle(val){
             document.title = val;
         }
-        setTitle('设置登录密码');
+        setTitle('注册');
        this.refs.userCode.focus();
     }
     handlerClick(){
@@ -48,41 +48,11 @@ export default class Register extends Component {
         var reg = /^(?![0-9]+$)(?![a-zA-Z]+$)[0-9A-Za-z]{8,20}$/ 
         console.log(this.refs.confirmCode.value)
         if(!reg.test(this.refs.confirmCode.value)){
-            Toast.info('请输入8-20位英文和数字组合密码!',2);
+            Toast.info('请输入8-20位英文和数字的密码!',2);
             return
         };
         window.localStorage.setItem('loginPwd',this.refs.confirmCode.value);
-        this.props.history.push('/setPsw')  ;
-        return;
-        let phone = window.localStorage.getItem('phone');
-        let code = window.localStorage.getItem('code');
-        let loginPwd = window.localStorage.getItem('loginPwd');
-        
-        // register({phone:phone,loginPass:this.refs.confirmCode.value,verificationCode:code,payPass:'152439'})
-        axios.post(lib.Api.memberURL+'/member/memberAddress/create',qs.stringify(
-            {
-                phone:phone,loginPass:this.refs.confirmCode.value,verificationCode:code,payPass:'152439'
-            }
-        ), {
-            headers: {
-              'token': localStorage.getItem('token').replace("\"","").replace("\"",""),
-              'channel': 'Android'
-            }
-          })
-        .then((res)=>{
-            console.log(res);
-            if(res.code === 0 ){
-                this.setState({
-                    ...this.state,
-                    showSetPsw:true
-                })
-            }else{
-                Toast.info(res.errorMsg,2)
-            }
-        }).catch((err)=>{
-            console.log(err);
-                    
-        })      
+        this.props.history.push('/member/setPayFisrtTime')  ;   
     }
     userCode(e){
         if(e.target.value.trim()){
@@ -140,14 +110,9 @@ export default class Register extends Component {
     }
     render(){
         let nav = { title: '注册', operate: '  ' }; 
-        let text = '确定';     
-        if(this.state.showSetPsw){
-            return <Redirect push to="/setPwd" />
-        } else{
+        let text = '确定';      
             return (
                 <div className='register-container_'>
-                    <Dialog  isShowToast = {this.state.isShowToast}  toastText = {this.state.toastText}></Dialog>
-                    {/* <Tab nav={nav}/> */}
                     <ul>
                         <li>
                             <label htmlFor='accomment'>
@@ -168,10 +133,8 @@ export default class Register extends Component {
                         </i>
                         <span >密码由8-20位英文字母和数字组成</span>
                     </p>
-                    <Button handlerClick={this.handlerClick.bind(this)} styleSheet={{ color: '#fff',width:'90%', background: (this.state.isShowBtn.userFlag && this.state.isShowBtn.pswFlag) ? "#D30000" : '#ddd' }} text={text} />                
+                    <Button handlerClick={this.handlerClick.bind(this)} styleSheet={{ color: '#fff',width:'90%', background: "#D30000"}} text={text} />                
                 </div>
-            )
-        }       
-      
+            )      
     }
 }

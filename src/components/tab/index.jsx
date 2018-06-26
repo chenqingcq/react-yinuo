@@ -2,6 +2,7 @@ import React , {Component} from 'react'
 import { Carousel, WingBlank,InputItem,WhiteSpace  } from 'antd-mobile';
 import './index.less'
 import axios from 'axios';
+import {Link} from 'react-router-dom';
 import HotRecommand from './hotRecommand';
 const lib = require('../../utils/lib/lib.js');
 var qs = require('qs');
@@ -10,13 +11,18 @@ export default class Index extends Component {
         super(props);
         this.state = {
             data:[1,2,3],
-            public:[],
-            recommand:[1,2,3],
+            public:[{title:'您'},{title:'您'}],
+            recommand:[],
         }
     }
     componentDidMount(){  
       var TabBar =document.querySelector('.am-tabs-tab-bar-wrap');
       TabBar.style.display='block'; 
+      //判断是否登录
+      var personinfo = localStorage.getItem('personinfo');
+      if(!personinfo){
+        this.props.history.push('login');
+      }
       var params ={
         'belong':0,
         'skipType':0
@@ -27,6 +33,7 @@ export default class Index extends Component {
               'token': localStorage.getItem('token').replace("\"","").replace("\"",""),
           }
       }).then((res)=>{
+        console.log(res)
          this.setState(
             Object.assign({}, { data:res.data.data.length>=8?res.data.data.slice(0,8):res.data.data}),
             (()=>{console.log(res.data.data)})
@@ -105,7 +112,7 @@ export default class Index extends Component {
                 height: this.state.imgHeight,
               }}
             >
-              <img
+               <Link to={`/goods/goodsDetail:${val.id}`}><img
                 src={val.pic}
                 alt=""
                 style={{ width: '100%', verticalAlign: 'top' }}
@@ -114,7 +121,7 @@ export default class Index extends Component {
                   window.dispatchEvent(new Event('resize'));
                   this.setState({ imgHeight: 'auto' });
                 }}
-              />
+              /></Link>
             </a>
           ))}
         </Carousel>
@@ -122,13 +129,10 @@ export default class Index extends Component {
           <div className="category">
             <ul>
               <li><img src={require('../../assets/img/fenlei_btn@2x.png')}/><span>分类</span></li>
-              <li><img src={require('../../assets/img/gouwuka_btn@2x.png')}/><span>流量包</span></li>
-              <li><img src={require('../../assets/img/chexian_btn @2x.png')}/><span>车险</span></li>
-              <li><img src={require('../../assets/img/chuizijihua_btn @2x.png')}/><span>签到</span></li>
               <li><img src={require('../../assets/img/zhucema_btn @2x.png')}/><span>注册码</span></li>
               <li><img src={require('../../assets/img/meirijignxuani_btn@2x.png')}/><span>每日精选</span></li>
-              <li><img src={require('../../assets/img/koubeihaodian_btn@2x.png')}/><span>口碑好店</span></li>
               <li><img src={require('../../assets/img/chuizijihua_btn 1@2x.png')}/><span>锤子计划</span></li>
+              <li><img src={require('../../assets/img/chuizijihua_btn @2x.png')}/><span>签到</span></li>
             </ul>
           </div>
           <div className="topMsg">
@@ -154,7 +158,7 @@ export default class Index extends Component {
              { this.state.recommand.map(val=>{
                  return(
                   <div className="item" key={val.id}>
-                    <img src={val.pic} style={{width:'100%'}}/>
+                    <Link to={`/goods/goodsDetail:${val.id}`}><img src={val.pic} style={{width:'100%'}}/></Link>
                     <div className="goodsDetail">
                     <span className="goodsName">{val.subject?(val.subject.length>=20?val.subject.substr(0,20)+'...':val.subject):''}</span>
                     <span className="goodsPrice">{val.subTitle}</span>

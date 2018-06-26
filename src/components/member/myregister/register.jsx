@@ -38,6 +38,9 @@ export default class Register extends Component {
         if(window.localStorage.getItem('phone')){
             this.refs.phone.value = window.localStorage.getItem('phone')            
         }
+        // if(window.localStorage.getItem('code')){
+        //     this.refs.checkcode.value = window.localStorage.getItem('code')            
+        // }
     }
     componentWillUnmount(){
         if(this.timer){
@@ -47,28 +50,52 @@ export default class Register extends Component {
     handerNext(){
         console.log(111)
         // BrowserHistory.push('registerByCoder');
-        let exp =/^1[3,4,5,7,8]\d{9}$/;
+        let exp =/^1[3,4,5,7,8,9]\d{9}$/;
         if(this.refs.accommender.value.trim().length && !exp.test(this.refs.accommender.value.trim())){
-            Toast.info('请审核推荐人手机号',1);
-            this.refs.accommender.focus();
+            Toast.info('推荐人手机号格式有误',1);
             return ;
         }
         if(!this.refs.phone.value.trim()){
             Toast.info('请输入您的手机号',1);
-            this.refs.phone.focus();
             return ;
         }
         if(!exp.test(this.refs.phone.value.trim())){
-            Toast.info('请审核您的手机号',1);
-            this.refs.phone.focus();
+            Toast.info('手机格式有误',1);
             return ;
         }
         
         if(!this.refs.checkcode.value.trim()){
             Toast.info('请输入验证码',1);
-            this.refs.checkcode.focus();
             return ;
         };
+        //验证输入参数
+        let obj ;
+        if(this.refs.accommender.value){
+            obj = Object.assign({}, {verificationCode:this.refs.checkcode.value,phone:this.refs.phone.value,refereePhone:this.refs.accommender.value})
+        }else{
+            obj = Object.assign({}, {verificationCode:this.refs.checkcode.value,phone:this.refs.phone.value})                
+        }
+        try{
+            axios.post(lib.Api.memberURL+'/member/register/verifyRegisterParam',qs.stringify(
+                obj
+            ), {
+                headers: {
+                //   'token': localStorage.getItem('token').replace("\"","").replace("\"",""),
+                    'channel': 'WEB'
+                }
+                }).then((res)=>{
+                    console.log(res);
+                    if(res.data.code !=0){
+                        Toast.info(res.data.errorMsg,1);
+                        return;
+                    }
+                }).catch((err)=>{
+                    console.log(err);
+                    return;
+            })
+         }catch(e){
+            return;
+         }
         if(!this.refs.agreeProtol.classList.contains('active')){
             Toast.info('已同意用户注册协议?',1);
             return ;
@@ -118,7 +145,7 @@ export default class Register extends Component {
             ), {
                 headers: {
                 //   'token': localStorage.getItem('token').replace("\"","").replace("\"",""),
-                  'channel': 'Android'
+                  'channel': 'WEB'
                 }
               })
             .then((res)=>{
@@ -153,7 +180,7 @@ export default class Register extends Component {
             ), {
                 headers: {
                 //   'token': localStorage.getItem('token').replace("\"","").replace("\"",""),
-                  'channel': 'Android'
+                  'channel': 'WEB'
                 }
               }).then((res)=>{      
                 console.log(res);
@@ -213,16 +240,19 @@ export default class Register extends Component {
     link_to_protocal (e) {
         e.preventDefault();
         // registerProtocol()
+        this.props.history.push('/protocol')
+        return;
         axios.get(lib.Api.bossURL+'/boss/setHelp/get?code=protocol_privacy_policy',{
             headers: {
                 // 'token': localStorage.getItem('token').replace("\"","").replace("\"",""),
+                'channel': 'WEB'
               }
            }).then((res)=>{
             console.log(res);
             if(res.data.code === 1 ){
                 Toast.info (res.data.errorMsg,1);
             }else if(res.data.code === 0){
-                // 修复 Android 上点击穿透
+                // 修复 WEB 上点击穿透
                 this.setState({
                     ...this.state,
                     modal: true,
@@ -275,36 +305,46 @@ export default class Register extends Component {
     handerLogin(){//登录
         this.props.history.push('/login')
     }
+    cachAccommender(e){
+            window.localStorage.setItem('refereePhone',e.target.value)            
+    }
+    cachPhone(e){
+            window.localStorage.setItem('phone',e.target.value)                    
+    }
+    cachCheckCode(e){
+            window.localStorage.setItem('code',e.target.value)                    
+    }
     render (){
         let text = '下一步',loginText  =  '登录',
         style = {width:'90%',background: "#D30000",color:'#fff'},
         checkCodeStyleSheet = {display:'inline-block',background: "#D30000",width:'100px',color:'#fff'};
         if (this.state.redirect) {  
-            return <Redirect push to="/member/setPayFisrtTime" />; //or <Redirect push to="/sample?a=xxx&b=yyy" /> 传递更多参数  
+            // return <Redirect push to="/member/setPayFisrtTime" />; //or <Redirect push to="/sample?a=xxx&b=yyy" /> 传递更多参数  
+            return <Redirect push to="/member/setLoginPass" />; //or <Redirect push to="/sample?a=xxx&b=yyy" /> 传递更多参数  
         } else{
             return (
                 <div className='register-container'>
-                    <Dialog closeModal = {this.closeModal.bind(this)}  isProc = {true} isShowToast = {this.state.modal}  toastText = {this.state.userProcText}></Dialog>                  
+                    {/* <Dialog closeModal = {this.closeModal.bind(this)}  isProc = {true} isShowToast = {this.state.modal}  toastText = {this.state.userProcText}></Dialog>                   */}
                     <Dialog  isShowToast = {this.state.isShowToast}  toastText = {this.state.toastText}></Dialog>
                     <ul>
                         <li>
                             <label htmlFor='accomment'>
                                 <img src={require('../../../assets/img/user@2x.png')} alt=''/>
                             </label>
-                            <input ref='accommender' type='text'  id='accomment' placeholder='请输入推荐人的手机号' maxLength={20}/>
+                            <input ref='accommender' onChange = {this.cachAccommender.bind(this)} type='text'  id='accomment' placeholder='请输入推荐人的手机号' maxLength={20}/>
                             <span>( 选填 )</span>
                         </li>
                         <li>
                             <label htmlFor='phone'>
                                     <img src={require('../../../assets/img/phone_icon@2x.png')} alt=''/>
                                 </label>
-                                <input ref='phone' type='text'  id='phone' placeholder='请输入您的手机号'  maxLength={20}/> 
+                                <input ref='phone' type='text' onChange = {this.cachPhone.bind(this)}  id='phone' placeholder='请输入您的手机号'  maxLength={20}/> 
                             </li>
                         <li> 
                         <label htmlFor='check_code'>
                                 <img src={require('../../../assets/img/checkcode@2x.png')} alt=''/>
                             </label>
-                            <input ref='checkcode' type='text'  id='check_code' placeholder='请输入验证码'  maxLength={10}/>
+                            <input ref='checkcode' type='text' onChange = {this.cachCheckCode.bind(this)}  id='check_code' placeholder='请输入验证码'  maxLength={10}/>
                             <button className = 'button' onClick = {this.changeCode.bind(this)} >{this.state.checkCodeText}</button>
                         </li>
                     </ul>

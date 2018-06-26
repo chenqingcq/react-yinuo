@@ -4,9 +4,15 @@ import './goodsParams.less'
 class GoodsParams extends React.Component {
     constructor(props){
         super(props);
+        this.state = {
+            attrList:[]
+        }
     }
     componentDidMount(){
-        document.title = '商品参数'     
+        document.title = '商品参数'  ;
+        this.setState({
+            attrList:this.props.attrList
+        })   
     }
     onClose(e){
        this.props.closeGoodsParams(e)
@@ -20,22 +26,22 @@ class GoodsParams extends React.Component {
                         <img alt='' onClick= {this.onClose.bind(this)}  src = {require('../../../assets/img/close@2x.png')}/>
                     </div>
                     <ul>
-                        <li>
-                            <span>年份季节</span>
-                            <span>2018夏季</span>
-                        </li>
-                        <li>
-                            <span>年份季节</span>
-                            <span>2018夏季</span>
-                        </li>
-                        <li>
-                            <span>年份季节</span>
-                            <span>2018夏季</span>
-                        </li>
-                        <li>
-                            <span>年份季节</span>
-                            <span>2018夏季</span>
-                        </li>
+                        {   
+                            this.props.attrList.length?
+                            this.props.attrList.map((item,index)=>{
+                                return (
+                                    <li key= {index}>
+                                        <span>{item.attrName}</span>
+                                        <span>{item.attrValue}</span>
+                                     </li>
+                                )
+                            }):
+                            (
+                                <li>
+                                        <span></span>
+                                </li>
+                            )
+                        }
                     </ul>
                 </div>
             </div>
