@@ -1,5 +1,7 @@
 import React, { Component } from 'react';
 import Login from './components/member/login/login';
+import LoginQrcode from './components/member/qrcode/qrcode';
+
 
 //个人中心
 import AddressManage from './components/member/addressManage/addressManage';
@@ -44,6 +46,7 @@ class App extends Component {
         <Switch>
           <Route path='/' exact component ={Login} ></Route>
           <Route path='/login' exact component ={Login} ></Route>
+          <Route path='/login/qrcode' exact component ={LoginQrcode} ></Route>
           <Route path = '/index'exact component={Index}></Route>
           <Route path = '/my' exact component={My}></Route>
           <Route path = '/cart' exact component={Cart}></Route>

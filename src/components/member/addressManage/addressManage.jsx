@@ -20,12 +20,13 @@ export default class AddressManage extends Component {
       hasMore: true,
       action: STATS.init,
       link_to_editAddress: false,
-      pageSize: 2,
+      pageSize: 10,
       pageNum: 1,
       recieviers: [],
       paddingTop: 0,
       index: loadMoreLimitNum,
-      currentIndex: -1
+      currentIndex: -1,
+      paddingTop :0
     }
   }
   componentDidMount() {
@@ -164,7 +165,7 @@ export default class AddressManage extends Component {
       })
     }
   }
-  handLoadMore = () => {//上拉加载
+  handLoadMore= ()=>{//上拉加载
     if (STATS.loading === this.state.action) {
       return false
     }
@@ -216,49 +217,56 @@ export default class AddressManage extends Component {
       action: STATS.loading
     })
   }
-  handRefreshing = () => {//下拉刷新
+  handRefreshing (){//下拉刷新
     console.log(this.state.action);
     if(STATS.refreshing == this.state.action){
       return false
     }
    setTimeout(() => {
-      axios.get(lib.Api.memberURL + '/member/memberAddress/list?pageNum=' + this.state.pageNum + '&pageSize=' + this.state.pageSize,
-      {
-        headers: {
-          'token': localStorage.getItem('token').replace("\"", "").replace("\"", ""),
-          'channel': 'WEB'
-        }
-      }).then((res) => {
-        if (res.data.code == 0 && res.data.data.rows.length) {
-          console.log(res);
-          //refreshing complete    
-          this.setState({
-            // data: cData,
-            ...this.state,
-            recieviers: res.data.data.rows,
-            paddingTop:0,
-            hasMore: true,
-            action: STATS.refreshed,
-            index: loadMoreLimitNum
-          });
-        }else if(res.data.code == 0 &&!res.data.data.rows.length){
-          this.setState({
-            ...this.state,
-            paddingTop:0,
-            hasMore:true,
-            action: STATS.refreshed,
-            index: loadMoreLimitNum            
-          })
-        }else{
-          this.setState({
-            ...this.state,
-            paddingTop:0,
-            hasMore:true,
-            action: STATS.refreshed,
-            index: loadMoreLimitNum            
-          })
-        }
-      });
+      // axios.get(lib.Api.memberURL + '/member/memberAddress/list?pageNum=' + this.state.pageNum + '&pageSize=' + this.state.pageSize,
+      // {
+      //   headers: {
+      //     'token': localStorage.getItem('token').replace("\"", "").replace("\"", ""),
+      //     'channel': 'WEB'
+      //   }
+      // }).then((res) => {
+      //   if (res.data.code == 0 && res.data.data.rows.length) {
+      //     console.log(res);
+      //     //refreshing complete    
+      //     this.setState({
+      //       // data: cData,
+      //       ...this.state,
+      //       recieviers: res.data.data.rows,
+      //       paddingTop:0,
+      //       hasMore: true,
+      //       action: STATS.refreshed,
+      //       index: loadMoreLimitNum
+      //     });
+      //   }else if(res.data.code == 0 &&!res.data.data.rows.length){
+      //     this.setState({
+      //       ...this.state,
+      //       paddingTop:0,
+      //       hasMore:true,
+      //       action: STATS.refreshed,
+      //       index: loadMoreLimitNum            
+      //     })
+      //   }else{
+      //     this.setState({
+      //       ...this.state,
+      //       paddingTop:0,
+      //       hasMore:true,
+      //       action: STATS.refreshed,
+      //       index: loadMoreLimitNum            
+      //     })
+      //   }
+      // });
+      this.setState({
+        ...this.state,
+        paddingTop:0,
+        hasMore:true,
+        action: STATS.refreshed,
+        index: loadMoreLimitNum            
+      })
    }, 200);
     this.setState({
       action: STATS.refreshing
@@ -290,7 +298,8 @@ export default class AddressManage extends Component {
                       <p className='title'>
                         <i>
                           <span className='user-name'>{item.name}</span>
-                          <span>{item.isDefault == 0 ? '[默认]' : `[${item.alias}]`}</span>
+                          <span className = 'default' style = {{display:item.isDefault == 0?'inline-block':'none'}}>[默认]</span>
+                          <span className= 'alias' style = {{display:item.alias.length>0?'inline-block':'none'}}>{`[${item.alias}]`}</span>
                         </i>
                         <span>{item.phone}</span>
                       </p>
@@ -322,7 +331,7 @@ export default class AddressManage extends Component {
             </ul>
           </ReactPullLoad>
           <li id='address-plus'>
-            <Button handlerClick={this.add_address.bind(this)} styleSheet={{ background: '#D30000', color: '#fff', width: '90%', margin: '0 auto' }} text={this.state.text} />
+            <button className = 'btn' onClick={this.add_address.bind(this)}  >{this.state.text}</button>
           </li>
         </div>
       )

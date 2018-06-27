@@ -2,7 +2,7 @@
 import React from 'react';
 import axios from 'axios';
 import qs from 'qs'
-
+import { Modal, Toast } from 'antd-mobile';
 import './goodsCart.less';
 
 const lib = require('../../../utils/lib/lib.js');
@@ -21,7 +21,8 @@ class  GoodsCart extends React.Component {
             ended:false,
             price:'',
             stock:'',
-            img:''
+            img:'',
+            id:''
         }
     }
     onClose(e){
@@ -85,6 +86,11 @@ class  GoodsCart extends React.Component {
             ...this.state,
             number : this.state.number +1
         })
+        if(this.state.number>=parseInt(this.refs.stock.innerHTML)){
+            this.setState({
+                number : parseInt(this.refs.stock.innerHTML)
+            })
+        }
     }
     chooseItem(i,index,e){
         console.log(i,index,e);
@@ -114,6 +120,7 @@ class  GoodsCart extends React.Component {
         var price = [];
         var stock = [];
         var img = [];
+        var idList = [];
         for(let j = 0 ; j < lis.length;j ++){
             if(lis[j].tagName == 'LI'){
                 [...lis[j].children].forEach((item)=>{
@@ -124,6 +131,7 @@ class  GoodsCart extends React.Component {
                                 price.push(this.state.skuList[i].price);
                                 img.push(this.state.skuList[i].coverPic);
                                 stock.push(this.state.skuList[i].skuStockVo.totalStock);
+                                idList.push(this.state.skuList[i].id);
                                 var newListArr = [];
                                 for(var j in this.state.skuList[i].specList){
                                      newListArr.push((this.state.skuList[i].specList)[j].specValue);
@@ -138,7 +146,6 @@ class  GoodsCart extends React.Component {
         
         if(newArr.length!==0){
             var index;
-            console.log(arr)
             for(var i in newArr){
                 if(arr.toString()===newArr[i].toString()){
                      index = i;  
@@ -148,10 +155,10 @@ class  GoodsCart extends React.Component {
                 this.setState({
                     img:img[index],
                     stock:stock[index],
-                    price:price[index]
+                    price:price[index],
+                    id:idList[index]
                 })
             })
-            console.log(this.state.img)
         }
         if(arr.length == this.state.showArr.length){
             state = true
@@ -165,6 +172,44 @@ class  GoodsCart extends React.Component {
     }
     logoLoadError(index){
         console.log(index,'----------')
+    }
+    addGoods(){
+        var params = {
+            id: this.props.goodsId,
+            goodsSkuId: this.state.id,
+            goodsNum:this.refs.number.innerHTML
+        }
+        axios.post(lib.Api.memberURL+'/member/shoppingCart/create',qs.stringify(params),{
+            headers:{
+              'token': localStorage.getItem('token').replace("\"","").replace("\"",""),
+              'channel': 'Web'
+            }
+        }).then((res)=>{
+            console.log(res)
+           if(res.data.code===1){
+               Toast.info(res.data.errorMsg,1)
+           }else if(res.data.code===0){
+               Toast.info('商品加入成功',1);
+           }
+        })
+    }
+    addCart(e){
+      if(e.target.innerHTML==='加入购物车'){
+          var activeList = document.getElementsByClassName('active');
+          if(this.state.allSpecList.length!==0){
+            if(this.refs.goodName.innerHTML!==' '){
+                if(activeList.length===this.state.allSpecList.length){
+                    this.addGoods();
+                }else{
+                  Toast.info('请选择商品规格',1);
+              }
+          }else{
+            this.addGoods();
+          }
+        }else{
+            this.addGoods();
+        }
+     }
     }
     render(){
         console.log(this.props.cartVisible)
@@ -184,7 +229,7 @@ class  GoodsCart extends React.Component {
                                                 </p>
                                                 <p>
                                                     <span>库存</span>
-                                                    <span>{this.state.stock || item.skuStockVo.surplusStock}</span>
+                                                    <span ref="stock">{this.state.stock || item.skuStockVo.surplusStock}</span>
                                                     <span>件</span>
                                                 </p>
                                             </div>  
@@ -199,11 +244,11 @@ class  GoodsCart extends React.Component {
                         {this.state.allSpecList.join().length&&this.state.allSpecList.map((item,i)=>{
                                 return (
                                     <li key={i} className={`goods-List${i}`}>
-                                        <p className ='title'>{item.name}</p>
+                                        <p className ='title' ref="goodName">{item.name}</p>
                                         {
                                             item.value.map((val,index)=>{
                                                 return(
-                                                    <span style = {{opacity:val.toString().trim().length>0?1:0}}  key = {val} onClick = {this.chooseItem.bind(this,i,index)}>{val,index}</span>                                                    
+                                                    <span style = {{opacity:val.toString().trim().length>0?1:0}}  key = {val} onClick = {this.chooseItem.bind(this,i,index)}>{val}</span>                                                    
                                                 )
                                             })
                                         }
@@ -217,7 +262,7 @@ class  GoodsCart extends React.Component {
                                 <span className='minus' onClick = {this.minusNumber.bind(this)}>
                                     <img alt='' src={require('../../../assets/img/minus@2x.png')}/>
                                 </span>
-                                <span className='number'>{this.state.number}</span>
+                                <span className='number' ref="number">{this.state.number}</span>
                                 <span className='add' onClick={this.addNumber.bind(this)}>
                                     <img alt='' src={require('../../../assets/img/add@2x.png')}/>                                    
                                 </span>
@@ -226,7 +271,7 @@ class  GoodsCart extends React.Component {
                     </ul>
                     {
                         this.props.addCartOrBuy ?
-                        (<div className='addToCart' >
+                        (<div className='addToCart' onClick={this.addCart.bind(this)}>
                             加入购物车
                         </div>) :
                         (

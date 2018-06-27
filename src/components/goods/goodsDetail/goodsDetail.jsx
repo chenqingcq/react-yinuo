@@ -100,26 +100,17 @@ class GoodsDetail extends React.Component{
          
     }
     goodsCollect(e){
-        axios.get(lib.Api.memberURL+`/member/memberFavorite/check?type=${this.state.type}&objId=${this.state.objId} `, {
-            headers: {
-              'token': localStorage.getItem('token').replace("\"","").replace("\"",""),
-              'channel': 'WEB'
-            }
-          }).then((res)=>{
-              console.log(res);
-              res = res.data;
-              if(res.code == 0){
-                  if(res.data){
-                      console.log('已收藏')
-                  }else{
-                      console.log('未收藏')
-                  }
-              }
-          }).catch((err)=>{
-              console.log(err);
-          })
+        // axios.get(lib.Api.memberURL+`/member/memberFavorite/check?type=${this.state.type}&objId=${this.state.objId} `, {
+        //     headers: {
+        //       'token': localStorage.getItem('token').replace("\"","").replace("\"",""),
+        //       'channel': 'WEB'
+        //     }
+        //   }).then((res)=>{
+        //       console.log(res);
+        //   }).catch((err)=>{
+        //       console.log(err);
+        //   })
         console.log(this.refs.collect);
-        return;
         if(this.refs.collect.classList.contains('goods-collect-active')){//取消收藏
             this.refs.collect.classList.remove('goods-collect-active');
             // this.refs.collect.src =require( '../../../assets/img/nocollect@2x.png');

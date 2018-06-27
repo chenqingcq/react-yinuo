@@ -496,52 +496,159 @@ var district = [{
 		"label": '河北省',
 		"children": [
 			{
-				"value": '130001',
+				"value": '130100',
 				"label": "邯郸市",
-				"children": []
+				"children": [
+					{
+						"value": '130101',
+						"label": "邯山区",
+						"children": []
+					},
+					{
+						"value": '130102',
+						"label": "丛台区",
+						"children": []
+					},
+					{
+						"value": '130103',
+						"label": "复兴区",
+						"children": []
+					},
+					{
+						"value": '130104',
+						"label": "峰峰矿区",
+						"children": []
+					},
+					{
+						"value": '130105',
+						"label": "邯郸县",
+						"children": []
+					},
+					{
+						"value": '130106',
+						"label": "临漳县",
+						"children": []
+					},
+					{
+						"value": '130107',
+						"label": "成安县",
+						"children": []
+					},
+					{
+						"value": '130108',
+						"label": "大名县",
+						"children": []
+					},
+					{
+						"value": '130109',
+						"label": "涉县",
+						"children": []
+					},
+					{
+						"value": '130110',
+						"label": "磁县",
+						"children": []
+					},
+					{
+						"value": '130111',
+						"label": "肥乡县",
+						"children": []
+					},
+					{
+						"value": '130112',
+						"label": "永年县",
+						"children": []
+					},
+					{
+						"value": '130113',
+						"label": "邱县",
+						"children": []
+					},
+					{
+						"value": '130114',
+						"label": "鸡泽县",
+						"children": []
+					},
+					{
+						"value": '130115',
+						"label": "广平县",
+						"children": []
+					},
+					{
+						"value": '130116',
+						"label": "馆陶县",
+						"children": []
+					},
+					{
+						"value": '130117',
+						"label": "魏县",
+						"children": []
+					},
+					{
+						"value": '130118',
+						"label": "曲周县",
+						"children": []
+					},
+					{
+						"value": '130119',
+						"label": "武安市",
+						"children": []
+					}
+				]
 			},
 			{
-				"value": '130002',
+				"value": '130200',
 				"label": "石家庄市",
-				"children": []
+				"children": [
+					{
+						"value": '130201',
+						"label": "长安区",
+						"children": []
+					},
+					{
+						"value": '130202',
+						"label": "桥东区",
+						"children": []
+					},
+				]
 			},
 			{
-				"value": '130103',
+				"value": '130300',
 				"label": "保定市",
 				"children": []
 			},
 			{
-				"value": '130101',
+				"value": '130400',
 				"label": "张家口市",
 				"children": []
 			},
 			{
-				"value": '130102',
+				"value": '130500',
 				"label": "承德市",
 				"children": []
 			}, 
 			{
-				"value": '130107',
+				"value": '130600',
 				"label": "唐山市",
 				"children": []
 			}, 
 			{
-				"value": '130104',
+				"value": '130700',
 				"label": "廊坊市",
 				"children": []
 			}, 
 			{
-				"value": '130105',
+				"value": '130800',
 				"label": "沧州市",
 				"children": []
 			}, 
 			{
-				"value": '130106',
+				"value": '130900',
 				"label": "衡水市",
 				"children": []
 			}, 
 			{
-				"value": '130200',
+				"value": '131000',
 				"label": "邢台市",
 				"children": []
 			}

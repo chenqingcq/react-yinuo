@@ -22,6 +22,7 @@ export default class Login extends Component {
             secondCount:60,
             btnText:'获取动态密码',
             timer:'',
+            showQrcode:false
         }
     }
     componentDidMount(){
@@ -36,7 +37,7 @@ export default class Login extends Component {
         console.log('register')
     }
     handClick() {
-        var exp =/^[1][3,4,5,7,8][0-9]{9}$/;  
+        var exp =/^[1][3,4,5,7,8,9][0-9]{9}$/;  
         if(exp.test(this.refs.username.value)){
             this.setState({
                 isShow:false
@@ -159,7 +160,11 @@ export default class Login extends Component {
         this.refs.forgetPwd.innerHTML ='使用一诺账号登录';
         this.refs.forgetPwd.style.display='block';
         this.refs.btnCode.style.display ='block';
-        this.refs.forgetPwd.nextElementSibling.style.display ='none'
+        this.refs.forgetPwd.nextElementSibling.style.display ='none';
+        this.setState({
+            ...this.state,
+            showQrcode :true
+        })
     }
     login(){
         if(this.refs.forgetPwd.innerHTML==='使用一诺账号登录'){
@@ -170,7 +175,7 @@ export default class Login extends Component {
     }
     loginByCode(){
         clearInterval(this.state.timer)
-        var exp =/^[1][3,4,5,7,8][0-9]{9}$/;  
+        var exp =/^[1][3,4,5,7,8,9][0-9]{9}$/;  
         if(exp.test(this.refs.username.value)){
         this.setState({
             timer:setInterval(()=>{
@@ -297,6 +302,10 @@ export default class Login extends Component {
             }
         })
     }
+    createQrcode(){
+        console.log('qrcode');
+        this.props.history.push('/login/qrcode');
+    }
     render() {
         let text = '登录';
         return (
@@ -327,7 +336,9 @@ export default class Login extends Component {
                 </section>
                 <Button handlerClick={(this.state.isShowBtn.userFlag && this.state.isShowBtn.pswFlag)?this.handClick.bind(this):function(){}} styleSheet={{ color: '#fff',width:'90%', background: (this.state.isShowBtn.userFlag && this.state.isShowBtn.pswFlag) ? "#D30000" : '#ddd' }} text={text} />
                 <Link to='member/register' className='reg'>注册</Link>
-                <span ref="forgetPwd" className="forget" onClick={this.login.bind(this)} style={{display:'none'}}>忘记密码?</span><p className='code_login' onClick={this.codeClick.bind(this)}>使用手机动态码登录</p>
+                <span ref="forgetPwd" className="forget" onClick={this.login.bind(this)} style={{display:'none'}}>忘记密码?</span>
+                <p className='code_login' onClick={this.codeClick.bind(this)}>使用手机动态码登录</p>
+                <p className='code_login' style = {{display:this.state.showQrcode?"block":"none"}} onClick={this.createQrcode.bind(this)}>快速生成二维码</p>
                 </div>
                 <div className="continer"  ref="container" style={{display:'none'}}>
                   <p>

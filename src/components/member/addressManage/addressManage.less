@@ -34,6 +34,7 @@
                     justify-content: space-between;
                     align-items: center;
                     i{
+                        display: inline-block;
                         span:first-of-type{
                             color:#000615; 
                             font-size: 14px;
@@ -41,9 +42,14 @@
                             font-weight: 500;
                             margin-right: 10px;
                         }
-                        span:last-of-type{
+                        span.default{
                             color:#D30000; 
                             font-size: 9px;
+                        }
+                        span.alias{
+                            color:#D30000; 
+                            font-size: 9px;
+                            margin-left: 10px;
                         }
                     }
                     span{
@@ -128,11 +134,23 @@
         }
     }
     #address-plus{
-        width: 100%;
-        padding-bottom: 10px;        
+        width: 100%;   
         background: #fff;
         position: absolute;
-        bottom: 0px;
+        bottom: 10px;
+        height:50px;
+        display:flex;
+        justify-content:center;
+        button.btn{
+            background:#d30000;
+            color:#fff;
+            width:90%;
+            margin:0 auto;
+            border-radius:50px;
+            outline:none;
+            height:50px;
+            border:none;
+        }
     }
 }
 .address-active{
