@@ -494,12 +494,10 @@ var district = [{
 	{
 		"value": '130000',
 		"label": '河北省',
-		"children": [
-			{
+		"children": [{
 				"value": '130100',
 				"label": "邯郸市",
-				"children": [
-					{
+				"children": [{
 						"value": '130101',
 						"label": "邯山区",
 						"children": []
@@ -599,8 +597,7 @@ var district = [{
 			{
 				"value": '130200',
 				"label": "石家庄市",
-				"children": [
-					{
+				"children": [{
 						"value": '130201',
 						"label": "长安区",
 						"children": []
@@ -610,170 +607,1006 @@ var district = [{
 						"label": "桥东区",
 						"children": []
 					},
+					{
+						"value": '130203',
+						"label": "桥西区",
+						"children": []
+					},
+					{
+						"value": '130204',
+						"label": "新华区",
+						"children": []
+					},
+					{
+						"value": '130205',
+						"label": "井陉矿区",
+						"children": []
+					},
+					{
+						"value": '130206',
+						"label": "裕华区",
+						"children": []
+					},
+					{
+						"value": '130207',
+						"label": "正定县",
+						"children": []
+					},
+					{
+						"value": '130208',
+						"label": "栾城县",
+						"children": []
+					},
+					{
+						"value": '130210',
+						"label": "行唐县",
+						"children": []
+					},
+					{
+						"value": '130211',
+						"label": "灵寿县",
+						"children": []
+					},
+					{
+						"value": '130212',
+						"label": "高邑县",
+						"children": []
+					},
+					{
+						"value": '130213',
+						"label": "深泽县",
+						"children": []
+					},
+					{
+						"value": '130214',
+						"label": "藏皇线",
+						"children": []
+					},
+					{
+						"value": '130215',
+						"label": "无极县",
+						"children": []
+					},
+					{
+						"value": '130216',
+						"label": "平山县",
+						"children": []
+					},
+					{
+						"value": '130217',
+						"label": "元氏县",
+						"children": []
+					},
+					{
+						"value": '130218',
+						"label": "赵县",
+						"children": []
+					},
+					{
+						"value": '130219',
+						"label": "辛集市",
+						"children": []
+					},
+					{
+						"value": '130220',
+						"label": "藁城市",
+						"children": []
+					},
+					{
+						"value": '130221',
+						"label": "晋州市",
+						"children": []
+					},
+					{
+						"value": '130222',
+						"label": "新乐市",
+						"children": []
+					},
+					{
+						"value": '130223',
+						"label": "鹿泉市",
+						"children": []
+					}
 				]
 			},
 			{
 				"value": '130300',
 				"label": "保定市",
-				"children": []
+				"children": [{
+						"value": '130301',
+						"label": "新市区",
+						"children": []
+					},
+					{
+						"value": '130302',
+						"label": "新市区",
+						"children": []
+					},
+					{
+						"value": '130303',
+						"label": "北市区",
+						"children": []
+					},
+					{
+						"value": '130304',
+						"label": "南市区",
+						"children": []
+					},
+					{
+						"value": '130305',
+						"label": "满城县",
+						"children": []
+					},
+					{
+						"value": '130306',
+						"label": "清苑县",
+						"children": []
+					},
+					{
+						"value": '130307',
+						"label": "涞水县",
+						"children": []
+					},
+					{
+						"value": '130308',
+						"label": "阜平县",
+						"children": []
+					},
+					{
+						"value": 145,
+						"label": "徐水县",
+						"Cityvalue": 7,
+						"children": []
+					},
+					{
+						"value": 146,
+						"label": "定兴县",
+						"Cityvalue": 7,
+						"children": []
+					},
+					{
+						"value": 147,
+						"label": "唐县",
+						"Cityvalue": 7,
+						"children": []
+					},
+					{
+						"value": 148,
+						"label": "高阳县",
+						"Cityvalue": 7,
+						"children": []
+					},
+					{
+						"value": 149,
+						"label": "容城县",
+						"Cityvalue": 7,
+						"children": []
+					},
+					{
+						"value": 150,
+						"label": "涞源县",
+						"Cityvalue": 7,
+						"children": []
+					},
+					{
+						"value": 151,
+						"label": "望都县",
+						"Cityvalue": 7,
+						"children": []
+					},
+					{
+						"value": 152,
+						"label": "安新县",
+						"Cityvalue": 7,
+						"children": []
+					},
+					{
+						"value": 153,
+						"label": "易县",
+						"Cityvalue": 7,
+						"children": []
+					},
+					{
+						"value": 154,
+						"label": "曲阳县",
+						"Cityvalue": 7,
+						"children": []
+					},
+					{
+						"value": 155,
+						"label": "蠡县",
+						"Cityvalue": 7,
+						"children": []
+					},
+					{
+						"value": 156,
+						"label": "顺平县",
+						"Cityvalue": 7,
+						"children": []
+					},
+					{
+						"value": 157,
+						"label": "博野县",
+						"Cityvalue": 7,
+						"children": []
+					},
+					{
+						"value": 158,
+						"label": "雄县",
+						"Cityvalue": 7,
+						"children": []
+					},
+					{
+						"value": 159,
+						"label": "涿州市",
+						"Cityvalue": 7,
+						"children": []
+					},
+					{
+						"value": 160,
+						"label": "定州市",
+						"Cityvalue": 7,
+						"children": []
+					},
+					{
+						"value": 161,
+						"label": "安国市",
+						"Cityvalue": 7,
+						"children": []
+					},
+					{
+						"value": 162,
+						"label": "高碑店市",
+						"Cityvalue": 7,
+						"children": []
+					},
+				]
 			},
 			{
 				"value": '130400',
 				"label": "张家口市",
-				"children": []
+				"children": [{
+						"value": 163,
+						"label": "桥东区",
+						"Cityvalue": 8,
+						"children": []
+					},
+					{
+						"value": 164,
+						"label": "桥西区",
+						"Cityvalue": 8,
+						"children": []
+					},
+					{
+						"value": 165,
+						"label": "宣化区",
+						"Cityvalue": 8,
+						"children": []
+					},
+					{
+						"value": 166,
+						"label": "下花园区",
+						"Cityvalue": 8,
+						"children": []
+					},
+					{
+						"value": 167,
+						"label": "宣化县",
+						"Cityvalue": 8,
+						"children": []
+					},
+					{
+						"value": 168,
+						"label": "张北县",
+						"Cityvalue": 8,
+						"children": []
+					},
+					{
+						"value": 169,
+						"label": "康保县",
+						"Cityvalue": 8,
+						"children": []
+					},
+					{
+						"value": 170,
+						"label": "沽源县",
+						"Cityvalue": 8,
+						"children": []
+					},
+					{
+						"value": 171,
+						"label": "尚义县",
+						"Cityvalue": 8,
+						"children": []
+					},
+					{
+						"value": 172,
+						"label": "蔚县",
+						"Cityvalue": 8,
+						"children": []
+					},
+					{
+						"value": 173,
+						"label": "阳原县",
+						"Cityvalue": 8,
+						"children": []
+					},
+					{
+						"value": 174,
+						"label": "怀安县",
+						"Cityvalue": 8,
+						"children": []
+					},
+					{
+						"value": 175,
+						"label": "万全县",
+						"Cityvalue": 8,
+						"children": []
+					},
+					{
+						"value": 176,
+						"label": "怀来县",
+						"Cityvalue": 8,
+						"children": []
+					},
+					{
+						"value": 177,
+						"label": "涿鹿县",
+						"Cityvalue": 8,
+						"children": []
+					},
+					{
+						"value": 178,
+						"label": "赤城县",
+						"Cityvalue": 8,
+						"children": []
+					},
+					{
+						"value": 179,
+						"label": "崇礼县",
+						"Cityvalue": 8,
+						"children": []
+					},
+				]
 			},
 			{
 				"value": '130500',
 				"label": "承德市",
-				"children": []
-			}, 
+				"children": [{
+						"value": 180,
+						"label": "双桥区",
+						"Cityvalue": 9,
+						"children": []
+					},
+					{
+						"value": 181,
+						"label": "双滦区",
+						"Cityvalue": 9,
+						"children": []
+					},
+					{
+						"value": 182,
+						"label": "鹰手营子矿区",
+						"Cityvalue": 9,
+						"children": []
+					},
+					{
+						"value": 183,
+						"label": "承德县",
+						"Cityvalue": 9,
+						"children": []
+					},
+					{
+						"value": 184,
+						"label": "兴隆县",
+						"Cityvalue": 9,
+						"children": []
+					},
+					{
+						"value": 185,
+						"label": "平泉县",
+						"Cityvalue": 9,
+						"children": []
+					},
+					{
+						"value": 186,
+						"label": "滦平县",
+						"Cityvalue": 9,
+						"children": []
+					},
+					{
+						"value": 187,
+						"label": "隆化县",
+						"Cityvalue": 9,
+						"children": []
+					},
+					{
+						"value": 188,
+						"label": "丰宁满族自治县",
+						"Cityvalue": 9,
+						"children": []
+					},
+					{
+						"value": 189,
+						"label": "宽城满族自治县",
+						"Cityvalue": 9,
+						"children": []
+					},
+					{
+						"value": 190,
+						"label": "围场满族蒙古族自治县",
+						"Cityvalue": 9,
+						"children": []
+					},
+				]
+			},
 			{
 				"value": '130600',
 				"label": "唐山市",
-				"children": []
-			}, 
+				"children": [{
+						"value": 191,
+						"label": "路南区",
+						"Cityvalue": 10,
+						"children": []
+					},
+					{
+						"value": 192,
+						"label": "路北区",
+						"Cityvalue": 10,
+						"children": []
+					},
+					{
+						"value": 193,
+						"label": "古冶区",
+						"Cityvalue": 10,
+						"children": []
+					},
+					{
+						"value": 194,
+						"label": "开平区",
+						"Cityvalue": 10,
+						"children": []
+					},
+					{
+						"value": 195,
+						"label": "丰南区",
+						"Cityvalue": 10,
+						"children": []
+					},
+					{
+						"value": 196,
+						"label": "丰润区",
+						"Cityvalue": 10,
+						"children": []
+					},
+					{
+						"value": 197,
+						"label": "滦县",
+						"Cityvalue": 10,
+						"children": []
+					},
+					{
+						"value": 198,
+						"label": "滦南县",
+						"Cityvalue": 10,
+						"children": []
+					},
+					{
+						"value": 199,
+						"label": "乐亭县",
+						"Cityvalue": 10,
+						"children": []
+					},
+					{
+						"value": 200,
+						"label": "迁西县",
+						"Cityvalue": 10,
+						"children": []
+					},
+					{
+						"value": 201,
+						"label": "玉田县",
+						"Cityvalue": 10,
+						"children": []
+					},
+					{
+						"value": 202,
+						"label": "唐海县",
+						"Cityvalue": 10,
+						"children": []
+					},
+					{
+						"value": 203,
+						"label": "遵化市",
+						"Cityvalue": 10,
+						"children": []
+					},
+					{
+						"value": 204,
+						"label": "迁安市",
+						"Cityvalue": 10,
+						"children": []
+					},
+				]
+			},
 			{
 				"value": '130700',
 				"label": "廊坊市",
-				"children": []
-			}, 
+				"children": [{
+						"value": 205,
+						"label": "安次区",
+						"Cityvalue": 11,
+						"children": []
+					},
+					{
+						"value": 206,
+						"label": "广阳区",
+						"Cityvalue": 11,
+						"children": []
+					},
+					{
+						"value": 207,
+						"label": "固安县",
+						"Cityvalue": 11,
+						"children": []
+					},
+					{
+						"value": 208,
+						"label": "永清县",
+						"Cityvalue": 11,
+						"children": []
+					},
+					{
+						"value": 209,
+						"label": "香河县",
+						"Cityvalue": 11,
+						"children": []
+					},
+					{
+						"value": 210,
+						"label": "大城县",
+						"Cityvalue": 11,
+						"children": []
+					},
+					{
+						"value": 211,
+						"label": "文安县",
+						"Cityvalue": 11,
+						"children": []
+					},
+					{
+						"value": 212,
+						"label": "大厂回族自治县",
+						"Cityvalue": 11,
+						"children": []
+					},
+					{
+						"value": 213,
+						"label": "霸州市",
+						"Cityvalue": 11,
+						"children": []
+					},
+					{
+						"value": 214,
+						"label": "三河市",
+						"Cityvalue": 11,
+						"children": []
+					},
+				]
+			},
 			{
 				"value": '130800',
 				"label": "沧州市",
-				"children": []
-			}, 
+				"children": [{
+						"value": 215,
+						"label": "新华区",
+						"Cityvalue": 12,
+						"children": []
+					},
+					{
+						"value": 216,
+						"label": "运河区",
+						"Cityvalue": 12,
+						"children": []
+					},
+					{
+						"value": 217,
+						"label": "沧县",
+						"Cityvalue": 12,
+						"children": []
+					},
+					{
+						"value": 218,
+						"label": "青县",
+						"Cityvalue": 12,
+						"children": []
+					},
+					{
+						"value": 219,
+						"label": "东光县",
+						"Cityvalue": 12,
+						"children": []
+					},
+					{
+						"value": 220,
+						"label": "海兴县",
+						"Cityvalue": 12,
+						"children": []
+					},
+					{
+						"value": 221,
+						"label": "盐山县",
+						"Cityvalue": 12,
+						"children": []
+					},
+					{
+						"value": 222,
+						"label": "肃宁县",
+						"Cityvalue": 12,
+						"children": []
+					},
+					{
+						"value": 223,
+						"label": "南皮县",
+						"Cityvalue": 12,
+						"children": []
+					},
+					{
+						"value": 224,
+						"label": "吴桥县",
+						"Cityvalue": 12,
+						"children": []
+					},
+					{
+						"value": 225,
+						"label": "献县",
+						"Cityvalue": 12,
+						"children": []
+					},
+					{
+						"value": 226,
+						"label": "孟村回族自治县",
+						"Cityvalue": 12,
+						"children": []
+					},
+					{
+						"value": 227,
+						"label": "泊头市",
+						"Cityvalue": 12,
+						"children": []
+					},
+					{
+						"value": 228,
+						"label": "任丘市",
+						"Cityvalue": 12,
+						"children": []
+					},
+					{
+						"value": 229,
+						"label": "黄骅市",
+						"Cityvalue": 12,
+						"children": []
+					},
+					{
+						"value": 230,
+						"label": "河间市",
+						"Cityvalue": 12,
+						"children": []
+					},
+				]
+			},
 			{
 				"value": '130900',
 				"label": "衡水市",
-				"children": []
-			}, 
+				"children": [{
+						"value": 231,
+						"label": "桃城区",
+						"Cityvalue": 13,
+						"children": []
+					},
+					{
+						"value": 232,
+						"label": "枣强县",
+						"Cityvalue": 13,
+						"children": []
+					},
+					{
+						"value": 233,
+						"label": "武邑县",
+						"Cityvalue": 13,
+						"children": []
+					},
+					{
+						"value": 234,
+						"label": "武强县",
+						"Cityvalue": 13,
+						"children": []
+					},
+					{
+						"value": 235,
+						"label": "饶阳县",
+						"Cityvalue": 13,
+						"children": []
+					},
+					{
+						"value": 236,
+						"label": "安平县",
+						"Cityvalue": 13,
+						"children": []
+					},
+					{
+						"value": 237,
+						"label": "故城县",
+						"Cityvalue": 13,
+						"children": []
+					},
+					{
+						"value": 238,
+						"label": "景县",
+						"Cityvalue": 13,
+						"children": []
+					},
+					{
+						"value": 239,
+						"label": "阜城县",
+						"Cityvalue": 13,
+						"children": []
+					},
+					{
+						"value": 240,
+						"label": "冀州市",
+						"Cityvalue": 13,
+						"children": []
+					},
+					{
+						"value": 241,
+						"label": "深州市",
+						"Cityvalue": 13,
+						"children": []
+					},
+				]
+			},
 			{
 				"value": '131000',
 				"label": "邢台市",
-				"children": []
+				"children": [{
+						"value": 242,
+						"label": "桥东区",
+						"Cityvalue": 14,
+						"children": []
+					},
+					{
+						"value": 243,
+						"label": "桥西区",
+						"Cityvalue": 14,
+						"children": []
+					},
+					{
+						"value": 244,
+						"label": "邢台县",
+						"Cityvalue": 14,
+						"children": []
+					},
+					{
+						"value": 245,
+						"label": "临城县",
+						"Cityvalue": 14,
+						"children": []
+					},
+					{
+						"value": 246,
+						"label": "内丘县",
+						"Cityvalue": 14,
+						"children": []
+					},
+					{
+						"value": 247,
+						"label": "柏乡县",
+						"Cityvalue": 14,
+						"children": []
+					},
+					{
+						"value": 248,
+						"label": "隆尧县",
+						"Cityvalue": 14,
+						"children": []
+					},
+					{
+						"value": 249,
+						"label": "任县",
+						"Cityvalue": 14,
+						"children": []
+					},
+					{
+						"value": 250,
+						"label": "南和县",
+						"Cityvalue": 14,
+						"children": []
+					},
+					{
+						"value": 251,
+						"label": "宁晋县",
+						"Cityvalue": 14,
+						"children": []
+					},
+					{
+						"value": 252,
+						"label": "巨鹿县",
+						"Cityvalue": 14,
+						"children": []
+					},
+					{
+						"value": 253,
+						"label": "新河县",
+						"Cityvalue": 14,
+						"children": []
+					},
+					{
+						"value": 254,
+						"label": "广宗县",
+						"Cityvalue": 14,
+						"children": []
+					},
+					{
+						"value": 255,
+						"label": "平乡县",
+						"Cityvalue": 14,
+						"children": []
+					},
+					{
+						"value": 256,
+						"label": "威县",
+						"Cityvalue": 14,
+						"children": []
+					},
+					{
+						"value": 257,
+						"label": "清河县",
+						"Cityvalue": 14,
+						"children": []
+					},
+					{
+						"value": 258,
+						"label": "临西县",
+						"Cityvalue": 14,
+						"children": []
+					},
+					{
+						"value": 259,
+						"label": "南宫市",
+						"Cityvalue": 14,
+						"children": []
+					},
+					{
+						"value": 260,
+						"label": "沙河市",
+						"Cityvalue": 14,
+						"children": []
+					},
+				]
 			}
 		]
 	},
 	{
 		"value": '150000',
 		"label": '山西省',
-		"children": [
-			{
+		"children": [{
 				"value": '130108',
 				"label": "塑州市",
-				"children": []
-			}, 
+				"children": [
+
+				]
+			},
 			{
 				"value": '130109',
 				"label": "忻州市",
 				"children": []
-			}, 
+			},
 			{
 				"value": '130110',
 				"label": "太原市",
 				"children": []
-			}, 
+			},
 			{
 				"value": '130111',
 				"label": "大同市",
 				"children": []
-			}, 
+			},
 			{
 				"value": '130112',
 				"label": "阳泉市",
 				"children": []
-			}, 
+			},
 			{
 				"value": '130113',
 				"label": "晋中市",
 				"children": []
-			}, 
+			},
 			{
 				"value": '130114',
 				"label": "长治市",
 				"children": []
-			}, 
+			},
 			{
 				"value": '130115',
 				"label": "晋城市",
 				"children": []
-			}, 
+			},
 			{
 				"value": '130116',
 				"label": "临汾市",
 				"children": []
-			}, 
+			},
 			{
 				"value": '130117',
 				"label": "吕梁市",
 				"children": []
-			}, 
+			},
 			{
 				"value": '130118',
 				"label": "运城市",
 				"children": []
-			}, 
+			},
 			{
 				"value": '130119',
 				"label": "晋城市",
 				"children": []
-			}, 
+			},
 		]
 	},
 	{
 		"value": '160000',
 		"label": '内蒙古自治区',
-		"children": [
-			{
+		"children": [{
 				"value": '160100',
 				"label": "呼和浩特市",
 				"children": []
-			}, 
+			},
 			{
 				"value": '160102',
 				"label": "包头市",
 				"children": []
-			}, 
+			},
 			{
 				"value": '160103',
 				"label": "乌海市",
 				"children": []
-			}, 
+			},
 			{
 				"value": '160104',
 				"label": "乌兰察布市",
 				"children": []
-			}, 
+			},
 			{
 				"value": '160105',
 				"label": "通辽市",
 				"children": []
-			}, 
+			},
 			{
 				"value": '160106',
 				"label": "赤峰市",
 				"children": []
-			}, 
+			},
 			{
 				"value": '160107',
 				"label": "鄂尔多斯市",
 				"children": []
-			}, 
+			},
 			{
 				"value": '160108',
 				"label": "巴彦淖尔市",
 				"children": []
-			}, 
+			},
 			{
 				"value": '160109',
 				"label": "锡林郭勒市",
 				"children": []
-			}, 
+			},
 			{
 				"value": '160110',
 				"label": "新安盟市",
 				"children": []
-			}, 
+			},
 			{
 				"value": '160111',
 				"label": "阿拉善盟",
@@ -1542,16 +2375,770 @@ var district = [{
 	{
 		"value": '290000',
 		"label": '广东省',
-		"children": [
+		"children": [{
+				"value": 190,
+				"label": "广州市",
+				"Provalue": 19,
+				"children": [{
+						"value": 1669,
+						"label": "从化市",
+						"children": []
+					},
+					{
+						"value": 1670,
+						"label": "荔湾区",
+						"children": []
+					},
+					{
+						"value": 1671,
+						"label": "越秀区",
+						"children": []
+					},
+					{
+						"value": 1672,
+						"label": "海珠区",
+						"children": []
+					},
+					{
+						"value": 1673,
+						"label": "天河区",
+						"children": []
+					},
+					{
+						"value": 1674,
+						"label": "白云区",
+						"children": []
+					},
+					{
+						"value": 1675,
+						"label": "花都区",
+						"children": []
+					},
+					{
+						"value": 1676,
+						"label": "黄埔区",
+						"children": []
+					},
+					{
+						"value": 1677,
+						"label": "萝岗区",
+						"children": []
+					},
+					{
+						"value": 1678,
+						"label": "南沙区",
+						"children": []
+					},
+					{
+						"value": 1679,
+						"label": "番禺区",
+						"children": []
+					},
+					{
+						"value": 1680,
+						"label": "增城市",
+						"children": []
+					},
+				]
+			},
+			{
+				"value": 191,
+				"label": "汕尾市",
+				"Provalue": 19,
+				"children": [{
+						"value": 1681,
+						"label": "海丰县",
+						"children": []
+					},
+					{
+						"value": 1682,
+						"label": "陆河县",
+						"children": []
+					},
+					{
+						"value": 1683,
+						"label": "陆丰市",
+						"children": []
+					},
+				]
+			},
+			{
+				"value": 192,
+				"label": "阳江市",
+				"Provalue": 19,
+				"children": [{
+						"value": 1684,
+						"label": "江城区",
+						"children": []
+					},
+					{
+						"value": 1685,
+						"label": "阳西县",
+						"children": []
+					},
+					{
+						"value": 1686,
+						"label": "阳东县",
+						"children": []
+					},
+					{
+						"value": 1687,
+						"label": "阳春市",
+						"children": []
+					},
+				]
+			},
+			{
+				"value": 193,
+				"label": "揭阳市",
+				"Provalue": 19,
+				"children": [{
+						"value": 1687,
+						"label": "阳春市",
+						"children": []
+					},
+					{
+						"value": 1688,
+						"label": "榕城区",
+						"children": []
+					},
+					{
+						"value": 1689,
+						"label": "揭东县",
+						"children": []
+					},
+					{
+						"value": 1690,
+						"label": "揭西县",
+						"children": []
+					},
+					{
+						"value": 1691,
+						"label": "惠来县",
+						"children": []
+					},
+					{
+						"value": 1692,
+						"label": "普宁市",
+						"children": []
+					},
+				]
+			},
+			{
+				"value": 194,
+				"label": "茂名市",
+				"Provalue": 19,
+				"children": [{
+						"value": 1693,
+						"label": "茂南区",
+						"children": []
+					},
+					{
+						"value": 1694,
+						"label": "茂港区",
+						"children": []
+					},
+					{
+						"value": 1695,
+						"label": "电白县",
+						"children": []
+					},
+					{
+						"value": 1696,
+						"label": "高州市",
+						"children": []
+					},
+					{
+						"value": 1697,
+						"label": "化州市",
+						"children": []
+					},
+					{
+						"value": 1698,
+						"label": "信宜市",
+						"children": []
+					},
+				]
+			},
+			{
+				"value": 195,
+				"label": "惠州市",
+				"Provalue": 19,
+				"children": [{
+						"value": 1699,
+						"label": "惠城区",
+						"children": []
+					},
+					{
+						"value": 1700,
+						"label": "惠阳区",
+						"children": []
+					},
+					{
+						"value": 1701,
+						"label": "博罗县",
+						"children": []
+					},
+					{
+						"value": 1702,
+						"label": "惠东县",
+						"children": []
+					},
+					{
+						"value": 1703,
+						"label": "龙门县",
+						"children": []
+					},
+				]
+			},
+			{
+				"value": 196,
+				"label": "江门市",
+				"Provalue": 19,
+				"children": [{
+						"value": 1704,
+						"label": "蓬江区",
+						"children": []
+					},
+					{
+						"value": 1705,
+						"label": "江海区",
+						"children": []
+					},
+					{
+						"value": 1706,
+						"label": "新会区",
+						"children": []
+					},
+					{
+						"value": 1707,
+						"label": "台山市",
+						"children": []
+					},
+					{
+						"value": 1708,
+						"label": "开平市",
+						"children": []
+					},
+					{
+						"value": 1709,
+						"label": "鹤山市",
+						"children": []
+					},
+					{
+						"value": 1710,
+						"label": "恩平市",
+						"children": []
+					},
+				]
+			},
+			{
+				"value": 197,
+				"label": "韶关市",
+				"Provalue": 19,
+				"children": [{
+						"value": 1711,
+						"label": "武江区",
+						"children": []
+					},
+					{
+						"value": 1712,
+						"label": "浈江区",
+						"children": []
+					},
+					{
+						"value": 1713,
+						"label": "曲江区",
+						"children": []
+					},
+					{
+						"value": 1714,
+						"label": "始兴县",
+						"children": []
+					},
+					{
+						"value": 1715,
+						"label": "仁化县",
+						"children": []
+					},
+					{
+						"value": 1716,
+						"label": "翁源县",
+						"children": []
+					},
+					{
+						"value": 1717,
+						"label": "乳源瑶族自治县",
+						"children": []
+					},
+					{
+						"value": 1718,
+						"label": "新丰县",
+						"children": []
+					},
+					{
+						"value": 1719,
+						"label": "乐昌市",
+						"children": []
+					},
+					{
+						"value": 1720,
+						"label": "南雄市",
+						"children": []
+					},
+				]
+			},
+			{
+				"value": 198,
+				"label": "梅州市",
+				"Provalue": 19,
+				"children": [{
+						"value": 1721,
+						"label": "梅江区",
+						"children": []
+					},
+					{
+						"value": 1722,
+						"label": "梅县",
+						"children": []
+					},
+					{
+						"value": 1723,
+						"label": "大埔县",
+						"children": []
+					},
+					{
+						"value": 1724,
+						"label": "丰顺县",
+						"children": []
+					},
+					{
+						"value": 1725,
+						"label": "五华县",
+						"children": []
+					},
+					{
+						"value": 1726,
+						"label": "平远县",
+						"children": []
+					},
+					{
+						"value": 1727,
+						"label": "蕉岭县",
+						"children": []
+					},
+					{
+						"value": 1728,
+						"label": "兴宁市",
+						"children": []
+					},
+				]
+			},
+			{
+				"value": 199,
+				"label": "汕头市",
+				"Provalue": 19,
+				"children": [{
+						"value": 1729,
+						"label": "龙湖区",
+						"children": []
+					},
+					{
+						"value": 1730,
+						"label": "金平区",
+						"children": []
+					},
+					{
+						"value": 1731,
+						"label": "濠江区",
+						"children": []
+					},
+					{
+						"value": 1732,
+						"label": "潮阳区",
+						"children": []
+					},
+					{
+						"value": 1733,
+						"label": "潮南区",
+						"children": []
+					},
+					{
+						"value": 1734,
+						"label": "澄海区",
+						"children": []
+					},
+					{
+						"value": 1735,
+						"label": "南澳县",
+						"children": []
+					},
+				]
+			},
+			{
+				"value": 200,
+				"label": "深圳市",
+				"Provalue": 19,
+				"children": [{
+						"value": 1736,
+						"label": "罗湖区",
+						"children": []
+					},
+					{
+						"value": 1737,
+						"label": "福田区",
+						"children": []
+					},
+					{
+						"value": 1738,
+						"label": "南山区",
+						"children": []
+					},
+					{
+						"value": 1739,
+						"label": "宝安区",
+						"children": []
+					},
+					{
+						"value": 1740,
+						"label": "龙岗区",
+						"children": []
+					},
+					{
+						"value": 1741,
+						"label": "盐田区",
+						"children": []
+					},
+				]
+			},
+			{
+				"value": 201,
+				"label": "珠海市",
+				"Provalue": 19,
+				"children": [{
+						"value": 1742,
+						"label": "香洲区",
+						"children": []
+					},
+					{
+						"value": 1743,
+						"label": "斗门区",
+						"children": []
+					},
+					{
+						"value": 1744,
+						"label": "金湾区",
+						"children": []
+					},
+				]
+			},
+			{
+				"value": 202,
+				"label": "佛山市",
+				"Provalue": 19,
+				"children": [{
+						"value": 1745,
+						"label": "禅城区",
+						"children": []
+					},
+					{
+						"value": 1746,
+						"label": "南海区",
+						"children": []
+					},
+					{
+						"value": 1747,
+						"label": "顺德区",
+						"children": []
+					},
+					{
+						"value": 1748,
+						"label": "三水区",
+						"children": []
+					},
+					{
+						"value": 1749,
+						"label": "高明区",
+						"children": []
+					},
+				]
+			},
+			{
+				"value": 203,
+				"label": "肇庆市",
+				"Provalue": 19,
+				"children": [{
+						"value": 1750,
+						"label": "端州区",
+						"children": []
+					},
+					{
+						"value": 1751,
+						"label": "鼎湖区",
+						"children": []
+					},
+					{
+						"value": 1752,
+						"label": "广宁县",
+						"children": []
+					},
+					{
+						"value": 1753,
+						"label": "怀集县",
+						"children": []
+					},
+					{
+						"value": 1754,
+						"label": "封开县",
+						"children": []
+					},
+					{
+						"value": 1755,
+						"label": "德庆县",
+						"children": []
+					},
+					{
+						"value": 1756,
+						"label": "高要市",
+						"children": []
+					},
+					{
+						"value": 1757,
+						"label": "四会市",
+						"children": []
+					},
+				]
+			},
+			{
+				"value": 204,
+				"label": "湛江市",
+				"Provalue": 19,
+				"children": [{
+						"value": 1758,
+						"label": "赤坎区",
+						"children": []
+					},
+					{
+						"value": 1759,
+						"label": "霞山区",
+						"children": []
+					},
+					{
+						"value": 1760,
+						"label": "坡头区",
+						"children": []
+					},
+					{
+						"value": 1761,
+						"label": "麻章区",
+						"children": []
+					},
+					{
+						"value": 1762,
+						"label": "遂溪县",
+						"children": []
+					},
+					{
+						"value": 1763,
+						"label": "徐闻县",
+						"children": []
+					},
+					{
+						"value": 1764,
+						"label": "廉江市",
+						"children": []
+					},
+					{
+						"value": 1765,
+						"label": "雷州市",
+						"children": []
+					},
+					{
+						"value": 1766,
+						"label": "吴川市",
+						"children": []
+					},
+				]
+			},
+			{
+				"value": 205,
+				"label": "中山市",
+				"Provalue": 19,
+				"children": [{
+					"value": 888888,
+					"label": "中山市",
+					"children": []
+				}, ]
+			},
+			{
+				"value": 206,
+				"label": "河源市",
+				"Provalue": 19,
+				"children": [{
+						"value": 1767,
+						"label": "源城区",
+						"children": []
+					},
+					{
+						"value": 1768,
+						"label": "紫金县",
+						"children": []
+					},
+					{
+						"value": 1769,
+						"label": "龙川县",
+						"children": []
+					},
+					{
+						"value": 1770,
+						"label": "连平县",
 
+						"children": []
+					},
+					{
+						"value": 1771,
+						"label": "和平县",
+
+						"children": []
+					},
+					{
+						"value": 1772,
+						"label": "东源县",
+
+						"children": []
+					},
+				]
+			},
+			{
+				"value": 207,
+				"label": "清远市",
+				"Provalue": 19,
+				"children": [{
+						"value": 1773,
+						"label": "清城区",
+
+						"children": []
+					},
+					{
+						"value": 1774,
+						"label": "佛冈县",
+
+						"children": []
+					},
+					{
+						"value": 1775,
+						"label": "阳山县",
+
+						"children": []
+					},
+					{
+						"value": 1776,
+						"label": "连山壮族瑶族自治县",
+
+						"children": []
+					},
+					{
+						"value": 1777,
+						"label": "连南瑶族自治县",
+
+						"children": []
+					},
+					{
+						"value": 1778,
+						"label": "清新县",
+
+						"children": []
+					},
+					{
+						"value": 1779,
+						"label": "英德市",
+
+						"children": []
+					},
+					{
+						"value": 1780,
+						"label": "连州市",
+
+						"children": []
+					},
+				]
+			},
+			{
+				"value": 208,
+				"label": "云浮市",
+				"Provalue": 19,
+				"children": [{
+						"value": 1781,
+						"label": "云城区",
+
+						"children": []
+					},
+					{
+						"value": 1782,
+						"label": "新兴县",
+
+						"children": []
+					},
+					{
+						"value": 1783,
+						"label": "郁南县",
+
+						"children": []
+					},
+					{
+						"value": 1784,
+						"label": "云安县",
+						"children": []
+					},
+					{
+						"value": 1785,
+						"label": "罗定市",
+
+						"children": []
+					},
+				]
+			},
+			{
+				"value": 209,
+				"label": "潮州市",
+				"Provalue": 19,
+				"children": [{
+						"value": 1786,
+						"label": "湘桥区",
+
+						"children": []
+					},
+					{
+						"value": 1787,
+						"label": "潮安县",
+
+						"children": []
+					},
+					{
+						"value": 1788,
+						"label": "饶平县",
+
+						"children": []
+					},
+				]
+			},
+			{
+				"value": 210,
+				"label": "东莞市",
+				"Provalue": 19,
+				"children": [{
+					"value": 310,
+					"label": "东莞市",
+					"Provalue": 19,
+					"children": []
+				}]
+			},
 		]
 	},
 	{
 		"value": '300000',
 		"label": '海南省',
-		"children": [
-
-		]
+		"children": []
 	},
 	{
 		"value": '310000',
@@ -1693,11 +3280,19 @@ var district = [{
 		"children": [{
 			"value": "820100",
 			"label": "澳门半岛",
-			"children": []
+			"children": [{
+				"value": "820101",
+				"label": "澳门半岛",
+				"children": []
+			}]
 		}, {
 			"value": "820200",
 			"label": "离岛",
-			"children": []
+			"children": [{
+				"value": "820201",
+				"label": "离岛",
+				"children": []
+			}]
 		}]
 	}, {
 		"value": "450000",
