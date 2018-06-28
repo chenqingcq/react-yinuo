@@ -51,6 +51,7 @@
                     color: #aaa;
                     font-size: 16px;
                     padding:10px 0;
+                    user-select: auto;
                     flex: 1;
                     box-sizing: content-box;
                     font-family:PingFang-SC-Regular;
@@ -137,17 +138,42 @@
     }
    
 }
-.reg{
-    width:90%;
-    position:absolute;
-    left:5%;
-    height:49px;
-    border-radius: 25px;
-    background-color: #D30000;
-    margin-top:10px;
-    color:#fff;
-    line-height: 49px;
-    text-align: center;
-    font-size:20px;
-    font-family: PingFang-SC-Regular;
+section.btns{
+    .reg{
+        width:90%;
+        position:absolute;
+        left:5%;
+        height:49px;
+        border-radius: 25px;
+        background-color: #D30000;
+        margin-top:10px;
+        color:#fff;
+        line-height: 9px;
+        text-align: center;
+        font-size:20px;
+        margin-top:80px;
+        border:none;
+        font-family: PingFang-SC-Regular;
+    }
+    .login-btn{
+        width:90%;
+        position:absolute;
+        outline:none;
+        background:#d30000;
+        left:5%;
+        border:none;
+        height:49px;
+        border-radius: 25px;
+        margin-top:10px;
+        color:#fff;
+        line-height: 49px;
+        text-align: center;
+        font-size:20px;
+        font-family: PingFang-SC-Regular;
+    }
+    p.code_login,span.forget{
+        position:absolute;    
+        margin-top:135px !important;    
+    }
 }
+

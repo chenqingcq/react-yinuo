@@ -1,4 +1,5 @@
 import React, { Component } from 'react';
+//登录
 import Login from './components/member/login/login';
 import LoginQrcode from './components/member/qrcode/qrcode';
 
@@ -15,21 +16,22 @@ import RegisterByCode from './components/member/register/registerByCode';
 import SetPayFirstTime from './components/member/register/setPay';
 import Article from './components/member/article';
 import Protocol from './components/member/protoc';
-
+import Msg from './components/member/msg/msg';
 //商品相关
 import GoodsDetail from './components/goods/goodsDetail/goodsDetail';
 import GoodsAllComments from './components/goods/comments/comments';
+import ConfirmOrder from './components/goods/confirmOrder/confirmOrder';
 import Cart from './components/tab/cart';
 import Personinfo from './components/member/personalInfo';
 import {Switch,Route,Redirect,Link,withRouter} from "react-router-dom";
 import SetPay from './components/member/setPay/setPay';
+
+//Tab页
+import SearchGoods from './components/tab/search/search'
 import Index from './components/tab/index';
 import My from './components/tab/my';
 import { TabBar } from 'antd-mobile';
-import './App.css'
-import './assets/css/common.css'
-import './assets/css/font.css'
-import 'antd-mobile/dist/antd-mobile.css';
+
 
 
 class App extends Component {
@@ -49,6 +51,7 @@ class App extends Component {
           <Route path='/login/qrcode' exact component ={LoginQrcode} ></Route>
           <Route path = '/index'exact component={Index}></Route>
           <Route path = '/my' exact component={My}></Route>
+          <Route path = '/searchGoods' exact component={SearchGoods}></Route>
           <Route path = '/cart' exact component={Cart}></Route>
           <Route path = '/personinfo' exact component={Personinfo}/>
           <Route path = '/article' exact component={Article}/>
@@ -61,8 +64,10 @@ class App extends Component {
           <Route path = '/member/addNewAddress' exact component={ AddNewAddress}></Route>
           <Route path = '/member/editAddress' exact component={ EditAddress}></Route>
           <Route path = '/member/createAddress' exact component={ CreateAddress}></Route>
+          <Route path = '/member/Msg' exact component={ Msg}></Route>
           <Route path = '/goods/goodsDetail:goodsId' exact component={ GoodsDetail}></Route>          
           <Route path = '/goods/goodsAllComments' exact component={GoodsAllComments }></Route>          
+          <Route path = '/goods/confirmOrder' exact component={ConfirmOrder}></Route>          
         </Switch>
       </div>
       <div style={{position:'absolute',bottom:0,width:'100%'}}>

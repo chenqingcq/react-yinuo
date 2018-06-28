@@ -157,7 +157,7 @@ console.log(data)
             Toast.info('请输入手机号',1);   
             return         
         }
-        var exp =/^[1][3,4,5,7,8][0-9]{9}$/;  
+        var exp =/^[1][3,4,5,7,8,9][0-9]{9}$/;  
         if(!exp.test(this.state.phone)){
             Toast.info('您输入的手机号格式有误',2);
             return

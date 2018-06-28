@@ -197,12 +197,12 @@ class  GoodsCart extends React.Component {
       if(e.target.innerHTML==='加入购物车'){
           var activeList = document.getElementsByClassName('active');
           if(this.state.allSpecList.length!==0){
-            if(this.refs.goodName.innerHTML!==' '){
+            if(this.refs.goodName.innerHTML!==' '&&this.refs.goodName.innerHTML!=='系统默认规格'){
                 if(activeList.length===this.state.allSpecList.length){
                     this.addGoods();
                 }else{
-                  Toast.info('请选择商品规格',1);
-              }
+                    Toast.info('请选择商品规格',1);
+                }
           }else{
             this.addGoods();
           }

@@ -8,9 +8,11 @@ import './service'
 import './utils/lib/lib.js'
 import './utils/lib/md5.js'
 // import './redux'//redux;
+import './App.css'
+import './assets/css/common.css'
+import './assets/css/font.css'
+import 'antd-mobile/dist/antd-mobile.css';
 
-import './assets/css/common.css'//引入公共样式
-import './assets/css/font.css'//引入公共字体
 
 import registerServiceWorker from './registerServiceWorker';
 

@@ -23,7 +23,7 @@ export default class Index extends Component {
         {
             headers: {
                 'token': localStorage.getItem('token').replace("\"","").replace("\"",""),
-                'channel': 'Android'
+                'channel': 'WEB'
             }
         }).then((res)=>{
             console.log(res)
@@ -73,7 +73,7 @@ export default class Index extends Component {
               <div className="header-container">
                 <span>我的</span>
                 <img src={require('../../assets/img/设置@2x.png')} className="set"/>
-                <img src={require('../../assets/img/消息提示@2x.png')}/>
+                <Link to="member/msg"><img src={require('../../assets/img/消息提示@2x.png')}/></Link>
               </div>
               <div className="nuomi">
                 <Link to="personinfo">

@@ -51,7 +51,7 @@ export default class Login extends Component {
             qs.stringify(Param),
             {
                 headers: {
-                    'channel': 'Android'
+                    'channel': 'WEB'
                 }
             }
             ).then((res)=>{  
@@ -124,6 +124,7 @@ export default class Login extends Component {
                                 'channel':'Android'
                             }
                         }).then((res)=>{
+                            console.log(res.data)
                             if(res.data.code===0){
                                 localStorage.setItem('phone',this.refs.username.value)
                                 localStorage.setItem('code',this.refs.password.value)
@@ -168,9 +169,11 @@ export default class Login extends Component {
     }
     login(){
         if(this.refs.forgetPwd.innerHTML==='使用一诺账号登录'){
-            this.refs.forgetPwd.style.display ='none';
+            this.refs.forgetPwd.innerHTML='使用手机动态码登录';
             this.refs.btnCode.style.display ='none';
-            this.refs.forgetPwd.nextElementSibling.style.display ='block';
+        }else if(this.refs.forgetPwd.innerHTML==='使用手机动态码登录'){
+            this.refs.forgetPwd.innerHTML='使用一诺账号登录';
+            this.refs.btnCode.style.display ='block';
         }
     }
     loginByCode(){
@@ -334,11 +337,13 @@ export default class Login extends Component {
                         </p>
                     </div>
                 </section>
-                <Button handlerClick={(this.state.isShowBtn.userFlag && this.state.isShowBtn.pswFlag)?this.handClick.bind(this):function(){}} styleSheet={{ color: '#fff',width:'90%', background: (this.state.isShowBtn.userFlag && this.state.isShowBtn.pswFlag) ? "#D30000" : '#ddd' }} text={text} />
-                <Link to='member/register' className='reg'>注册</Link>
-                <span ref="forgetPwd" className="forget" onClick={this.login.bind(this)} style={{display:'none'}}>忘记密码?</span>
-                <p className='code_login' onClick={this.codeClick.bind(this)}>使用手机动态码登录</p>
-                <p className='code_login' style = {{display:this.state.showQrcode?"block":"none"}} onClick={this.createQrcode.bind(this)}>快速生成二维码</p>
+                <section className='btns'>
+                    <button  className = "login-btn" onClick={(this.state.isShowBtn.userFlag && this.state.isShowBtn.pswFlag)?this.handClick.bind(this):function(){}}   >{text}</button>
+                    <button  className = "reg" onClick={()=>{this.props.history.push('/member/register')}} >注册</button>
+                    <span ref="forgetPwd" className="forget" onClick={this.login.bind(this)} style={{display:'none'}}>忘记密码?</span>
+                    <p className='code_login' onClick={this.codeClick.bind(this)}>使用手机动态码登录</p>
+                    <p className='code_login' style = {{display:this.state.showQrcode?"block":"none"}} onClick={this.createQrcode.bind(this)}>快速生成二维码</p>
+                </section>
                 </div>
                 <div className="continer"  ref="container" style={{display:'none'}}>
                   <p>

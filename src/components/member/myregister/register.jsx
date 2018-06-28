@@ -38,9 +38,9 @@ export default class Register extends Component {
         if(window.localStorage.getItem('phone')){
             this.refs.phone.value = window.localStorage.getItem('phone')            
         }
-        // if(window.localStorage.getItem('code')){
-        //     this.refs.checkcode.value = window.localStorage.getItem('code')            
-        // }
+        if(window.localStorage.getItem('code')){
+            this.refs.checkcode.value = window.localStorage.getItem('code')            
+        }
     }
     componentWillUnmount(){
         if(this.timer){
@@ -87,6 +87,9 @@ export default class Register extends Component {
                     console.log(res);
                     if(res.data.code !=0){
                         Toast.info(res.data.errorMsg,1);
+                        if(window.localStorage.getItem('code')){
+                            window.localStorage.clear('code')            
+                        }
                         return;
                     }
                 }).catch((err)=>{
@@ -94,7 +97,7 @@ export default class Register extends Component {
                     return;
             })
          }catch(e){
-            return;
+
          }
         if(!this.refs.agreeProtol.classList.contains('active')){
             Toast.info('已同意用户注册协议?',1);

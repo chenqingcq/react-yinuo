@@ -64,13 +64,16 @@ export default class Index extends Component {
          }
       })
     }
+    search_goods(){
+      this.props.history.push('/searchGoods')
+    }
     render (){
         return (
           <div>
             <div className="searchBar">
               <img src={require('../../assets/img/saoyisao_btn@2x.png')} className="phone"/>
-              <input type="text" placeholder="搜索商品/店铺"/>
-              <img src={require('../../assets/img/xiaoxi_btn@2x.png')} className="Msg"/>
+              <input onFocus = {this.search_goods.bind(this)} type="text" placeholder="搜索商品/店铺"/>
+              <Link to="/member/msg"><img src={require('../../assets/img/xiaoxi_btn@2x.png')} className="Msg"/></Link>
             </div>
           <WingBlank>
           {/* <Carousel 

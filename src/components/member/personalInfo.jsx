@@ -22,7 +22,7 @@ export default class PersonalInfo extends Component {
         {
             headers: {
                 'token': localStorage.getItem('token').replace("\"","").replace("\"",""),
-                'channel': 'Android'
+                'channel': 'WEB'
             }
         }).then((res)=>{
             console.log(res)

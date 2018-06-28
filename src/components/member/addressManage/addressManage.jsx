@@ -30,6 +30,8 @@ export default class AddressManage extends Component {
     }
   }
   componentDidMount() {
+    var TabBar =document.querySelector('.am-tabs-tab-bar-wrap');
+    TabBar.style.display='none';
     document.title = '地址管理';
     // getAdressList({
     //   pageNum:this.state.pageNum,

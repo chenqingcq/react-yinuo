@@ -8,6 +8,12 @@
   width: 100%;
   font-family: PingFang-SC-Medium
 }
+body{
+  user-select: auto;
+}
 .am-tab-bar-tab-image{
   width:30px !important;
+}
+body{
+  user-select: auto;
 }

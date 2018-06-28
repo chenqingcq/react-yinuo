@@ -1,6 +1,7 @@
 import React , {Component} from 'react'
 import { Modal, List, Checkbox, Flex, Toast} from 'antd-mobile';
 import axios from 'axios';
+import {Link} from 'react-router-dom';
 import './cart.less';
 const lib = require('../../utils/lib/lib.js');
 const CheckboxItem = Checkbox.CheckboxItem;
@@ -30,7 +31,7 @@ export default class Index extends Component {
         axios.get(lib.Api.memberURL+'/member/shoppingCart/list',{
             headers:{
                 'token': localStorage.getItem('token'),
-                'channel':'Android'
+                'channel':'WEB'
             }
         }).then((res)=>{
           if(res.data.data.length!==0&&res.data.data){
@@ -120,7 +121,7 @@ export default class Index extends Component {
                           axios.post(lib.Api.memberURL+'/member/shoppingCart/delete',qs.stringify(param),{
                               headers:{
                                   'token':localStorage.getItem('token'),
-                                  'channel':'Android'
+                                  'channel':'WEB'
                               }
                           }).then((res)=>{
                               console.log(res)
@@ -187,7 +188,7 @@ export default class Index extends Component {
                <div className="nothing" style={{display:this.state.isNull?'block':'none'}}>
                  <div><img src={require('../../assets/img/购物车空@2x.png')}/></div>
                  <span>购物车空空如也</span>
-                 <button>马上去购物</button>
+                 <Link to='index'><button>马上去购物</button></Link>
                </div>
                <div className="goodsMsg" style={{display:this.state.isNull?'none':'block'}}>
                      { this.state.goodlist.map((val,index)=>{
